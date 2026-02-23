@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data
+data/
+apis/*.txt
+cache/
+
+# Docs (generated)
+docs/skills.json
+docs/summary.md
+apis/manifest.json
+
+# Environment
+.venv
+.env
