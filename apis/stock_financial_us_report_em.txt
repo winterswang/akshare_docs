@@ -1,0 +1,85 @@
+接口: stock_financial_us_report_em
+
+目标地址: https://emweb.eastmoney.com/PC_USF10/pages/index.html?code=TSLA&type=web&color=w#/cwfx/zyzb
+
+描述: 东方财富-美股-财务分析-三大报表
+
+限量: 单次获取指定股票、指定报告且指定报告期的数据
+
+输入参数
+
+| 名称        | 类型  | 描述                                                    |
+|-----------|-----|-------------------------------------------------------|
+| stock     | str | stock="TSLA"; 股票代码, 比如 BRK.A 需修改为 BRK_A 再获取           |
+| symbol    | str | symbol="资产负债表"; choice of {"资产负债表", "综合损益表", "现金流量表"} |
+| indicator | str | indicator="年报"; choice of {"年报", "单季报", "累计季报"}       |
+
+输出参数
+
+| 名称                 | 类型      | 描述 |
+|--------------------|---------|----|
+| SECUCODE           | object  | -  |
+| SECURITY_CODE      | object  | -  |
+| SECURITY_NAME_ABBR | object  | -  |
+| REPORT_DATE        | object  | -  |
+| REPORT_TYPE        | object  | -  |
+| REPORT             | object  | -  |
+| STD_ITEM_CODE      | object  | -  |
+| AMOUNT             | float64 | -  |
+| ITEM_NAME          | object  | -  |
+
+⚠️ **重要提示**：
+
+1. **symbol 参数必须使用中文**：symbol="综合损益表"（不是 "利润表" 或 "Income Statement"）
+2. **需要透视转换**：数据格式为长格式，必须使用 `pivot()` 进行透视转换
+3. **字段名是中文**：大部分字段使用中文名称（如"股东权益合计"、"营业利润"），不是英文
+
+```python
+import akshare as ak
+
+# 获取利润表（使用"综合损益表"）
+df_profit = ak.stock_financial_us_report_em(stock="PDD", symbol="综合损益表", indicator="年报")
+df_profit['REPORT_DATE'] = pd.to_datetime(df_profit['REPORT_DATE'])
+
+# 透视转换
+profit_pivot = df_profit.pivot(index='REPORT_DATE', columns='ITEM_NAME', values='AMOUNT').reset_index()
+
+# 获取资产负债表
+df_balance = ak.stock_financial_us_report_em(stock="PDD", symbol="资产负债表", indicator="年报")
+df_balance['REPORT_DATE'] = pd.to_datetime(df_balance['REPORT_DATE'])
+
+# 透视转换
+balance_pivot = df_balance.pivot(index='REPORT_DATE', columns='ITEM_NAME', values='AMOUNT').reset_index()
+
+# 使用数据
+print(profit_pivot[['REPORT_DATE', '营业利润', '净利润', '营业收入']].head())
+print(balance_pivot[['REPORT_DATE', '股东权益合计', '现金及现金等价物', '短期债务']].head())
+```
+
+**常用字段映射（ROIC 计算）：**
+
+| 用途 | 中文 | 字段说明 |
+|------|------|---------|
+| 营业利润 | `营业利润` 或 `Operating income` | 综合损益表 |
+| 税前利润 | `持续经营税前利润` 或 `Income before tax` | 综合损益表 |
+| 所得税费用 | `所得税` 或 `Income tax expense` | 综合损益表 |
+| 净利润 | `净利润` 或 `Net income` | 综合损益表 |
+| 营业收入 | `营业收入` 或 `主营收入` 或 `Total revenue` | 综合损益表 |
+| 股东权益 | `股东权益合计` 或 `归属于母公司股东权益` 或 `Stockholders' equity` | 资产负债表 |
+| 短期债务 | `短期债务` 或 `Short-term debt` | 资产负债表 |
+| 长期负债 | `长期负债` 或 `Long-term debt` | 资产负债表 |
+| 可转换票据 | `可转换票据及债券` | 资产负债表 |
+| 资本租赁债务 | `资本租赁债务(流动)` + `资本租赁债务(非流动)` | 资产负债表 |
+| 现金及等价物 | `现金及现金等价物` 或 `Cash and cash equivalents` | 资产负债表 |
+
+数据示例
+
+```
+    SECUCODE SECURITY_CODE  ...        AMOUNT ITEM_NAME
+0     PDD.O          PDD  ...  5776800000.0  现金及现金等价物
+1     PDD.O          PDD  ...  5979400000.0  现金及现金等价物
+2     PDD.O          PDD  ...  3432600000.0  现金及现金等价物
+3     PDD.O          PDD  ...  642700000.0  现金及现金等价物
+4     PDD.O          PDD  ...  2242100000.0  现金及现金等价物
+..       ...           ...  ...           ...       ...
+```

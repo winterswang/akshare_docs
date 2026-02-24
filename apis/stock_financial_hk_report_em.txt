@@ -1,0 +1,102 @@
+接口: stock_financial_hk_report_em
+
+目标地址: https://emweb.securities.eastmoney.com/PC_HKF10/FinancialAnalysis/index?type=web&code=00700
+
+描述: 东方财富-港股-财务报表-三大报表
+
+限量: 单次获取指定股票、指定报告且指定报告期的数据
+
+输入参数
+
+| 名称        | 类型  | 描述                                                  |
+|-----------|-----|-----------------------------------------------------|
+| stock     | str | stock="00700"; 股票代码                                 |
+| symbol    | str | symbol="现金流量表"; choice of {"资产负债表", "利润表", "现金流量表"} |
+| indicator | str | indicator="年度"; choice of {"年度", "报告期"}             |
+
+输出参数
+
+| 名称                 | 类型      | 描述 |
+|--------------------|---------|----|
+| SECUCODE           | object  | -  |
+| SECURITY_CODE      | object  | -  |
+| SECURITY_NAME_ABBR | object  | -  |
+| ORG_CODE           | object  | -  |
+| REPORT_DATE        | object  | -  |
+| DATE_TYPE_CODE     | object  | -  |
+| FISCAL_YEAR        | object  | -  |
+| STD_ITEM_CODE      | object  | -  |
+| STD_ITEM_NAME      | object  | -  |
+| AMOUNT             | float64 | -  |
+| STD_REPORT_DATE    | object  | -  |
+
+⚠️ **重要提示**：
+
+1. **需要透视转换**：数据格式为长格式，必须使用 `pivot()` 进行透视转换
+2. **字段名是中文**：使用中文字段名 `STD_ITEM_NAME`
+3. **港股债务字段特殊**：港股的债务字段名称与 A股略有不同
+
+```python
+import akshare as ak
+import pandas as pd
+
+# 获取利润表
+df_profit = ak.stock_financial_hk_report_em(stock="00700", symbol="利润表", indicator="年度")
+df_profit['REPORT_DATE'] = pd.to_datetime(df_profit['REPORT_DATE'])
+
+# 透视转换（使用 STD_ITEM_NAME）
+profit_pivot = df_profit.pivot(index='REPORT_DATE', columns='STD_ITEM_NAME', values='AMOUNT').reset_index()
+
+# 获取资产负债表
+df_balance = ak.stock_financial_hk_report_em(stock="00700", symbol="资产负债表", indicator="年度")
+df_balance['REPORT_DATE'] = pd.to_datetime(df_balance['REPORT_DATE'])
+
+# 透视转换
+balance_pivot = df_balance.pivot(index='REPORT_DATE', columns='STD_ITEM_NAME', values='AMOUNT').reset_index()
+
+# 使用数据
+print(profit_pivot[['REPORT_DATE', '经营溢利', '税项', '除税前溢利']].head())
+print(balance_pivot[['REPORT_DATE', '股东权益', '短期贷款', '长期贷款', '现金及等价物']].head())
+```
+
+**常用字段映射（ROIC 计算）：**
+
+| 用途 | 港股字段名 | 说明 |
+|------|----------|------|
+| 营业利润 | `经营溢利` | 利润表 |
+| 税前利润 | `除税前溢利` | 利润表 |
+| 所得税费用 | `税项` | 利润表 |
+| 净利润 | `股东应占溢利` | 利润表 |
+| 营业收入 | `营运收入` | 利润表 |
+| 股东权益 | `股东权益` 或 `总权益` | 资产负债表 |
+| **短期借款** | **`短期贷款`** ⚠️ | 港股使用"贷款"不是"借款" |
+| **长期借款** | **`长期贷款`** ⚠️ | 港股使用"贷款"不是"借款" |
+| **应付债券** | **`应付票据(非流动)`** ⚠️ | 港股对应字段 |
+| 融资租赁负债 | `融资租赁负债(流动)` + `融资租赁负债(非流动)` | 资产负债表 |
+| 现金及等价物 | `现金及等价物` | 资产负债表 |
+
+💡 **港股债务字段重要说明**：
+- 港股的"短期贷款" = A股的"短期借款"
+- 港股的"长期贷款" = A股的"长期借款"
+- 港股的"应付票据(非流动)" = A股的"应付债券"
+- 不要误以为港股没有有息负债数据，只是字段名不同！
+
+数据示例
+
+```
+     SECUCODE SECURITY_CODE  ...        AMOUNT      STD_REPORT_DATE
+0    00700.HK         00700  ...  5.397800e+10  2022-12-31 00:00:00
+1    00700.HK         00700  ...  5.590000e+08  2022-12-31 00:00:00
+2    00700.HK         00700  ...  1.618020e+11  2022-12-31 00:00:00
+3    00700.HK         00700  ...  1.804600e+10  2022-12-31 00:00:00
+4    00700.HK         00700  ...  9.229000e+09  2022-12-31 00:00:00
+..        ...           ...  ...           ...                  ...
+965  00700.HK         00700  ...  4.817800e+07  2001-12-31 00:00:00
+966  00700.HK         00700  ...  4.832400e+07  2001-12-31 00:00:00
+967  00700.HK         00700  ...  4.832400e+07  2001-12-31 00:00:00
+968  00700.HK         00700  ...  4.832400e+07  2001-12-31 00:00:00
+969  00700.HK         00700  ...  6.554200e+07  2001-12-31 00:00:00
+[970 rows x 11 columns]
+```
+
+#### 美股财务报表

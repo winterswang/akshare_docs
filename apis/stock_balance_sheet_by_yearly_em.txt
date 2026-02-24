@@ -1,0 +1,107 @@
+接口: stock_balance_sheet_by_yearly_em
+
+目标地址: https://emweb.securities.eastmoney.com/PC_HSF10/NewFinanceAnalysis/Index?type=web&code=sh600519#lrb-0
+
+描述: 东方财富-股票-财务分析-资产负债表-按年度
+
+限量: 单次获取指定 symbol 的资产负债表-按年度数据
+
+输入参数
+
+| 名称     | 类型  | 描述                      |
+|--------|-----|-------------------------|
+| symbol | str | symbol="SH600519"; 股票代码 |
+
+输出参数
+
+| 名称  | 类型  | 描述          |
+|-----|-----|-------------|
+| -   | -   | 319 项，不逐一列出 |
+
+⚠️ **重要提示（ROIC 计算）**：
+
+1. **现金字段错误**：不要使用现金流量表的 `END_CASH_EQUIVALENTS`（期末现金及现金等价物）
+2. **正确的现金字段**：`MONETARYFUNDS`（货币资金）- 资产负债表中的现金科目
+3. **应付债券字段**：使用 `BOND_PAYABLE`（下划线），不是 `BONDS_PAYABLE`
+
+**字段说明：**
+
+| 用途 | 错误字段 ❌ | 正确字段 ✅ | 说明 |
+|------|----------|----------|------|
+| 现金及等价物 | `END_CASH_EQUIVALENTS`（现金流量表） | `MONETARYFUNDS` | 现金流量表字段经常为空或缺失 |
+| 股东权益 | - | `TOTAL_EQUITY` | - |
+| 短期借款 | - | `SHORT_LOAN` | - |
+| 长期借款 | - | `LONG_LOAN` | - |
+| 应付债券 | `BONDS_PAYABLE` ❌ | `BOND_PAYABLE` ✅ | 注意是单数形式 |
+| 一年内到期的非流动负债 | - | `NONCURRENT_LIAB_1YEAR` | - |
+| 流动资产合计 | - | `TOTAL_CURRENT_ASSETS` | - |
+
+**数据验证（茅台2020年）：**
+
+```python
+import akshare as ak
+
+df_balance = ak.stock_balance_sheet_by_yearly_em(symbol="SH600519")
+df_balance['REPORT_DATE'] = pd.to_datetime(df_balance['REPORT_DATE'])
+
+# 获取2020年数据
+balance_2020 = df_balance[df_balance['REPORT_DATE'].dt.year == 2020].iloc[0]
+
+print(f"货币资金（MONETARYFUNDS）: {balance_2020['MONETARYFUNDS']/100000000:.2f} 亿元")
+print(f"流动资产合计（TOTAL_CURRENT_ASSETS）: {balance_2020['TOTAL_CURRENT_ASSETS']/100000000:.2f} 亿元")
+
+# 验证：用户确认2020年茅台现金应为360.91亿元，流动资产应为1856.52亿元
+```
+
+**为什么不能用 END_CASH_EQUIVALENTS？**
+
+`END_CASH_EQUIVALENTS` 是现金流量表字段，在 A股年报数据中经常为空或缺失。正确的现金科目应该是资产负债表的 `MONETARYFUNDS`（货币资金）。
+
+**示例（茅台2020年）：**
+```
+❌ 错误：END_CASH_EQUIVALENTS = 0.00 元（现金流量表，为空）
+✅ 正确：MONETARYFUNDS = 36,091,090,060.90 元（资产负债表，360.91亿元）
+```
+
+接口示例
+
+```python
+import akshare as ak
+
+stock_balance_sheet_by_yearly_em_df = ak.stock_balance_sheet_by_yearly_em(symbol="SH600519")
+print(stock_balance_sheet_by_yearly_em_df)
+```
+
+数据示例
+
+```
+    SECUCODE SECURITY_CODE  ... OSOPINION_TYPE LISTING_STATE
+0   600519.SH        600519  ...           None             0
+1   600519.SH        600519  ...           None             0
+2   600519.SH        600519  ...           None             0
+3   600519.SH        600519  ...           None             0
+4   600519.SH        600519  ...           None             0
+5   600519.SH        600519  ...           None             0
+6   600519.SH        600519  ...           None             0
+7   600519.SH        600519  ...           None             0
+8   600519.SH        600519  ...           None             0
+9   600519.SH        600519  ...           None             0
+10  600519.SH        600519  ...           None             0
+11  600519.SH        600519  ...           None             0
+12  600519.SH        600519  ...           None             0
+13  600519.SH        600519  ...           None             0
+14  600519.SH        600519  ...           None             0
+15  600519.SH        600519  ...           None             0
+16  600519.SH        600519  ...           None             0
+17  600519.SH        600519  ...           None             0
+18  600519.SH        600519  ...           None             0
+19  600519.SH        600519  ...           None             0
+20  600519.SH        600519  ...           None             0
+21  600519.SH        600519  ...           None             0
+22  600519.SH        600519  ...           None             0
+23  600519.SH        600519  ...           None             0
+24  600519.SH        600519  ...           None             0
+[25 rows x 319 columns]
+```
+
+##### 利润表-按报告期
