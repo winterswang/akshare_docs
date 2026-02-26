@@ -1,0 +1,7208 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "description": "上海证券交易所-股票数据总貌",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_sse_summary"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深圳证券交易所-市场总貌-证券类别统计",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20200619\"; 当前交易日的数据需要交易所收盘后统计"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_szse_summary"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深圳证券交易所-市场总貌-地区交易排序",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"202203\"; 年月"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_szse_area_summary"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深圳证券交易所-统计资料-股票行业成交数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"当月\"; choice of {\"当月\", \"当年\"}",
+            "enum": [
+              "当月",
+              "当年"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"202501\"; 年月"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_szse_sector_summary"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "上海证券交易所-数据-股票数据-成交概况-股票成交概况-每日股票情况",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20250221\"; 当前交易日的数据需要交易所收盘后统计; 注意仅支持获取在 20211227（包含）之后的数据"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_sse_deal_daily"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-个股-股票信息",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"603777\"; 股票代码"
+          },
+          "timeout": {
+            "type": "number",
+            "description": "timeout=None; 默认不设置超时参数"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_individual_info_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 雪球财经-个股-公司概况-公司简介",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SH601127\"; 股票代码"
+          },
+          "token": {
+            "type": "string",
+            "description": "token=None;"
+          },
+          "timeout": {
+            "type": "number",
+            "description": "timeout=None; 默认不设置超时参数"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_individual_basic_info_xq"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-行情报价",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000001\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_bid_ask_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-沪深京 A 股-实时行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_a_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-沪 A 股-实时行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_sh_a_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-深 A 股-实时行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_sz_a_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-京 A 股-实时行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_bj_a_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-新股-实时行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_new_a_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-创业板-实时行情",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_cy_a_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-科创板-实时行情",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_kc_a_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-行情中心-沪深京个股-AB股比价-全部AB股比价",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_ab_comparison_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-沪深京 A 股数据, 重复运行本函数会被新浪暂时封 IP, 建议增加时间间隔",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_a_spot"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 雪球-行情中心-个股",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SH600000\"; 证券代码，可以是 A 股个股代码，A 股场内基金代码，A 股指数，美股代码, 美股指数"
+          },
+          "token": {
+            "type": "number",
+            "description": "token=None; 默认不设置token"
+          },
+          "timeout": {
+            "type": "number",
+            "description": "timeout=None; 默认不设置超时参数"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_individual_spot_xq"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-沪深京 A 股日频率数据; 历史数据按日频率更新, 当日收盘价请在收盘后获取",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='603777'; 股票代码可以在 **ak.stock_zh_a_spot_em()** 中获取"
+          },
+          "period": {
+            "type": "string",
+            "description": "period='daily'; choice of {'daily', 'weekly', 'monthly'}",
+            "enum": [
+              "daily",
+              "weekly",
+              "monthly"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date='20210301'; 开始查询的日期"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date='20210616'; 结束查询的日期"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "默认返回不复权的数据; qfq: 返回前复权后的数据; hfq: 返回后复权后的数据"
+          },
+          "timeout": {
+            "type": "number",
+            "description": "timeout=None; 默认不设置超时参数"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_hist"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-沪深京 A 股的数据, 历史数据按日频率更新; 注意其中的 **sh689009** 为 CDR, 请 通过 **ak.stock_zh_a_cdr_daily** 接口获取",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='sh600000'; 股票代码可以在 **ak.stock_zh_a_spot()** 中获取"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date='20201103'; 开始查询的日期"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date='20201116'; 结束查询的日期"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "默认返回不复权的数据; qfq: 返回前复权后的数据; hfq: 返回后复权后的数据; hfq-factor: 返回后复权因子; qfq-factor: 返回前复权因子"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_daily"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "腾讯证券-日频-股票历史数据; 历史数据按日频率更新, 当日收盘价请在收盘后获取",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='sz000001'; 带市场标识"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date='19000101'; 开始查询的日期"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date='20500101'; 结束查询的日期"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "默认返回不复权的数据; qfq: 返回前复权后的数据; hfq: 返回后复权后的数据"
+          },
+          "timeout": {
+            "type": "number",
+            "description": "timeout=None; 默认不设置超时参数"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_hist_tx"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-沪深京 A 股股票或者指数的分时数据，目前可以获取 1, 5, 15, 30, 60 分钟的数据频率, 可以指定是否复权",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='sh000300'; 同日频率数据接口"
+          },
+          "period": {
+            "type": "string",
+            "description": "period='1'; 获取 1, 5, 15, 30, 60 分钟的数据频率"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "adjust=\"\"; 默认为空: 返回不复权的数据; qfq: 返回前复权后的数据; hfq: 返回后复权后的数据;"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_minute"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-行情首页-沪深京 A 股-每日分时行情; 该接口只能获取近期的分时数据，注意时间周期的设置",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='000300'; 股票代码"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"1979-09-01 09:32:00\"; 日期时间; 默认返回所有数据"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"2222-01-01 09:32:00\"; 日期时间; 默认返回所有数据"
+          },
+          "period": {
+            "type": "string",
+            "description": "period='5'; choice of {'1', '5', '15', '30', '60'}; 其中 1 分钟数据返回近 5 个交易日数据且不复权",
+            "enum": [
+              "1",
+              "5",
+              "15",
+              "30",
+              "60"
+            ]
+          },
+          "adjust": {
+            "type": "string",
+            "description": "adjust=''; choice of {'', 'qfq', 'hfq'}; '': 不复权, 'qfq': 前复权, 'hfq': 后复权, 其中 1 分钟数据返回近 5 个交易日数据且不复权",
+            "enum": [
+              "",
+              "qfq",
+              "hfq"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_hist_min_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-分时数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000001\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_intraday_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 新浪财经-日内分时数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"sz000001\"; 带市场标识的股票代码"
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20240321\"; 交易日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_intraday_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票行情-盘前数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000001\"; 股票代码"
+          },
+          "start_time": {
+            "type": "string",
+            "description": "start_time=\"09:00:00\"; 时间; 默认返回所有数据"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "end_time=\"15:40:00\"; 时间; 默认返回所有数据"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_hist_pre_min_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "每个交易日 16:00 提供当日数据; 如遇到数据缺失, 请使用 **ak.stock_zh_a_tick_163()** 接口(注意数据会有一定差异)",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_a_tick_tx"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-行情中心-同行比较-成长性比较",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000895\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_growth_comparison_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-行情中心-同行比较-估值比较",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000895\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_valuation_comparison_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-行情中心-同行比较-杜邦分析比较",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000895\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_dupont_comparison_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-行情中心-同行比较-公司规模",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000895\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_scale_comparison_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "上海证券交易所-科创板-CDR",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='sh689009'; CDR 股票代码"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date='20201103'"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date='20201116'"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_cdr_daily"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-实时行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_b_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "B 股数据是从新浪财经获取的数据, 重复运行本函数会被新浪暂时封 IP, 建议增加时间间隔",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_b_spot"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "B 股数据是从新浪财经获取的数据, 历史数据按日频率更新",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='sh900901'; 股票代码可以在 **ak.stock_zh_b_spot()** 中获取"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date='20201103'; 开始查询的日期"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date='20201116'; 结束查询的日期"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "默认返回不复权的数据; qfq: 返回前复权后的数据; hfq: 返回后复权后的数据; hfq-factor: 返回后复权因子; qfq-factor: 返回前复权因子"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_b_daily"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经 B 股股票或者指数的分时数据，目前可以获取 1, 5, 15, 30, 60 分钟的数据频率, 可以指定是否复权",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='sh900901'; 同日频率数据接口"
+          },
+          "period": {
+            "type": "string",
+            "description": "period='1'; 获取 1, 5, 15, 30, 60 分钟的数据频率"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "adjust=\"\"; 默认为空: 返回不复权的数据; qfq: 返回前复权后的数据; hfq: 返回后复权后的数据;"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_b_minute"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-行情中心-沪深股市-次新股",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_a_new"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-股市日历-公司动态",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20230808\"; 交易日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gsrl_gsdt_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深个股-风险警示板",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_a_st_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深个股-新股",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_a_new_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-新股数据-新股上市首日",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_xgsr_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 同花顺-数据中心-新股数据-IPO受益股",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_ipo_benefit_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深个股-两网及退市",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_a_stop_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-科创板股票实时行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_kcb_spot"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-科创板股票历史行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"sh688008\"; 带市场标识的股票代码"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "默认不复权的数据; qfq: 返回前复权后的数据; hfq: 返回后复权后的数据; hfq-factor: 返回后复权因子; qfq-factor: 返回前复权因子"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_kcb_daily"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富-科创板报告数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "from_page": {
+            "type": "integer",
+            "description": "from_page=1; 始获取的页码"
+          },
+          "to_page": {
+            "type": "integer",
+            "description": "to_page=100; 结束获取的页码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_kcb_report_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深港通-AH股比价-实时行情, 延迟 15 分钟更新",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_ah_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "A+H 股数据是从腾讯财经获取的数据, 延迟 15 分钟更新",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_ah_spot"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "腾讯财经-A+H 股数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"02318\"; 港股股票代码, 可以通过 **ak.stock_zh_ah_name()** 函数获取"
+          },
+          "start_year": {
+            "type": "string",
+            "description": "start_year=\"2000\"; 开始年份"
+          },
+          "end_year": {
+            "type": "string",
+            "description": "end_year=\"2019\"; 结束年份"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "adjust=\"\"; 默认为空不复权; 'qfq': 前复权, 'hfq': 后复权"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_ah_daily"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "A+H 股数据是从腾讯财经获取的数据, 历史数据按日频率更新",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_zh_ah_name"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-美股-实时行情",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_us_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-美股; 获取的数据有 15 分钟延迟; 建议使用 ak.stock_us_spot_em() 来获取数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_us_spot"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情-美股-每日行情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "美股代码, 可以通过 **ak.stock_us_spot_em()** 函数返回所有的 pandas.DataFrame 里面的 `代码` 字段获取"
+          },
+          "period": {
+            "type": "string",
+            "description": "period='daily'; choice of {'daily', 'weekly', 'monthly'}",
+            "enum": [
+              "daily",
+              "weekly",
+              "monthly"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20210101\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20210601\""
+          },
+          "adjust": {
+            "type": "string",
+            "description": "默认 adjust=\"\", 则返回未复权的数据; adjust=\"qfq\" 则返回前复权的数据, adjust=\"hfq\" 则返回后复权的数据"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_us_hist"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 雪球-个股-公司概况-公司简介",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"NVDA\"; 股票代码"
+          },
+          "token": {
+            "type": "string",
+            "description": "token=None;"
+          },
+          "timeout": {
+            "type": "number",
+            "description": "timeout=None; 默认不设置超时参数"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_individual_basic_info_us_xq"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-行情首页-美股-每日分时行情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"105.ATER\"; 美股代码可以通过 **ak.stock_us_spot_em()** 函数返回所有的 pandas.DataFrame 里面的 `代码` 字段获取"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"1979-09-01 09:32:00\"; 日期时间; 默认返回所有数据"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"2222-01-01 09:32:00\"; 日期时间; 默认返回所有数据"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_us_hist_min_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "美股历史行情数据，设定 adjust=\"qfq\" 则返回前复权后的数据，默认 adjust=\"\", 则返回未复权的数据，历史数据按日频率更新",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "美股代码, 可以通过 **ak.get_us_stock_name()** 函数返回所有美股代码, 由于美股数据量大, 建议按需要获取"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "adjust=\"qfq\" 则返回前复权后的数据，默认 adjust=\"\", 则返回未复权的数据"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_us_daily"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 美股粉单市场的实时行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_us_pink_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 美股-知名美股的实时行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"科技类\"; choice of {'科技类', '金融类', '医药食品类', '媒体类', '汽车能源类', '制造零售类'}",
+            "enum": [
+              "科技类",
+              "金融类",
+              "医药食品类",
+              "媒体类",
+              "汽车能源类",
+              "制造零售类"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_us_famous_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 所有港股的实时行情数据; 该数据有 15 分钟延时",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hk_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 港股主板的实时行情数据; 该数据有 15 分钟延时",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hk_main_board_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "获取所有港股的实时行情数据 15 分钟延时",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hk_spot"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 雪球-个股-公司概况-公司简介",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"02097\"; 股票代码"
+          },
+          "token": {
+            "type": "string",
+            "description": "token=None;"
+          },
+          "timeout": {
+            "type": "number",
+            "description": "timeout=None; 默认不设置超时参数"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_individual_basic_info_hk_xq"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-行情首页-港股-每日分时行情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"01611\"; 港股代码可以通过 **ak.stock_hk_spot_em()** 函数返回所有的 pandas.DataFrame 里面的 `代码` 字段获取"
+          },
+          "period": {
+            "type": "string",
+            "description": "period='5'; choice of {'1', '5', '15', '30', '60'}; 其中 1 分钟数据返回近 5 个交易日数据且不复权",
+            "enum": [
+              "1",
+              "5",
+              "15",
+              "30",
+              "60"
+            ]
+          },
+          "adjust": {
+            "type": "string",
+            "description": "adjust=''; choice of {'', 'qfq', 'hfq'}; '': 不复权, 'qfq': 前复权, 'hfq': 后复权, 其中 1 分钟数据返回近 5 个交易日数据且不复权",
+            "enum": [
+              "",
+              "qfq",
+              "hfq"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"1979-09-01 09:32:00\"; 日期时间; 默认返回所有数据"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"2222-01-01 09:32:00\"; 日期时间; 默认返回所有数据"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_hist_min_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 港股-历史行情数据, 可以选择返回复权后数据, 更新频率为日频",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"00593\"; 港股代码,可以通过 **ak.stock_hk_spot_em()** 函数返回所有港股代码"
+          },
+          "period": {
+            "type": "string",
+            "description": "period='daily'; choice of {'daily', 'weekly', 'monthly'}",
+            "enum": [
+              "daily",
+              "weekly",
+              "monthly"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"19700101\"; 开始日期"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"22220101\"; 结束日期"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "adjust=\"\": 返回未复权的数据, 默认; qfq: 返回前复权数据; hfq: 返回后复权数据;"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_hist"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "港股-历史行情数据, 可以选择返回复权后数据,更新频率为日频",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "港股代码,可以通过 **ak.stock_hk_spot()** 函数返回所有港股代码"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "\"\": 返回未复权的数据 ; qfq: 返回前复权后的数据; hfq: 返回后复权后的数据; qfq-factor: 返回前复权因子和调整; hfq-factor: 返回后复权因子和调整;"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_daily"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-港股市场-知名港股实时行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hk_famous_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-港股-证券资料",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"03900\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_security_profile_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-港股-公司资料",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"03900\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_company_profile_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-港股-核心必读-最新指标",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"03900\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_financial_indicator_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-港股-核心必读-分红派息",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"03900\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_dividend_payout_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-港股-行业对比-成长性对比",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"03900\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_growth_comparison_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-港股-行业对比-估值对比",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"03900\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_valuation_comparison_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-港股-行业对比-规模对比",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"03900\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_scale_comparison_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-机构调研-机构调研统计",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20180928\"; 开始查询的时间"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_jgdy_tj_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-机构调研-机构调研详细",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20241211\"; 开始查询的时间"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_jgdy_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-主营介绍",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000066\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zyjs_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-个股-主营构成",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SH688041\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zygc_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-股权质押-股权质押市场概况",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_gpzy_profile_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-股权质押-上市公司质押比例",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20240906\"; 请访问 http://data.eastmoney.com/gpzy/pledgeRatio.aspx 查询具体交易日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gpzy_pledge_ratio_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-股权质押-重要股东股权质押明细",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_gpzy_pledge_ratio_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-股权质押-质押机构分布统计-证券公司",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_gpzy_distribute_statistics_company_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-股权质押-质押机构分布统计-银行",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_gpzy_distribute_statistics_bank_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-股权质押-上市公司质押比例-行业数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_gpzy_industry_data_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-商誉-A股商誉市场概况",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_sy_profile_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-商誉-商誉减值预期明细",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20221231\"; 参见网页选项"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_sy_yq_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-商誉-个股商誉减值明细",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20230331\"; 参见网页选项"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_sy_jz_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-商誉-个股商誉明细",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20240630\"; 参见网页选项"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_sy_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-商誉-行业商誉",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20240930\"; 参见网页选项"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_sy_hy_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-股票账户统计",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_account_statistics_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-研究报告-东方财富分析师指数",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "string",
+            "description": "year='2024'; 从 2013 年至今"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_analyst_rank_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-研究报告-东方财富分析师指数-分析师详情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "analyst_id": {
+            "type": "string",
+            "description": "analyst_id=\"11000257131\"; 分析师ID, 从 ak.stock_analyst_rank_em() 获取"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"最新跟踪成分股\"; 从 {\"最新跟踪成分股\", \"历史跟踪成分股\", \"历史指数\"} 中选择"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_analyst_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-千股千评",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_comment_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-千股千评-主力控盘-机构参与度",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600000\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_comment_detail_zlkp_jgcyd_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-千股千评-综合评价-历史评分",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600000\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_comment_detail_zhpj_lspf_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-千股千评-市场热度-用户关注指数",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600000\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_comment_detail_scrd_focus_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-千股千评-市场热度-市场参与意愿",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600000\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_comment_detail_scrd_desire_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-资金流向-沪深港通资金流向",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hsgt_fund_flow_summary_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深港通-港股通业务信息-结算汇率",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_sgt_settlement_exchange_rate_szse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "沪港通-港股通信息披露-结算汇兑",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_sgt_settlement_exchange_rate_sse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深港通-港股通业务信息-参考汇率",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_sgt_reference_exchange_rate_szse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "沪港通-港股通信息披露-参考汇率",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_sgt_reference_exchange_rate_sse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-港股市场-港股通成份股",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hk_ggt_components_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-数据中心-沪深港通-市场概括-分时数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"北向资金\"; choice of {\"北向资金\", \"南向资金\"}",
+            "enum": [
+              "北向资金",
+              "南向资金"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hsgt_fund_min_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-沪深港通持股-板块排行",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"北向资金增持行业板块排行\"; choice of {\"北向资金增持行业板块排行\", \"北向资金增持概念板块排行\", \"北向资金增持地域板块排行\"}",
+            "enum": [
+              "北向资金增持行业板块排行",
+              "北向资金增持概念板块排行",
+              "北向资金增持地域板块排行"
+            ]
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"今日\"; choice of {\"今日\", \"3日\", \"5日\", \"10日\", \"1月\", \"1季\", \"1年\"}",
+            "enum": [
+              "今日",
+              "3日",
+              "5日",
+              "10日",
+              "1月",
+              "1季",
+              "1年"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hsgt_board_rank_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-沪深港通持股-个股排行",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "market": {
+            "type": "string",
+            "description": "market=\"沪股通\"; choice of {\"北向\", \"沪股通\", \"深股通\"}",
+            "enum": [
+              "北向",
+              "沪股通",
+              "深股通"
+            ]
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"沪股通\"; choice of {\"今日排行\", \"3日排行\", \"5日排行\", \"10日排行\", \"月排行\", \"季排行\", \"年排行\"}",
+            "enum": [
+              "今日排行",
+              "3日排行",
+              "5日排行",
+              "10日排行",
+              "月排行",
+              "季排行",
+              "年排行"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hsgt_hold_stock_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-沪深港通-沪深港通持股-每日个股统计",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"北向持股\"; choice of {\"北向持股\", \"沪股通持股\", \"深股通持股\", \"南向持股\"}",
+            "enum": [
+              "北向持股",
+              "沪股通持股",
+              "深股通持股",
+              "南向持股"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20210601\"; 此处指定近期交易日"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20210608\"; 此处指定近期交易日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hsgt_stock_statistics_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-沪深港通-沪深港通持股-机构排行",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "market": {
+            "type": "string",
+            "description": "market=\"北向持股\"; choice of {\"北向持股\", \"沪股通持股\", \"深股通持股\", \"南向持股\"}",
+            "enum": [
+              "北向持股",
+              "沪股通持股",
+              "深股通持股",
+              "南向持股"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20201218\"; 此处指定近期交易日"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20201218\"; 此处指定近期交易日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hsgt_institution_statistics_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深港通-港股通(沪>港)-股票；按股票代码排序",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hsgt_sh_hk_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-资金流向-沪深港通资金流向-沪深港通历史数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"北向资金\"; choice of {\"北向资金\", \"沪股通\", \"深股通\", \"南向资金\", \"港股通沪\", \"港股通深\"}",
+            "enum": [
+              "北向资金",
+              "沪股通",
+              "深股通",
+              "南向资金",
+              "港股通沪",
+              "港股通深"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hsgt_hist_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-沪深港通-沪深港通持股-具体股票",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"002008\"; 支持港股和A股"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hsgt_individual_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-沪深港通-沪深港通持股-具体股票-个股详情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"002008\""
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20210830\"; 注意只能返回离最近交易日 90 个交易日内的数据"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20211026\"; 注意只能返回离最近交易日 90 个交易日内的数据"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hsgt_individual_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-停复牌信息",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20240426\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_tfp_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "百度股市通-交易提醒-停复牌",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20241107\""
+          }
+        },
+        "required": []
+      },
+      "name": "news_trade_notify_suspend_baidu"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "百度股市通-交易提醒-分红派息",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20241107\""
+          },
+          "cookie": {
+            "type": "string",
+            "description": "可以指定 cookie"
+          }
+        },
+        "required": []
+      },
+      "name": "news_trade_notify_dividend_baidu"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富指定个股的新闻资讯数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"603777\"; 股票代码或其他关键词"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_news_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "财新网-财新数据通-最新",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_news_main_cx"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "百度股市通-财报发行",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20241107\""
+          }
+        },
+        "required": []
+      },
+      "name": "news_report_time_baidu"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股申购-打新收益率",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_dxsyl_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股数据-新股申购-新股申购与中签查询",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"全部股票\"; choice of {\"全部股票\", \"沪市主板\", \"科创板\", \"深市主板\", \"创业板\", \"北交所\"}",
+            "enum": [
+              "全部股票",
+              "沪市主板",
+              "科创板",
+              "深市主板",
+              "创业板",
+              "北交所"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_xgsglb_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-数据中心-年报季报-业绩报表",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20200331\"; choice of {\"XXXX0331\", \"XXXX0630\", \"XXXX0930\", \"XXXX1231\"}; 从 20100331 开始",
+            "enum": [
+              "XXXX0331",
+              "XXXX0630",
+              "XXXX0930",
+              "XXXX1231"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_yjbb_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-数据中心-年报季报-业绩快报",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20200331\"; choice of {\"XXXX0331\", \"XXXX0630\", \"XXXX0930\", \"XXXX1231\"}; 从 20100331 开始",
+            "enum": [
+              "XXXX0331",
+              "XXXX0630",
+              "XXXX0930",
+              "XXXX1231"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_yjkb_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-数据中心-年报季报-业绩预告",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20200331\"; choice of {\"XXXX0331\", \"XXXX0630\", \"XXXX0930\", \"XXXX1231\"}; 从 20081231 开始",
+            "enum": [
+              "XXXX0331",
+              "XXXX0630",
+              "XXXX0930",
+              "XXXX1231"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_yjyg_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-数据中心-年报季报-预约披露时间",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"沪深A股\"; choice of {'沪深A股', '沪市A股', '科创板', '深市A股', '创业板', '京市A股', 'ST板'}",
+            "enum": [
+              "沪深A股",
+              "沪市A股",
+              "科创板",
+              "深市A股",
+              "创业板",
+              "京市A股",
+              "ST板"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20200331\"; choice of {\"XXXX0331\", \"XXXX0630\", \"XXXX0930\", \"XXXX1231\"}; 从 20081231 开始",
+            "enum": [
+              "XXXX0331",
+              "XXXX0630",
+              "XXXX0930",
+              "XXXX1231"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_yysj_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据-预约披露的数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "market": {
+            "type": "string",
+            "description": "market=\"沪深京\"; choice of {\"沪深京\", \"深市\", \"深主板\", \"创业板\", \"沪市\", \"沪主板\", \"科创板\", \"北交所\"}",
+            "enum": [
+              "沪深京",
+              "深市",
+              "深主板",
+              "创业板",
+              "沪市",
+              "沪主板",
+              "科创板",
+              "北交所"
+            ]
+          },
+          "period": {
+            "type": "string",
+            "description": "period=\"2021年报\"; 近四期的财务报告; e.g., choice of {\"2021一季\", \"2021半年报\", \"2021三季\", \"2021年报\"}",
+            "enum": [
+              "2021一季",
+              "2021半年报",
+              "2021三季",
+              "2021年报"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_report_disclosure"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-首页-公告查询-信息披露公告-沪深京",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000001\"; 股票代码"
+          },
+          "market": {
+            "type": "string",
+            "description": "market=\"沪深京\"; choice of {\"沪深京\", \"港股\", \"三板\", \"基金\", \"债券\", \"监管\", \"预披露\"}",
+            "enum": [
+              "沪深京",
+              "港股",
+              "三板",
+              "基金",
+              "债券",
+              "监管",
+              "预披露"
+            ]
+          },
+          "keyword": {
+            "type": "string",
+            "description": "keyword=\"\"; 关键词"
+          },
+          "category": {
+            "type": "string",
+            "description": "category=\"\"; choice of {'年报', '半年报', '一季报', '三季报', '业绩预告', '权益分派', '董事会', '监事会', '股东大会', '日常经营', '公司治理', '中介报告', '首发', '增发', '股权激励', '配股', '解禁', '公司债', '可转债', '其他融资', '股权变动', '补充更正', '澄清致歉', '风险提示', '特别处理和退市', '退市整理期'}",
+            "enum": [
+              "年报",
+              "半年报",
+              "一季报",
+              "三季报",
+              "业绩预告",
+              "权益分派",
+              "董事会",
+              "监事会",
+              "股东大会",
+              "日常经营",
+              "公司治理",
+              "中介报告",
+              "首发",
+              "增发",
+              "股权激励",
+              "配股",
+              "解禁",
+              "公司债",
+              "可转债",
+              "其他融资",
+              "股权变动",
+              "补充更正",
+              "澄清致歉",
+              "风险提示",
+              "特别处理和退市",
+              "退市整理期"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20230618\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20231219\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_disclosure_report_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-首页-公告查询-信息披露调研-沪深京",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000001\"; 股票代码"
+          },
+          "market": {
+            "type": "string",
+            "description": "market=\"沪深京\"; choice of {\"沪深京\", \"港股\", \"三板\", \"基金\", \"债券\", \"监管\", \"预披露\"}",
+            "enum": [
+              "沪深京",
+              "港股",
+              "三板",
+              "基金",
+              "债券",
+              "监管",
+              "预披露"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20230618\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20231219\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_disclosure_relation_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据-行业分类数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"巨潮行业分类标准\"; choice of {\"证监会行业分类标准\", \"巨潮行业分类标准\", \"申银万国行业分类标准\", \"新财富行业分类标准\", \"国资委行业分类标准\", \"巨潮产业细分标准\", \"天相行业分类标准\", \"全球行业分类标准\"}",
+            "enum": [
+              "证监会行业分类标准",
+              "巨潮行业分类标准",
+              "申银万国行业分类标准",
+              "新财富行业分类标准",
+              "国资委行业分类标准",
+              "巨潮产业细分标准",
+              "天相行业分类标准",
+              "全球行业分类标准"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_industry_category_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据-上市公司行业归属的变动情况",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"002594\""
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20091227\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20220708\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_industry_change_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据-公司股本变动",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"002594\""
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20091227\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20241021\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_share_change_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-个股-配股实施方案",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600030\""
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"19700101\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"22220222\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_allotment_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-个股-公司概况",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600030\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_profile_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-个股-上市相关",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600030\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_ipo_summary_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-数据中心-年报季报-业绩快报-资产负债表",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20240331\"; choice of {\"XXXX0331\", \"XXXX0630\", \"XXXX0930\", \"XXXX1231\"}; 从 20081231 开始",
+            "enum": [
+              "XXXX0331",
+              "XXXX0630",
+              "XXXX0930",
+              "XXXX1231"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zcfz_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-数据中心-年报季报-业绩快报-资产负债表",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20240331\"; choice of {\"XXXX0331\", \"XXXX0630\", \"XXXX0930\", \"XXXX1231\"}; 从 20081231 开始",
+            "enum": [
+              "XXXX0331",
+              "XXXX0630",
+              "XXXX0930",
+              "XXXX1231"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zcfz_bj_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-数据中心-年报季报-业绩快报-利润表",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20240331\"; choice of {\"XXXX0331\", \"XXXX0630\", \"XXXX0930\", \"XXXX1231\"}; 从 20120331 开始",
+            "enum": [
+              "XXXX0331",
+              "XXXX0630",
+              "XXXX0930",
+              "XXXX1231"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lrb_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-数据中心-年报季报-业绩快报-现金流量表",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20200331\"; choice of {\"XXXX0331\", \"XXXX0630\", \"XXXX0930\", \"XXXX1231\"}; 从 20081231 开始",
+            "enum": [
+              "XXXX0331",
+              "XXXX0630",
+              "XXXX0930",
+              "XXXX1231"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_xjll_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-高管持股",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"全部\"; choice of {\"全部\", \"股东增持\", \"股东减持\"}",
+            "enum": [
+              "全部",
+              "股东增持",
+              "股东减持"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_ggcg_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-数据中心-年报季报-分红配送",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20231231\"; choice of {\"XXXX0630\", \"XXXX1231\"}; 从 19901231 开始",
+            "enum": [
+              "XXXX0630",
+              "XXXX1231"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_fhps_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-分红送配-分红送配详情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"300073\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_fhps_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-分红情况",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"603444\"; 兼容 A 股和 B 股"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_fhps_detail_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-港股-分红派息",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"0700\"; 港股代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_fhpx_detail_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-资金流向-个股资金流",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"即时\"; choice of {“即时”, \"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}",
+            "enum": [
+              "“即时”",
+              "3日排行",
+              "5日排行",
+              "10日排行",
+              "20日排行"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_fund_flow_individual"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-资金流向-概念资金流",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"即时\"; choice of {“即时”, \"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}",
+            "enum": [
+              "“即时”",
+              "3日排行",
+              "5日排行",
+              "10日排行",
+              "20日排行"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_fund_flow_concept"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-资金流向-行业资金流",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"即时\"; choice of {“即时”, \"3日排行\", \"5日排行\", \"10日排行\", \"20日排行\"}",
+            "enum": [
+              "“即时”",
+              "3日排行",
+              "5日排行",
+              "10日排行",
+              "20日排行"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_fund_flow_industry"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-资金流向-大单追踪",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_fund_flow_big_deal"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-个股资金流向",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "string",
+            "description": "stock=\"000425\"; 股票代码"
+          },
+          "market": {
+            "type": "string",
+            "description": "market=\"sh\"; 上海证券交易所: sh, 深证证券交易所: sz, 北京证券交易所: bj"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_individual_fund_flow"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-排名",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"今日\"; choice {\"今日\", \"3日\", \"5日\", \"10日\"}"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_individual_fund_flow_rank"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-资金流向-大盘",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_market_fund_flow"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-板块资金流-排名",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"今日\"; choice of {\"今日\", \"5日\", \"10日\"}",
+            "enum": [
+              "今日",
+              "5日",
+              "10日"
+            ]
+          },
+          "sector_type": {
+            "type": "string",
+            "description": "sector_type=\"行业资金流\"; choice of {\"行业资金流\", \"概念资金流\", \"地域资金流\"}",
+            "enum": [
+              "行业资金流",
+              "概念资金流",
+              "地域资金流"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_sector_fund_flow_rank"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-主力净流入排名",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"全部股票\"；choice of {\"全部股票\", \"沪深A股\", \"沪市A股\", \"科创板\", \"深市A股\", \"创业板\", \"沪市B股\", \"深市B股\"}",
+            "enum": [
+              "全部股票",
+              "沪深A股",
+              "沪市A股",
+              "科创板",
+              "深市A股",
+              "创业板",
+              "沪市B股",
+              "深市B股"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_main_fund_flow"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-行业资金流-xx行业个股资金流",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"电源设备\""
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"今日\"; choice of {\"今日\", \"5日\", \"10日\"}",
+            "enum": [
+              "今日",
+              "5日",
+              "10日"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_sector_fund_flow_summary"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-行业资金流-行业历史资金流",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"汽车服务\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_sector_fund_flow_hist"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-概念资金流-概念历史资金流",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"数据要素\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_concept_fund_flow_hist"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-概念板-行情中心-日K-筹码分布",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000001\"; 股票代码"
+          },
+          "adjust": {
+            "type": "string",
+            "description": "adjust=\"\"; choice of {\"qfq\": \"前复权\", \"hfq\": \"后复权\", \"\": \"不复权\"}",
+            "enum": [
+              "qfq\": \"前复权",
+              "hfq\": \"后复权",
+              "\": \"不复权"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_cyq_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-股东大会",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_gddh_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-重大合同-重大合同明细",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20200819\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20230819\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zdhtmx_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-研究报告-个股研报",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000001\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_research_report_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-公告大全-沪深京 A 股公告",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='财务报告'; choice of {\"全部\", \"重大事项\", \"财务报告\", \"融资公告\", \"风险提示\", \"资产重组\", \"信息变更\", \"持股变动\"}",
+            "enum": [
+              "全部",
+              "重大事项",
+              "财务报告",
+              "融资公告",
+              "风险提示",
+              "资产重组",
+              "信息变更",
+              "持股变动"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20220511\"; 指定日期"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_notice_report"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-财务报表-三大报表",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "string",
+            "description": "stock=\"sh600600\"; 带市场标识的股票代码"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"现金流量表\"; choice of {\"资产负债表\", \"利润表\", \"现金流量表\"}",
+            "enum": [
+              "资产负债表",
+              "利润表",
+              "现金流量表"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_report_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票-财务分析-资产负债表-按报告期",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SH600519\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_balance_sheet_by_report_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票-财务分析-资产负债表-按年度",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SH600519\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_balance_sheet_by_yearly_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票-财务分析-利润表-报告期",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SH600519\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_profit_sheet_by_report_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票-财务分析-利润表-按年度",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SH600519\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_profit_sheet_by_yearly_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票-财务分析-利润表-按单季度",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SH600519\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_profit_sheet_by_quarterly_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票-财务分析-现金流量表-按报告期",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SH600519\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_cash_flow_sheet_by_report_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票-财务分析-现金流量表-按年度",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SH600519\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_cash_flow_sheet_by_yearly_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票-财务分析-现金流量表-按单季度",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SH600519\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_cash_flow_sheet_by_quarterly_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-财务指标-资产负债表；替换 stock_financial_debt_ths 接口",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000063\"; 股票代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"按报告期\"; choice of {\"按报告期\", \"按年度\"}",
+            "enum": [
+              "按报告期",
+              "按年度"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_debt_new_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-财务指标-利润表；替换 stock_financial_benefit_ths 接口",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000063\"; 股票代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"按报告期\"; choice of {\"按报告期\", \"一季度\", \"二季度\", \"三季度\", \"四季度\", \"按年度\"}",
+            "enum": [
+              "按报告期",
+              "一季度",
+              "二季度",
+              "三季度",
+              "四季度",
+              "按年度"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_benefit_new_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-财务指标-现金流量表；替换 stock_financial_cash_ths 接口",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000063\"; 股票代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"按报告期\"; choice of {\"按报告期\", \"一季度\", \"二季度\", \"三季度\", \"四季度\", \"按年度\"}",
+            "enum": [
+              "按报告期",
+              "一季度",
+              "二季度",
+              "三季度",
+              "四季度",
+              "按年度"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_cash_new_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票-财务分析-资产负债表-已退市股票-按报告期",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000013\"; 带市场标识的已退市股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_balance_sheet_by_report_delisted_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票-财务分析-利润表-已退市股票-按报告期",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000013\"; 带市场标识的已退市股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_profit_sheet_by_report_delisted_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-股票-财务分析-现金流量表-已退市股票-按报告期",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000013\"; 带市场标识的已退市股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_cash_flow_sheet_by_report_delisted_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-港股-财务报表-三大报表",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "string",
+            "description": "stock=\"00700\"; 股票代码"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"现金流量表\"; choice of {\"资产负债表\", \"利润表\", \"现金流量表\"}",
+            "enum": [
+              "资产负债表",
+              "利润表",
+              "现金流量表"
+            ]
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"年度\"; choice of {\"年度\", \"报告期\"}",
+            "enum": [
+              "年度",
+              "报告期"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_hk_report_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-美股-财务分析-三大报表",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "string",
+            "description": "stock=\"TSLA\"; 股票代码, 比如 BRK.A 需修改为 BRK_A 再获取"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"资产负债表\"; choice of {\"资产负债表\", \"综合损益表\", \"现金流量表\"}",
+            "enum": [
+              "资产负债表",
+              "综合损益表",
+              "现金流量表"
+            ]
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"年报\"; choice of {\"年报\", \"单季报\", \"累计季报\"}",
+            "enum": [
+              "年报",
+              "单季报",
+              "累计季报"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_us_report_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-财务报表-关键指标",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600004\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_abstract"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-财务指标-重要指标；替换 stock_financial_abstract_ths 接口",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000063\"; 股票代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"按报告期\"; choice of {\"按报告期\", \"一季度\", \"二季度\", \"三季度\", \"四季度\", \"按年度\"}",
+            "enum": [
+              "按报告期",
+              "一季度",
+              "二季度",
+              "三季度",
+              "四季度",
+              "按年度"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_abstract_new_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-A股-财务分析-主要指标",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"301389.SZ\"; 股票代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"按报告期\"; choice of {\"按报告期\", \"按单季度\"}",
+            "enum": [
+              "按报告期",
+              "按单季度"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_analysis_indicator_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-财务分析-财务指标",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600004\"; 股票代码"
+          },
+          "start_year": {
+            "type": "string",
+            "description": "start_year=\"2020\"; 开始查询的时间"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_analysis_indicator"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-港股-财务分析-主要指标",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"00700\"; 股票代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"年度\"; choice of {\"年度\", \"报告期\"}",
+            "enum": [
+              "年度",
+              "报告期"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_hk_analysis_indicator_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-美股-财务分析-主要指标",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"TSLA\"; 股票代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"年报\"; choice of {\"年报\", \"单季报\", \"累计季报\"}",
+            "enum": [
+              "年报",
+              "单季报",
+              "累计季报"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_financial_us_analysis_indicator_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-发行与分配-历史分红",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_history_dividend"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-个股-十大流通股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"sh688686\"; 带市场标识的股票代码"
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20240930\"; 财报发布季度最后日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_free_top_10_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-个股-十大股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"sh688686\"; 带市场标识的股票代码"
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20210630\"; 财报发布季度最后日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_top_10_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-股东分析-股东持股变动统计-十大流通股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20210930\"; 财报发布季度最后日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_free_holding_change_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-股东分析-股东持股变动统计-十大股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20210930\"; 财报发布季度最后日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_holding_change_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-公司大事-高管持股变动",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"688981\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_management_change_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-公司大事-股东持股变动",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"688981\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_shareholder_change_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-股东分析-股东持股分析-十大流通股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20230930\"; 财报发布季度最后日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_free_holding_analyse_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-股东分析-股东持股分析-十大股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20210930\"; 财报发布季度最后日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_holding_analyse_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-股东分析-股东持股明细-十大流通股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20210930\"; 财报发布季度最后日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_free_holding_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-股东分析-股东持股明细-十大股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20230331\"; 财报发布季度最后日"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"个人\"; 股东类型; choice of {\"个人\", \"基金\", \"QFII\", \"社保\", \"券商\", \"信托\"}",
+            "enum": [
+              "个人",
+              "基金",
+              "QFII",
+              "社保",
+              "券商",
+              "信托"
+            ]
+          },
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"新进\"; 持股变动; choice of {\"新进\", \"增加\", \"不变\", \"减少\"}",
+            "enum": [
+              "新进",
+              "增加",
+              "不变",
+              "减少"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_holding_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-股东分析-股东持股统计-十大股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20210930\"; 财报发布季度最后日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_free_holding_statistics_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-数据中心-股东分析-股东持股统计-十大股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20210930\"; 财报发布季度最后日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_holding_statistics_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-股东分析-股东协同-十大流通股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"社保\"; choice of {\"全部\", \"个人\", \"基金\", \"QFII\", \"社保\", \"券商\", \"信托\"}",
+            "enum": [
+              "全部",
+              "个人",
+              "基金",
+              "QFII",
+              "社保",
+              "券商",
+              "信托"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_free_holding_teamwork_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-股东分析-股东协同-十大股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"社保\"; choice of {\"全部\", \"个人\", \"基金\", \"QFII\", \"社保\", \"券商\", \"信托\"}",
+            "enum": [
+              "全部",
+              "个人",
+              "基金",
+              "QFII",
+              "社保",
+              "券商",
+              "信托"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_gdfx_holding_teamwork_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-股东户数数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"20230930\"; choice of {\"最新\", 每个季度末}, 其中 每个季度末需要写成 `20230930` 格式",
+            "enum": [
+              "最新",
+              "每个季度末"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_gdhs"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-股东户数详情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000001\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_gdhs_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-发行与分配-分红配股",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600012\"; 股票代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"配股\"; choice of {\"分红\", \"配股\"}",
+            "enum": [
+              "分红",
+              "配股"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"1994-12-24\"; 分红配股的具体日期, e.g., \"1994-12-24\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_history_dividend_detail"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-个股-历史分红",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600009\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_dividend_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-发行与分配-新股发行",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "string",
+            "description": "stock=\"600004\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_ipo_info"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股申购-新股上会信息",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_ipo_review_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股申购-IPO辅导信息",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_ipo_tutor_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-发行与分配-增发",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600004\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_add_stock"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-发行分配-限售解禁",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600000\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_restricted_release_queue_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-限售股解禁",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"全部股票\"; choice of {\"全部股票\", \"沪市A股\", \"科创板\", \"深市A股\", \"创业板\", \"京市A股\"}",
+            "enum": [
+              "全部股票",
+              "沪市A股",
+              "科创板",
+              "深市A股",
+              "创业板",
+              "京市A股"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20221101\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20221209\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_restricted_release_summary_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-限售股解禁-解禁详情一览",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20221202\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20241202\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_restricted_release_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-个股限售解禁-解禁批次",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600000\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_restricted_release_queue_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-个股限售解禁-解禁股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600000\""
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20200904\"; 通过 ak.stock_restricted_release_queue_em(symbol=\"600000\") 获取"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_restricted_release_stockholder_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-股东股本-流通股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600000\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_circulate_stock_holder"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪行业-板块行情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"新浪行业\"; choice of {\"新浪行业\", \"启明星行业\", \"概念\", \"地域\", \"行业\"}",
+            "enum": [
+              "新浪行业",
+              "启明星行业",
+              "概念",
+              "地域",
+              "行业"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_sector_spot"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪行业-板块行情-成份详情, 由于新浪网页提供的统计数据有误, 部分行业数量大于统计数",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "sector": {
+            "type": "string",
+            "description": "sector=\"hangye_ZL01\"; 通过 **ak.stock_sector_spot** 返回数据的 label 字段选择 sector"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_sector_detail"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "沪深京 A 股股票代码和股票简称数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_info_a_code_name"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "上海证券交易所股票代码和简称数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"主板A股\"; choice of {\"主板A股\", \"主板B股\", \"科创板\"}",
+            "enum": [
+              "主板A股",
+              "主板B股",
+              "科创板"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_info_sh_name_code"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深证证券交易所股票代码和股票简称数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"A股列表\"; choice of {\"A股列表\", \"B股列表\", \"CDR列表\", \"AB股列表\"}",
+            "enum": [
+              "A股列表",
+              "B股列表",
+              "CDR列表",
+              "AB股列表"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_info_sz_name_code"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "北京证券交易所股票代码和简称数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_info_bj_name_code"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深证证券交易所终止/暂停上市股票",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"终止上市公司\"; choice of {\"暂停上市公司\", \"终止上市公司\"}",
+            "enum": [
+              "暂停上市公司",
+              "终止上市公司"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_info_sz_delist"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深个股-两网及退市",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_staq_net_stop"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "上海证券交易所暂停/终止上市股票",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"全部\"; choice of {\"全部\", \"沪市\", \"科创板\"}",
+            "enum": [
+              "全部",
+              "沪市",
+              "科创板"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_info_sh_delist"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-股票曾用名",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000503\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_info_change_name"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深证证券交易所-市场数据-股票数据-名称变更",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"全称变更\"; choice of {\"全称变更\", \"简称变更\"}",
+            "enum": [
+              "全称变更",
+              "简称变更"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_info_sz_change_name"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-股本股东-基金持股",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600004\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_fund_stock_holder"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-股本股东-主要股东",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "string",
+            "description": "stock=\"600004\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_main_stock_holder"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-机构持股-机构持股一览表",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"20051\"; 从 2005 年开始, {\"一季报\":1, \"中报\":2 \"三季报\":3 \"年报\":4}, e.g., \"20191\", 其中的 1 表示一季报; \"20193\", 其中的 3 表示三季报;"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_institute_hold"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-机构持股-机构持股详情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "string",
+            "description": "stock=\"300003\"; 股票代码"
+          },
+          "quarter": {
+            "type": "string",
+            "description": "quarter=\"20201\"; 从 2005 年开始, {\"一季报\":1, \"中报\":2 \"三季报\":3 \"年报\":4}, e.g., \"20191\", 其中的 1 表示一季报; \"20193\", 其中的 3 表示三季报;"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_institute_hold_detail"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-机构推荐池-具体指标的数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"行业关注度\"; choice of {'最新投资评级', '上调评级股票', '下调评级股票', '股票综合评级', '首次评级股票', '目标涨幅排名', '机构关注度', '行业关注度', '投资评级选股'}",
+            "enum": [
+              "最新投资评级",
+              "上调评级股票",
+              "下调评级股票",
+              "股票综合评级",
+              "首次评级股票",
+              "目标涨幅排名",
+              "机构关注度",
+              "行业关注度",
+              "投资评级选股"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_institute_recommend"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-机构推荐池-股票评级记录",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000001\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_institute_recommend_detail"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据中心-评级预测-投资评级",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20210910\"; 交易日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_rank_forecast_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "申万宏源研究-行业分类-全部行业分类",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_industry_clf_hist_sw"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据中心-行业分析-行业市盈率",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"证监会行业分类\"; choice of {\"证监会行业分类\", \"国证行业分类\"}",
+            "enum": [
+              "证监会行业分类",
+              "国证行业分类"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20210910\"; 交易日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_industry_pe_ratio_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 巨潮资讯-数据中心-新股数据-新股过会",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_new_gh_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据中心-新股数据-新股发行",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_new_ipo_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "上海证券交易所-披露-监管信息公开-公司监管-董董监高人员股份变动",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600000\"; choice of {\"全部\", \"具体股票代码\"}",
+            "enum": [
+              "全部",
+              "具体股票代码"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_share_hold_change_sse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深圳证券交易所-信息披露-监管信息公开-董监高人员股份变动",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"001308\"; choice of {\"全部\", \"具体股票代码\"}",
+            "enum": [
+              "全部",
+              "具体股票代码"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_share_hold_change_szse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "北京证券交易所-信息披露-监管信息-董监高及相关人员持股变动",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"430489\"; choice of {\"全部\", \"具体股票代码\"}",
+            "enum": [
+              "全部",
+              "具体股票代码"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_share_hold_change_bse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据中心-专题统计-股东股本-股东人数及持股集中度",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20210630\"; choice of {\"XXXX0331\", \"XXXX0630\", \"XXXX0930\", \"XXXX1231\"}; 从 20170331 开始",
+            "enum": [
+              "XXXX0331",
+              "XXXX0630",
+              "XXXX0930",
+              "XXXX1231"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hold_num_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据中心-专题统计-股东股本-股本变动",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"全部\"; choice of {\"深市主板\", \"沪市\", \"创业板\", \"科创板\", \"北交所\", \"全部\"}",
+            "enum": [
+              "深市主板",
+              "沪市",
+              "创业板",
+              "科创板",
+              "北交所",
+              "全部"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hold_change_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据中心-专题统计-股东股本-实际控制人持股变动",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"全部\"; choice of {\"单独控制\", \"实际控制人\", \"一致行动人\", \"家族控制\", \"全部\"}; 从 2010 开始",
+            "enum": [
+              "单独控制",
+              "实际控制人",
+              "一致行动人",
+              "家族控制",
+              "全部"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hold_control_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据中心-专题统计-股东股本-高管持股变动明细",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"增持\"; choice of {\"增持\", \"减持\"}",
+            "enum": [
+              "增持",
+              "减持"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hold_management_detail_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-高管持股-董监高及相关人员持股变动明细",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hold_management_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-高管持股-人员增减持股变动明细",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"001308\"; 股票代码"
+          },
+          "name": {
+            "type": "string",
+            "description": "name=\"吴远\"; 高管名称"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hold_management_person_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据中心-专题统计-公司治理-对外担保",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"全部\"; choice of {\"全部\", \"深市主板\", \"沪市\", \"创业板\", \"科创板\"}",
+            "enum": [
+              "全部",
+              "深市主板",
+              "沪市",
+              "创业板",
+              "科创板"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20180630\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20210927\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_cg_guarantee_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 巨潮资讯-数据中心-专题统计-公司治理-公司诉讼",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"全部\"; choice of {\"全部\", \"深市主板\", \"沪市\", \"创业板\", \"科创板\"}",
+            "enum": [
+              "全部",
+              "深市主板",
+              "沪市",
+              "创业板",
+              "科创板"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20180630\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20210927\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_cg_lawsuit_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "巨潮资讯-数据中心-专题统计-公司治理-股权质押",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20210930\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_cg_equity_mortgage_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "美港电讯-美港目标价数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"us\"; choice of {\"us\", \"hk\"}",
+            "enum": [
+              "us",
+              "hk"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_price_js"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-券商业绩月报",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20200430\"; 输入需要查询月份的最后一天的日期"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_qsjy_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐咕乐股-股息率-A 股股息率",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"上证A股\"; choice of {\"上证A股\", \"深证A股\", \"创业板\", \"科创板\"}",
+            "enum": [
+              "上证A股",
+              "深证A股",
+              "创业板",
+              "科创板"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_a_gxl_lg"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐咕乐股-股息率-恒生指数股息率",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hk_gxl_lg"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐咕乐股-大盘拥挤度",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_a_congestion_lg"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐咕乐股-股债利差",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_ebs_lg"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐估乐股-底部研究-巴菲特指标",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_buffett_index_lg"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐咕乐股-A 股等权重市盈率与中位数市盈率",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_a_ttm_lyr"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐咕乐股-A 股等权重与中位数市净率",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_a_all_pb"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐咕乐股-主板市盈率",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"上证\"; choice of {\"上证\", \"深证\", \"创业板\", \"科创版\"}",
+            "enum": [
+              "上证",
+              "深证",
+              "创业板",
+              "科创版"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_market_pe_lg"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐咕乐股-指数市盈率",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"上证50\"; choice of {\"上证50\", \"沪深300\", \"上证380\", \"创业板50\", \"中证500\", \"上证180\", \"深证红利\", \"深证100\", \"中证1000\", \"上证红利\", \"中证100\", \"中证800\"}",
+            "enum": [
+              "上证50",
+              "沪深300",
+              "上证380",
+              "创业板50",
+              "中证500",
+              "上证180",
+              "深证红利",
+              "深证100",
+              "中证1000",
+              "上证红利",
+              "中证100",
+              "中证800"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_index_pe_lg"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐咕乐股-主板市净率",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"上证\"; choice of {\"上证\", \"深证\", \"创业板\", \"科创版\"}",
+            "enum": [
+              "上证",
+              "深证",
+              "创业板",
+              "科创版"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_market_pb_lg"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐咕乐股-指数市净率",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"上证50\"; choice of {\"上证50\", \"沪深300\", \"上证380\", \"创业板50\", \"中证500\", \"上证180\", \"深证红利\", \"深证100\", \"中证1000\", \"上证红利\", \"中证100\", \"中证800\"}",
+            "enum": [
+              "上证50",
+              "沪深300",
+              "上证380",
+              "创业板50",
+              "中证500",
+              "上证180",
+              "深证红利",
+              "深证100",
+              "中证1000",
+              "上证红利",
+              "中证100",
+              "中证800"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_index_pb_lg"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "百度股市通-A 股-财务报表-估值数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"002044\"; A 股代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"总市值\"; choice of {\"总市值\", \"市盈率(TTM)\", \"市盈率(静)\", \"市净率\", \"市现率\"}",
+            "enum": [
+              "总市值",
+              "市盈率(TTM)",
+              "市盈率(静)",
+              "市净率",
+              "市现率"
+            ]
+          },
+          "period": {
+            "type": "string",
+            "description": "period=\"近一年\"; choice of {\"近一年\", \"近三年\", \"近五年\", \"近十年\", \"全部\"}",
+            "enum": [
+              "近一年",
+              "近三年",
+              "近五年",
+              "近十年",
+              "全部"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_valuation_baidu"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-估值分析-每日互动-每日互动-估值分析",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"002044\"; A 股代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_value_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "百度股市通- A 股或指数-股评-投票",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"000001\"; A 股股票或指数代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"指数\"; choice of {\"指数\", \"股票\"}",
+            "enum": [
+              "指数",
+              "股票"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_vote_baidu"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "亿牛网-港股个股指标: 市盈率, 市净率, 股息率, ROE, 市值",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"hk01093\"; 可通过调用 **ak.stock_hk_indicator_eniu(symbol=\"hk01093\", indicator=\"港股\")** 获取股票代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"市盈率\"; choice of {\"港股\", \"市盈率\", \"市净率\", \"股息率\", \"ROE\", \"市值\"}",
+            "enum": [
+              "港股",
+              "市盈率",
+              "市净率",
+              "股息率",
+              "ROE",
+              "市值"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_indicator_eniu"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "百度股市通-港股-财务报表-估值数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"02358\"; 港股代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"总市值\"; choice of {\"总市值\", \"市盈率(TTM)\", \"市盈率(静)\", \"市净率\", \"市现率\"}",
+            "enum": [
+              "总市值",
+              "市盈率(TTM)",
+              "市盈率(静)",
+              "市净率",
+              "市现率"
+            ]
+          },
+          "period": {
+            "type": "string",
+            "description": "period=\"近一年\"; choice of {\"近一年\", \"近三年\", \"全部\"}",
+            "enum": [
+              "近一年",
+              "近三年",
+              "全部"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_valuation_baidu"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "百度股市通-美股-财务报表-估值数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"NVDA\"; 美股代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"总市值\"; choice of {\"总市值\", \"市盈率(TTM)\", \"市盈率(静)\", \"市净率\", \"市现率\"}",
+            "enum": [
+              "总市值",
+              "市盈率(TTM)",
+              "市盈率(静)",
+              "市净率",
+              "市现率"
+            ]
+          },
+          "period": {
+            "type": "string",
+            "description": "period=\"近一年\"; choice of {\"近一年\", \"近三年\", \"全部\"}",
+            "enum": [
+              "近一年",
+              "近三年",
+              "全部"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_us_valuation_baidu"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "不同市场的创新高和新低的股票数量",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"all\"; {\"all\": \"全部A股\", \"sz50\": \"上证50\", \"hs300\": \"沪深300\", \"zz500\": \"中证500\"}"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_a_high_low_statistics"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 乐咕乐股-A 股破净股统计数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"全部A股\"; choice of {\"全部A股\", \"沪深300\", \"上证50\", \"中证500\"}",
+            "enum": [
+              "全部A股",
+              "沪深300",
+              "上证50",
+              "中证500"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_a_below_net_asset_statistics"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-主力数据-基金持仓",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"基金持仓\"; choice of {\"基金持仓\", \"QFII持仓\", \"社保持仓\", \"券商持仓\", \"保险持仓\", \"信托持仓\"}",
+            "enum": [
+              "基金持仓",
+              "QFII持仓",
+              "社保持仓",
+              "券商持仓",
+              "保险持仓",
+              "信托持仓"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20200630\"; 财报发布日期, xxxx-03-31, xxxx-06-30, xxxx-09-30, xxxx-12-31"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_report_fund_hold"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-主力数据-基金持仓-基金持仓明细表",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"005827\"; 基金代码"
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20200630\"; 财报发布日期, xxxx-03-31, xxxx-06-30, xxxx-09-30, xxxx-12-31"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_report_fund_hold_detail"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-龙虎榜单-龙虎榜详情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20220314\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20220315\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-龙虎榜单-个股上榜统计",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"近一月\"; choice of {\"近一月\", \"近三月\", \"近六月\", \"近一年\"}",
+            "enum": [
+              "近一月",
+              "近三月",
+              "近六月",
+              "近一年"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_stock_statistic_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-龙虎榜单-机构买卖每日统计",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20240417\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20240430\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_jgmmtj_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-龙虎榜单-机构席位追踪",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"近一月\"; choice of {\"近一月\", \"近三月\", \"近六月\", \"近一年\"}",
+            "enum": [
+              "近一月",
+              "近三月",
+              "近六月",
+              "近一年"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_jgstatistic_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-龙虎榜单-每日活跃营业部",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20220311\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20220315\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_hyyyb_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-龙虎榜单-营业部历史交易明细-营业部交易明细",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"10026729\"; 营业部代码, 通过 ak.stock_lhb_hyyyb_em() 接口获取"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_yyb_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-龙虎榜单-营业部排行",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"近一月\"; choice of {\"近一月\", \"近三月\", \"近六月\", \"近一年\"}",
+            "enum": [
+              "近一月",
+              "近三月",
+              "近六月",
+              "近一年"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_yybph_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-龙虎榜单-营业部统计",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"近一月\"; choice of {\"近一月\", \"近三月\", \"近六月\", \"近一年\"}",
+            "enum": [
+              "近一月",
+              "近三月",
+              "近六月",
+              "近一年"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_traderstatistic_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-龙虎榜单-个股龙虎榜详情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600077\";"
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20220310\"; 需要通过 ak.stock_lhb_stock_detail_date_em(symbol=\"600077\") 接口获取相应股票的有龙虎榜详情数据的日期"
+          },
+          "flag": {
+            "type": "string",
+            "description": "flag=\"卖出\";  choice of {\"买入\", \"卖出\"}",
+            "enum": [
+              "买入",
+              "卖出"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_stock_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "龙虎榜-营业部排行-上榜次数最多",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_lh_yyb_most"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "龙虎榜-营业部排行-资金实力最强",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_lh_yyb_capital"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "龙虎榜-营业部排行-抱团操作实力",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_lh_yyb_control"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-龙虎榜-每日详情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20240222\"; 交易日"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_detail_daily_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-龙虎榜-个股上榜统计",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"5\"; choice of {\"5\": 最近 5 天; \"10\": 最近 10 天; \"30\": 最近 30 天; \"60\": 最近 60 天;}",
+            "enum": [
+              "\"5\": 最近 5 天; \"10\": 最近 10 天; \"30\": 最近 30 天; \"60\": 最近 60 天;"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_ggtj_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-龙虎榜-营业上榜统计",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"5\"; choice of {\"5\": 最近 5 天; \"10\": 最近 10 天; \"30\": 最近 30 天; \"60\": 最近 60 天;}",
+            "enum": [
+              "\"5\": 最近 5 天; \"10\": 最近 10 天; \"30\": 最近 30 天; \"60\": 最近 60 天;"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_yytj_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-龙虎榜-机构席位追踪",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"5\"; choice of {\"5\": 最近 5 天; \"10\": 最近 10 天; \"30\": 最近 30 天; \"60\": 最近 60 天;}",
+            "enum": [
+              "\"5\": 最近 5 天; \"10\": 最近 10 天; \"30\": 最近 30 天; \"60\": 最近 60 天;"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_lhb_jgzz_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-龙虎榜-机构席位成交明细",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_lhb_jgmx_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股申购-首发申报信息-首发申报企业信息",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_ipo_declare_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股数据-IPO审核信息-全部",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_register_all_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股数据-IPO审核信息-科创板",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_register_kcb"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股数据-IPO审核信息-创业板",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_register_cyb"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股数据-IPO审核信息-上海主板",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_register_sh"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股数据-IPO审核信息-深圳主板",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_register_sz"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股数据-IPO审核信息-北交所",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_register_bj"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股数据-注册制审核-达标企业",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_register_db"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股数据-增发-全部增发",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_qbzf_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-新股数据-配股",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_pg_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-股票回购-股票回购数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_repurchase_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-A股数据-股本结构",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"603392.SH\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zh_a_gbjg_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-大宗交易-市场统计",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_dzjy_sctj"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-大宗交易-每日明细",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='债券'; choice of {'A股', 'B股', '基金', '债券'}",
+            "enum": [
+              "A股",
+              "B股",
+              "基金",
+              "债券"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date='20201123'; 开始日期"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date='20201204'; 结束日期"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_dzjy_mrmx"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-大宗交易-每日统计",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "description": "start_date='20220105'; 开始日期"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date='20220105'; 结束日期"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_dzjy_mrtj"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-大宗交易-活跃 A 股统计",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='近三月'; choice of {'近一月', '近三月', '近六月', '近一年'}",
+            "enum": [
+              "近一月",
+              "近三月",
+              "近六月",
+              "近一年"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_dzjy_hygtj"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-大宗交易-活跃营业部统计",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='近3日'; choice of {'当前交易日', '近3日', '近5日', '近10日', '近30日'}",
+            "enum": [
+              "当前交易日",
+              "近3日",
+              "近5日",
+              "近10日",
+              "近30日"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_dzjy_hyyybtj"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-大宗交易-营业部排行",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol='近三月'; choice of {'近一月', '近三月', '近六月', '近一年'}",
+            "enum": [
+              "近一月",
+              "近三月",
+              "近六月",
+              "近一年"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_dzjy_yybph"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-特色数据-一致行动人",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20200930\"; 每年的季度末时间点"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_yzxdr_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "融资融券-标的证券名单及保证金比例查询",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"深市\"; choice of {\"深市\", \"沪市\", \"北交所\"}",
+            "enum": [
+              "深市",
+              "沪市",
+              "北交所"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20260113\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_margin_ratio_pa"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-融资融券-融资融券账户统计-两融账户信息",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_margin_account_info"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "上海证券交易所-融资融券数据-融资融券汇总数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20010106\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20010106\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_margin_sse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "上海证券交易所-融资融券数据-融资融券明细数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20210205\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_margin_detail_sse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深圳证券交易所-融资融券数据-融资融券汇总数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20240411\"; 交易日期"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_margin_szse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深证证券交易所-融资融券数据-融资融券交易明细数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20220118\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_margin_detail_szse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "深圳证券交易所-融资融券数据-标的证券信息",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date=\"20210205\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_margin_underlying_info_szse"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-数据中心-研究报告-盈利预测; 该数据源网页端返回数据有异常, 本接口已修复该异常",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"\", 默认为获取全部数据; symbol=\"船舶制造\", 则获取具体行业板块的数据; 行业板块可以通过 ak.stock_board_industry_name_em() 接口获取"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_profit_forecast_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "经济通-公司资料-盈利预测",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"09999\""
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"盈利预测概览\"; choice of {\"评级总览\", \"去年度业绩表现\", \"综合盈利预测\", \"盈利预测概览\"}",
+            "enum": [
+              "评级总览",
+              "去年度业绩表现",
+              "综合盈利预测",
+              "盈利预测概览"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_profit_forecast_et"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-盈利预测",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"600519\"; 股票代码"
+          },
+          "indicator": {
+            "type": "string",
+            "description": "indicator=\"预测年报每股收益\"; choice of {\"预测年报每股收益\", \"预测年报净利润\", \"业绩预测详表-机构\", \"业绩预测详表-详细指标预测\"}",
+            "enum": [
+              "预测年报每股收益",
+              "预测年报净利润",
+              "业绩预测详表-机构",
+              "业绩预测详表-详细指标预测"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_profit_forecast_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-板块-概念板块-指数日频率数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"阿里巴巴概念\"; 可以通过调用 **ak.stock_board_concept_name_ths()** 查看同花顺的所有概念名称"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20200101\"; 开始时间"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20250228\"; 结束时间"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_board_concept_index_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-板块-概念板块-板块简介",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol: str = \"阿里巴巴概念\"; 可以通过调用 **ak.stock_board_concept_name_ths()** 查看同花顺的所有概念名称"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_board_concept_info_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深京板块-概念板块",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_board_concept_name_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深京板块-概念板块-实时行情",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_board_concept_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富-沪深板块-概念板块-板块成份",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"融资融券\"; 支持传入板块代码比如：BK0655，可以通过调用 **ak.stock_board_concept_name_em()** 查看东方财富-概念板块的所有行业名称"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_board_concept_cons_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富-沪深板块-概念板块-历史行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"绿色电力\"; 可以通过调用 **ak.stock_board_concept_name_em()** 查看东方财富-概念板块的所有概念代码"
+          },
+          "period": {
+            "type": "string",
+            "description": "period=\"daily\"; choice of {\"daily\", \"weekly\", \"monthly\"}",
+            "enum": [
+              "daily",
+              "weekly",
+              "monthly"
+            ]
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20220101\""
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20221128\""
+          },
+          "adjust": {
+            "type": "string",
+            "description": "adjust=\"\"; choice of {'': 不复权, 默认; \"qfq\": 前复权, \"hfq\": 后复权}",
+            "enum": [
+              "'': 不复权",
+              "默认; \"qfq\": 前复权",
+              "\"hfq\": 后复权"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_board_concept_hist_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富-沪深板块-概念板块-分时历史行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"长寿药\"; 可以通过调用 **ak.stock_board_concept_name_em()** 查看东方财富-概念板块的所有概念代码"
+          },
+          "period": {
+            "type": "string",
+            "description": "period=\"5\"; choice of {\"1\", \"5\", \"15\", \"30\", \"60\"}",
+            "enum": [
+              "1",
+              "5",
+              "15",
+              "30",
+              "60"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_board_concept_hist_min_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 富途牛牛-主题投资-概念板块-成分股",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"特朗普概念股\"; choice of {\"巴菲特持仓\", \"佩洛西持仓\", \"特朗普概念股\"}",
+            "enum": [
+              "巴菲特持仓",
+              "佩洛西持仓",
+              "特朗普概念股"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_concept_cons_futu"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-同花顺行业一览表",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_board_industry_summary_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-板块-行业板块-指数日频率数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"元件\"; 可以通过调用 **ak.stock_board_industry_name_ths()** 查看同花顺的所有行业名称"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20200101\"; 开始时间"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20211027\"; 结束时间"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_board_industry_index_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富-沪深京板块-行业板块",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_board_industry_name_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-沪深板块-行业板块-实时行情",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"小金属\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_board_industry_spot_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富-沪深板块-行业板块-板块成份",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"小金属\"; 支持传入板块代码比如：BK1027，可以通过调用 **ak.stock_board_industry_name_em()** 查看东方财富-行业板块的所有行业代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_board_industry_cons_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富-沪深板块-行业板块-历史行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"小金属\"; 可以通过调用 **ak.stock_board_industry_name_em()** 查看东方财富-行业板块的所有行业代码"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "start_date=\"20211201\";"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "end_date=\"20220401\";"
+          },
+          "period": {
+            "type": "string",
+            "description": "period=\"日k\"; 周期; choice of {\"日k\", \"周k\", \"月k\"}",
+            "enum": [
+              "日k",
+              "周k",
+              "月k"
+            ]
+          },
+          "adjust": {
+            "type": "string",
+            "description": "adjust=\"\"; choice of {'': 不复权, 默认; \"qfq\": 前复权, \"hfq\": 后复权}",
+            "enum": [
+              "'': 不复权",
+              "默认; \"qfq\": 前复权",
+              "\"hfq\": 后复权"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_board_industry_hist_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富-沪深板块-行业板块-分时历史行情数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"小金属\"; 可以通过调用 **ak.stock_board_industry_name_em()** 查看东方财富-行业板块的所有行业代码"
+          },
+          "period": {
+            "type": "string",
+            "description": "period=\"\"; choice of {\"1\", \"5\", \"15\", \"30\", \"60\"}",
+            "enum": [
+              "1",
+              "5",
+              "15",
+              "30",
+              "60"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_board_industry_hist_min_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "雪球-沪深股市-热度排行榜-关注排行榜",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"最热门\"; choice of {\"本周新增\", \"最热门\"}",
+            "enum": [
+              "本周新增",
+              "最热门"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hot_follow_xq"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "雪球-沪深股市-热度排行榜-讨论排行榜",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"最热门\"; choice of {\"本周新增\", \"最热门\"}",
+            "enum": [
+              "本周新增",
+              "最热门"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hot_tweet_xq"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "雪球-沪深股市-热度排行榜-交易排行榜",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"最热门\"; choice of {\"本周新增\", \"最热门\"}",
+            "enum": [
+              "本周新增",
+              "最热门"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hot_deal_xq"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网站-股票热度",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hot_rank_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-个股人气榜-飙升榜",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hot_up_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-个股人气榜-人气榜-港股市场",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_hk_hot_rank_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-股票热度-历史趋势及粉丝特征",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000665\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hot_rank_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-股票热度-历史趋势",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"00700\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_hot_rank_detail_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "互动易-提问",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"002594\";"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_irm_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "互动易-回答",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"1495108801386602496\"; 通过 ak.stock_irm_cninfo 来获取具体的提问者编号"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_irm_ans_cninfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "上证e互动-提问与回答",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"603119\"; 股票代码"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_sns_sseinfo"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-个股人气榜-实时变动",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000665\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hot_rank_detail_realtime_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-个股人气榜-实时变动",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"00700\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_hot_rank_detail_realtime_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-个股人气榜-热门关键词",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000665\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hot_keyword_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "雪球-行情中心-沪深股市-内部交易",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_inner_trade_xq"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-个股人气榜-最新排名",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000665\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hot_rank_latest_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-个股人气榜-最新排名",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"00700\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hk_hot_rank_latest_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "百度股市通-热搜股票",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"A股\"; choice of {\"全部\", \"A股\", \"港股\", \"美股\"}",
+            "enum": [
+              "全部",
+              "A股",
+              "港股",
+              "美股"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "date=\"20250616\""
+          },
+          "time": {
+            "type": "string",
+            "description": "time=\"今日\"; choice of {\"今日\", \"1小时\"}",
+            "enum": [
+              "今日",
+              "1小时"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hot_search_baidu"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-个股人气榜-相关股票",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"SZ000665\""
+          }
+        },
+        "required": []
+      },
+      "name": "stock_hot_rank_relate_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-行情中心-盘口异动数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"大笔买入\"; choice of {'火箭发射', '快速反弹', '大笔买入', '封涨停板', '打开跌停板', '有大买盘', '竞价上涨', '高开5日线', '向上缺口', '60日新高', '60日大幅上涨', '加速下跌', '高台跳水', '大笔卖出', '封跌停板', '打开涨停板', '有大卖盘', '竞价下跌', '低开5日线', '向下缺口', '60日新低', '60日大幅下跌'}",
+            "enum": [
+              "火箭发射",
+              "快速反弹",
+              "大笔买入",
+              "封涨停板",
+              "打开跌停板",
+              "有大买盘",
+              "竞价上涨",
+              "高开5日线",
+              "向上缺口",
+              "60日新高",
+              "60日大幅上涨",
+              "加速下跌",
+              "高台跳水",
+              "大笔卖出",
+              "封跌停板",
+              "打开涨停板",
+              "有大卖盘",
+              "竞价下跌",
+              "低开5日线",
+              "向下缺口",
+              "60日新低",
+              "60日大幅下跌"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_changes_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富-行情中心-当日板块异动详情",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_board_change_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-行情中心-涨停板行情-涨停股池",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date='20241008'"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zt_pool_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-行情中心-涨停板行情-昨日涨停股池",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date='20240415'"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zt_pool_previous_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-行情中心-涨停板行情-强势股池",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date='20241009'"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zt_pool_strong_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "东方财富网-行情中心-涨停板行情-次新股池",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date='20241231'"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zt_pool_sub_new_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-涨停板行情-炸板股池",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date='20241011'"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zt_pool_zbgc_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "[UNAVAILABLE] 东方财富网-行情中心-涨停板行情-跌停股池",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "date='20241011'"
+          }
+        },
+        "required": []
+      },
+      "name": "stock_zt_pool_dtgc_em"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "乐咕乐股网-赚钱效应分析数据",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"创月新低\"; choice of {\"创月新低\", \"半年新低\", \"一年新低\", \"历史新低\"}",
+            "enum": [
+              "创月新低",
+              "半年新低",
+              "一年新低",
+              "历史新低"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_market_activity_legu"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-技术选股-持续放量",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_rank_cxfl_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-技术选股-持续缩量",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_rank_cxsl_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-技术选股-向上突破",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"500日均线\"; choice of {\"5日均线\", \"10日均线\", \"20日均线\", \"30日均线\", \"60日均线\", \"90日均线\", \"250日均线\", \"500日均线\"}",
+            "enum": [
+              "5日均线",
+              "10日均线",
+              "20日均线",
+              "30日均线",
+              "60日均线",
+              "90日均线",
+              "250日均线",
+              "500日均线"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_rank_xstp_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-技术选股-向下突破",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "symbol=\"500日均线\"; choice of {\"5日均线\", \"10日均线\", \"20日均线\", \"30日均线\", \"60日均线\", \"90日均线\", \"250日均线\", \"500日均线\"}",
+            "enum": [
+              "5日均线",
+              "10日均线",
+              "20日均线",
+              "30日均线",
+              "60日均线",
+              "90日均线",
+              "250日均线",
+              "500日均线"
+            ]
+          }
+        },
+        "required": []
+      },
+      "name": "stock_rank_xxtp_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-技术选股-量价齐升",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_rank_ljqs_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-技术选股-量价齐跌",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_rank_ljqd_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "同花顺-数据中心-技术选股-险资举牌",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_rank_xzjp_ths"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-ESG评级中心-ESG评级-ESG评级数据",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_esg_rate_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-ESG评级中心-ESG评级-MSCI",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_esg_msci_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-ESG评级中心-ESG评级-路孚特",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_esg_rft_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-ESG评级中心-ESG评级-秩鼎",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_esg_zd_sina"
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "description": "新浪财经-ESG评级中心-ESG评级-华证指数",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "name": "stock_esg_hz_sina"
+    }
+  }
+]

@@ -8,10 +8,13 @@ data/
 cache/
 
 # Docs (generated)
-docs/skills.json
 docs/summary.md
 apis/manifest.json
 
 # Environment
 .venv
 .env
+
+# Test results
+api_test_results.json
+.DS_Store
