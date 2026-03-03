@@ -1,0 +1,1131 @@
+{
+  "total_apis": 368,
+  "tested_count": 50,
+  "current_batch": 1,
+  "batch_size": 50,
+  "results": {
+    "stock_sse_summary": {
+      "api_name": "stock_sse_summary",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 33,
+      "sample_keys": [
+        "项目",
+        "股票",
+        "主板",
+        "科创板"
+      ],
+      "sample_dtypes": {
+        "项目": "str",
+        "股票": "str",
+        "主板": "str",
+        "科创板": "str"
+      },
+      "sample_data": [
+        {
+          "项目": "流通股本",
+          "股票": "48029.74",
+          "主板": "46044.61",
+          "科创板": "1985.13"
+        },
+        {
+          "项目": "总市值",
+          "股票": "685194.69",
+          "主板": "569135.3",
+          "科创板": "116059.39"
+        },
+        {
+          "项目": "平均市盈率",
+          "股票": "17.21",
+          "主板": "15.45",
+          "科创板": "76.18"
+        }
+      ],
+      "error": null,
+      "error_type": null
+    },
+    "stock_szse_summary": {
+      "api_name": "stock_szse_summary",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 179,
+      "sample_keys": [
+        "证券类别",
+        "数量",
+        "成交金额",
+        "总市值",
+        "流通市值"
+      ],
+      "sample_dtypes": {
+        "证券类别": "str",
+        "数量": "int64",
+        "成交金额": "float64",
+        "总市值": "float64",
+        "流通市值": "float64"
+      },
+      "sample_data": [
+        {
+          "证券类别": "股票",
+          "数量": 2874,
+          "成交金额": 492745828554.63,
+          "总市值": 25837664936960.49,
+          "流通市值": 22051689693333.94
+        },
+        {
+          "证券类别": "主板A股",
+          "数量": 1484,
+          "成交金额": 264501071502.81,
+          "总市值": 16760375029653.84,
+          "流通市值": 15105964049353.82
+        },
+        {
+          "证券类别": "主板B股",
+          "数量": 40,
+          "成交金额": 84078449.65,
+          "总市值": 45469263262.78,
+          "流通市值": 45323820908.78
+        }
+      ],
+      "error": null,
+      "error_type": null
+    },
+    "stock_szse_area_summary": {
+      "api_name": "stock_szse_area_summary",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 174,
+      "sample_keys": [
+        "序号",
+        "地区",
+        "总交易额",
+        "占市场",
+        "股票交易额",
+        "基金交易额",
+        "债券交易额"
+      ],
+      "sample_dtypes": {
+        "序号": "int64",
+        "地区": "str",
+        "总交易额": "float64",
+        "占市场": "float64",
+        "股票交易额": "float64",
+        "基金交易额": "float64",
+        "债券交易额": "float64"
+      },
+      "sample_data": [
+        {
+          "序号": 1,
+          "地区": "上海",
+          "总交易额": 6599167582529.5,
+          "占市场": 17.144,
+          "股票交易额": 4043328640553.02,
+          "基金交易额": 124853814623.53,
+          "债券交易额": 2430985127352.95
+        },
+        {
+          "序号": 2,
+          "地区": "深圳",
+          "总交易额": 4783964416772.87,
+          "占市场": 12.428,
+          "股票交易额": 3003822741726.11,
+          "基金交易额": 119949788473.23,
+          "债券交易额": 1659668736573.53
+        },
+        {
+          "序号": 3,
+          "地区": "北京",
+          "总交易额": 3631713590500.71,
+          "占市场": 9.435,
+          "股票交易额": 2225151545235.03,
+          "基金交易额": 86157591904.48,
+          "债券交易额": 1319881303361.21
+        }
+      ],
+      "error": null,
+      "error_type": null
+    },
+    "stock_szse_sector_summary": {
+      "api_name": "stock_szse_sector_summary",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 887,
+      "sample_keys": [
+        "项目名称",
+        "项目名称-英文",
+        "交易天数",
+        "成交金额-人民币元",
+        "成交金额-占总计",
+        "成交股数-股数",
+        "成交股数-占总计",
+        "成交笔数-笔",
+        "成交笔数-占总计"
+      ],
+      "sample_dtypes": {
+        "项目名称": "str",
+        "项目名称-英文": "str",
+        "交易天数": "int64",
+        "成交金额-人民币元": "int64",
+        "成交金额-占总计": "float64",
+        "成交股数-股数": "int64",
+        "成交股数-占总计": "float64",
+        "成交笔数-笔": "int64",
+        "成交笔数-占总计": "float64"
+      },
+      "sample_data": [
+        {
+          "项目名称": "合计",
+          "项目名称-英文": "Total",
+          "交易天数": 18,
+          "成交金额-人民币元": 12797346256776,
+          "成交金额-占总计": 100.0,
+          "成交股数-股数": 1102116260223,
+          "成交股数-占总计": 100.0,
+          "成交笔数-笔": 1072706301,
+          "成交笔数-占总计": 100.0
+        },
+        {
+          "项目名称": "农林牧渔",
+          "项目名称-英文": "Agriculture",
+          "交易天数": 18,
+          "成交金额-人民币元": 81959102700,
+          "成交金额-占总计": 0.64,
+          "成交股数-股数": 9399492707,
+          "成交股数-占总计": 0.85,
+          "成交笔数-笔": 7661044,
+          "成交笔数-占总计": 0.71
+        },
+        {
+          "项目名称": "采矿业",
+          "项目名称-英文": "Mining",
+          "交易天数": 18,
+          "成交金额-人民币元": 92263889071,
+          "成交金额-占总计": 0.72,
+          "成交股数-股数": 9878192740,
+          "成交股数-占总计": 0.9,
+          "成交笔数-笔": 9355248,
+          "成交笔数-占总计": 0.87
+        }
+      ],
+      "error": null,
+      "error_type": null
+    },
+    "stock_sse_deal_daily": {
+      "api_name": "stock_sse_deal_daily",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 83,
+      "sample_keys": [
+        "单日情况",
+        "股票",
+        "主板A",
+        "主板B",
+        "科创板",
+        "股票回购"
+      ],
+      "sample_dtypes": {
+        "单日情况": "category",
+        "股票": "float64",
+        "主板A": "float64",
+        "主板B": "float64",
+        "科创板": "float64",
+        "股票回购": "float64"
+      },
+      "sample_data": [
+        {
+          "单日情况": "挂牌数",
+          "股票": 2316.0,
+          "主板A": 1692.0,
+          "主板B": 43.0,
+          "科创板": 581.0,
+          "股票回购": 0.0
+        },
+        {
+          "单日情况": "市价总值",
+          "股票": 529411.2,
+          "主板A": 463338.68,
+          "主板B": 1008.86,
+          "科创板": 65063.66,
+          "股票回购": 0.0
+        },
+        {
+          "单日情况": "流通市值",
+          "股票": 496863.92,
+          "主板A": 447044.99,
+          "主板B": 752.08,
+          "科创板": 49066.85,
+          "股票回购": 0.0
+        }
+      ],
+      "error": null,
+      "error_type": null
+    },
+    "stock_individual_info_em": {
+      "api_name": "stock_individual_info_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_individual_basic_info_xq": {
+      "api_name": "stock_individual_basic_info_xq",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 109,
+      "sample_keys": [
+        "item",
+        "value"
+      ],
+      "sample_dtypes": {
+        "item": "str",
+        "value": "object"
+      },
+      "sample_data": [
+        {
+          "item": "org_id",
+          "value": null
+        },
+        {
+          "item": "org_name_cn",
+          "value": null
+        },
+        {
+          "item": "org_short_name_cn",
+          "value": null
+        }
+      ],
+      "error": null,
+      "error_type": null
+    },
+    "stock_bid_ask_em": {
+      "api_name": "stock_bid_ask_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_a_spot_em": {
+      "api_name": "stock_zh_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_sh_a_spot_em": {
+      "api_name": "stock_sh_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_sz_a_spot_em": {
+      "api_name": "stock_sz_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_bj_a_spot_em": {
+      "api_name": "stock_bj_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_new_a_spot_em": {
+      "api_name": "stock_new_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_cy_a_spot_em": {
+      "api_name": "stock_cy_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_kc_a_spot_em": {
+      "api_name": "stock_kc_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_ab_comparison_em": {
+      "api_name": "stock_zh_ab_comparison_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_a_spot": {
+      "api_name": "stock_zh_a_spot",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 29211,
+      "sample_keys": [
+        "代码",
+        "名称",
+        "最新价",
+        "涨跌额",
+        "涨跌幅",
+        "买入",
+        "卖出",
+        "昨收",
+        "今开",
+        "最高",
+        "最低",
+        "成交量",
+        "成交额",
+        "时间戳"
+      ],
+      "sample_dtypes": {
+        "代码": "str",
+        "名称": "str",
+        "最新价": "float64",
+        "涨跌额": "float64",
+        "涨跌幅": "float64",
+        "买入": "float64",
+        "卖出": "float64",
+        "昨收": "float64",
+        "今开": "float64",
+        "最高": "float64",
+        "最低": "float64",
+        "成交量": "float64",
+        "成交额": "float64",
+        "时间戳": "str"
+      },
+      "sample_data": [
+        {
+          "代码": "bj920000",
+          "名称": "安徽凤凰",
+          "最新价": 18.27,
+          "涨跌额": -0.64,
+          "涨跌幅": -3.384,
+          "买入": 18.2,
+          "卖出": 18.27,
+          "昨收": 18.91,
+          "今开": 18.64,
+          "最高": 18.88,
+          "最低": 18.05,
+          "成交量": 903874.0,
+          "成交额": 16551748.0,
+          "时间戳": "15:30:02"
+        },
+        {
+          "代码": "bj920001",
+          "名称": "纬达光电",
+          "最新价": 17.66,
+          "涨跌额": -0.81,
+          "涨跌幅": -4.385,
+          "买入": 17.65,
+          "卖出": 17.66,
+          "昨收": 18.47,
+          "今开": 18.0,
+          "最高": 18.11,
+          "最低": 17.66,
+          "成交量": 1544191.0,
+          "成交额": 27462930.0,
+          "时间戳": "15:30:02"
+        },
+        {
+          "代码": "bj920002",
+          "名称": "万达轴承",
+          "最新价": 96.35,
+          "涨跌额": -4.9,
+          "涨跌幅": -4.84,
+          "买入": 96.33,
+          "卖出": 96.35,
+          "昨收": 101.25,
+          "今开": 100.68,
+          "最高": 100.68,
+          "最低": 96.24,
+          "成交量": 1078841.0,
+          "成交额": 105311549.0,
+          "时间戳": "15:30:02"
+        }
+      ],
+      "error": null,
+      "error_type": null
+    },
+    "stock_individual_spot_xq": {
+      "api_name": "stock_individual_spot_xq",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "",
+      "error_type": "NotImplementedError"
+    },
+    "stock_zh_a_hist": {
+      "api_name": "stock_zh_a_hist",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_a_daily": {
+      "api_name": "stock_zh_a_daily",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "'date'",
+      "error_type": "KeyError"
+    },
+    "stock_zh_a_hist_tx": {
+      "api_name": "stock_zh_a_hist_tx",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "invalid literal for int() with base 10: 'i'",
+      "error_type": "ValueError"
+    },
+    "stock_zh_a_minute": {
+      "api_name": "stock_zh_a_minute",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "If using all scalar values, you must pass an index",
+      "error_type": "ValueError"
+    },
+    "stock_zh_a_hist_min_em": {
+      "api_name": "stock_zh_a_hist_min_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_intraday_em": {
+      "api_name": "stock_intraday_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_intraday_sina": {
+      "api_name": "stock_intraday_sina",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_zh_a_hist_pre_min_em": {
+      "api_name": "stock_zh_a_hist_pre_min_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_a_tick_tx": {
+      "api_name": "stock_zh_a_tick_tx",
+      "category": "stock",
+      "status": "error",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "API 'stock_zh_a_tick_tx' 不存在",
+      "error_type": "not_found"
+    },
+    "stock_zh_growth_comparison_em": {
+      "api_name": "stock_zh_growth_comparison_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 58,
+      "sample_keys": [
+        "代码",
+        "简称",
+        "基本每股收益增长率-3年复合",
+        "基本每股收益增长率-24A",
+        "基本每股收益增长率-TTM",
+        "基本每股收益增长率-25E",
+        "基本每股收益增长率-26E",
+        "基本每股收益增长率-27E",
+        "营业收入增长率-3年复合",
+        "营业收入增长率-24A",
+        "营业收入增长率-TTM",
+        "营业收入增长率-25E",
+        "营业收入增长率-26E",
+        "营业收入增长率-27E",
+        "净利润增长率-3年复合",
+        "净利润增长率-24A",
+        "净利润增长率-TTM",
+        "净利润增长率-25E",
+        "净利润增长率-26E",
+        "净利润增长率-27E",
+        "基本每股收益增长率-3年复合排名"
+      ],
+      "sample_dtypes": {
+        "代码": "object",
+        "简称": "object",
+        "基本每股收益增长率-3年复合": "object",
+        "基本每股收益增长率-24A": "object",
+        "基本每股收益增长率-TTM": "object",
+        "基本每股收益增长率-25E": "object",
+        "基本每股收益增长率-26E": "object",
+        "基本每股收益增长率-27E": "object",
+        "营业收入增长率-3年复合": "object",
+        "营业收入增长率-24A": "object",
+        "营业收入增长率-TTM": "object",
+        "营业收入增长率-25E": "object",
+        "营业收入增长率-26E": "object",
+        "营业收入增长率-27E": "object",
+        "净利润增长率-3年复合": "object",
+        "净利润增长率-24A": "object",
+        "净利润增长率-TTM": "object",
+        "净利润增长率-25E": "object",
+        "净利润增长率-26E": "object",
+        "净利润增长率-27E": "object",
+        "基本每股收益增长率-3年复合排名": "object"
+      },
+      "sample_data": [],
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_valuation_comparison_em": {
+      "api_name": "stock_zh_valuation_comparison_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "'result'",
+      "error_type": "KeyError"
+    },
+    "stock_zh_dupont_comparison_em": {
+      "api_name": "stock_zh_dupont_comparison_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "'result'",
+      "error_type": "KeyError"
+    },
+    "stock_zh_scale_comparison_em": {
+      "api_name": "stock_zh_scale_comparison_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 58,
+      "sample_keys": [
+        "代码",
+        "简称",
+        "总市值",
+        "总市值排名",
+        "流通市值",
+        "流通市值排名",
+        "营业收入",
+        "营业收入排名",
+        "净利润",
+        "净利润排名"
+      ],
+      "sample_dtypes": {
+        "代码": "object",
+        "简称": "object",
+        "总市值": "object",
+        "总市值排名": "object",
+        "流通市值": "object",
+        "流通市值排名": "object",
+        "营业收入": "object",
+        "营业收入排名": "object",
+        "净利润": "object",
+        "净利润排名": "object"
+      },
+      "sample_data": [],
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_cdr_daily": {
+      "api_name": "stock_zh_a_cdr_daily",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "'date'",
+      "error_type": "KeyError"
+    },
+    "stock_zh_b_spot_em": {
+      "api_name": "stock_zh_b_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_b_spot": {
+      "api_name": "stock_zh_b_spot",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "Can not decode value starting with character '<'",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_zh_b_daily": {
+      "api_name": "stock_zh_b_daily",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "'date'",
+      "error_type": "KeyError"
+    },
+    "stock_zh_b_minute": {
+      "api_name": "stock_zh_b_minute",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "If using all scalar values, you must pass an index",
+      "error_type": "ValueError"
+    },
+    "stock_zh_a_new": {
+      "api_name": "stock_zh_a_new",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_gsrl_gsdt_em": {
+      "api_name": "stock_gsrl_gsdt_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 127,
+      "sample_keys": [
+        "序号",
+        "代码",
+        "简称",
+        "事件类型",
+        "具体事项",
+        "交易日"
+      ],
+      "sample_dtypes": {
+        "序号": "int64",
+        "代码": "str",
+        "简称": "str",
+        "事件类型": "str",
+        "具体事项": "str",
+        "交易日": "object"
+      },
+      "sample_data": [
+        {
+          "序号": 1,
+          "代码": "000669",
+          "简称": "ST金鸿",
+          "事件类型": "资产重组",
+          "具体事项": "公司于近日收到新能国际告知函,获悉北京市第一中级人民法院将于2023年8月3日10时至2023年8月4日10时止(延时的除外)在淘宝网络司法拍卖平台上公开拍卖3,000,000股。导致控股股东新能国际所持公司部分股份存在被动减持的可能。",
+          "交易日": "2023-08-08"
+        },
+        {
+          "序号": 2,
+          "代码": "000707",
+          "简称": "双环科技",
+          "事件类型": "资产重组",
+          "具体事项": "根据2022年10月13日新修订的《企业集团财务公司管理办法》,监管部门要求财务公司需在2023年11月13日前将注册资本增资至10亿元。为满足法规对财务公司最低注册资本的要求,公司拟与宜化集团、安卅物流对财务公司进行同比例增资共计50,000万元,其中双环科技增资5,000万元。增资完成后,财务公司注册资本变更为100,000万元,双环科技对财务公司的出资比例保持不变。增资各方履行审批程序后,拟共同签署《湖北宜化集团财务有限责任公司增资扩股协议》。",
+          "交易日": "2023-08-08"
+        },
+        {
+          "序号": 3,
+          "代码": "000778",
+          "简称": "新兴铸管",
+          "事件类型": "资产重组",
+          "具体事项": "新兴铸管股份有限公司(以下简称“公司”或“本公司”)与长江生态环保集团有限公司(以下简称“长江环保”)基于长江大保护项目的管网建设需求,充分发挥双方各自优势,以长江大保护业务协同为合作重点,共同推动长江大保护管网全生命周期管理,服务“城市智慧水管家”高质量发展,打造长期股权合作、互利共赢的合作典范。经双方协商,公司拟与长江环保所属公司长江清源节能环保有限公司(以下简称“清源环保”)共同出资成立合资公司三峡新兴管网技术有限公司。",
+          "交易日": "2023-08-08"
+        }
+      ],
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_st_em": {
+      "api_name": "stock_zh_a_st_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_a_new_em": {
+      "api_name": "stock_zh_a_new_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_xgsr_ths": {
+      "api_name": "stock_xgsr_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 27787,
+      "sample_keys": [
+        "序号",
+        "股票代码",
+        "股票简称",
+        "上市日期",
+        "发行价",
+        "最新价",
+        "首日开盘价",
+        "首日收盘价",
+        "首日最高价",
+        "首日最低价",
+        "首日涨跌幅",
+        "是否破发"
+      ],
+      "sample_dtypes": {
+        "序号": "int64",
+        "股票代码": "str",
+        "股票简称": "str",
+        "上市日期": "object",
+        "发行价": "float64",
+        "最新价": "float64",
+        "首日开盘价": "float64",
+        "首日收盘价": "float64",
+        "首日最高价": "float64",
+        "首日最低价": "float64",
+        "首日涨跌幅": "float64",
+        "是否破发": "str"
+      },
+      "sample_data": [
+        {
+          "序号": 1,
+          "股票代码": "920168",
+          "股票简称": "通宝光电",
+          "上市日期": "2026-02-26",
+          "发行价": 16.17,
+          "最新价": 26.02,
+          "首日开盘价": 29.5,
+          "首日收盘价": 27.49,
+          "首日最高价": 31.6,
+          "首日最低价": 27.38,
+          "首日涨跌幅": 0.7001000000000001,
+          "是否破发": "否"
+        },
+        {
+          "序号": 2,
+          "股票代码": "920166",
+          "股票简称": "海圣医疗",
+          "上市日期": "2026-02-12",
+          "发行价": 12.64,
+          "最新价": 34.15,
+          "首日开盘价": 28.0,
+          "首日收盘价": 34.49,
+          "首日最高价": 43.6,
+          "首日最低价": 27.16,
+          "首日涨跌幅": 1.7286000000000001,
+          "是否破发": "否"
+        },
+        {
+          "序号": 3,
+          "股票代码": "688816",
+          "股票简称": "易思维",
+          "上市日期": "2026-02-11",
+          "发行价": 55.95,
+          "最新价": 71.27,
+          "首日开盘价": 100.0,
+          "首日收盘价": 88.92,
+          "首日最高价": 107.98,
+          "首日最低价": 86.0,
+          "首日涨跌幅": 0.5893,
+          "是否破发": "否"
+        }
+      ],
+      "error": null,
+      "error_type": null
+    },
+    "stock_ipo_benefit_ths": {
+      "api_name": "stock_ipo_benefit_ths",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "'NoneType' object has no attribute 'text'",
+      "error_type": "AttributeError"
+    },
+    "stock_zh_a_stop_em": {
+      "api_name": "stock_zh_a_stop_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_kcb_spot": {
+      "api_name": "stock_zh_kcb_spot",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "Can not decode value starting with character '<'",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_zh_kcb_daily": {
+      "api_name": "stock_zh_kcb_daily",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "No value to decode",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_zh_kcb_report_em": {
+      "api_name": "stock_zh_kcb_report_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "list index out of range",
+      "error_type": "IndexError"
+    },
+    "stock_zh_ah_spot_em": {
+      "api_name": "stock_zh_ah_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_ah_spot": {
+      "api_name": "stock_zh_ah_spot",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1983,
+      "sample_keys": [
+        "代码",
+        "名称",
+        "最新价",
+        "涨跌幅",
+        "涨跌额",
+        "买入",
+        "卖出",
+        "成交量",
+        "成交额",
+        "今开",
+        "昨收",
+        "最高",
+        "最低"
+      ],
+      "sample_dtypes": {
+        "代码": "str",
+        "名称": "str",
+        "最新价": "float64",
+        "涨跌幅": "float64",
+        "涨跌额": "float64",
+        "买入": "float64",
+        "卖出": "float64",
+        "成交量": "float64",
+        "成交额": "float64",
+        "今开": "float64",
+        "昨收": "float64",
+        "最高": "float64",
+        "最低": "float64"
+      },
+      "sample_data": [
+        {
+          "代码": "02068",
+          "名称": "中铝国际",
+          "最新价": 2.77,
+          "涨跌幅": 0.0,
+          "涨跌额": 0.0,
+          "买入": 2.77,
+          "卖出": 2.77,
+          "成交量": 8701000.0,
+          "成交额": 23711520.0,
+          "今开": 2.78,
+          "昨收": 2.77,
+          "最高": 2.78,
+          "最低": 2.66
+        },
+        {
+          "代码": "00991",
+          "名称": "大唐发电",
+          "最新价": 2.67,
+          "涨跌幅": 0.75,
+          "涨跌额": 0.02,
+          "买入": 2.67,
+          "卖出": 2.67,
+          "成交量": 40760800.0,
+          "成交额": 107554456.0,
+          "今开": 2.6,
+          "昨收": 2.65,
+          "最高": 2.68,
+          "最低": 2.56
+        },
+        {
+          "代码": "03369",
+          "名称": "秦港股份",
+          "最新价": 2.67,
+          "涨跌幅": 3.09,
+          "涨跌额": 0.08,
+          "买入": 2.67,
+          "卖出": 2.67,
+          "成交量": 1629000.0,
+          "成交额": 4287230.0,
+          "今开": 2.61,
+          "昨收": 2.59,
+          "最高": 2.69,
+          "最低": 2.58
+        }
+      ],
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_ah_daily": {
+      "api_name": "stock_zh_ah_daily",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "sample_keys": null,
+      "sample_dtypes": null,
+      "sample_data": null,
+      "error": "'日期'",
+      "error_type": "KeyError"
+    },
+    "stock_zh_ah_name": {
+      "api_name": "stock_zh_ah_name",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1462,
+      "sample_keys": [
+        "代码",
+        "名称"
+      ],
+      "sample_dtypes": {
+        "代码": "str",
+        "名称": "str"
+      },
+      "sample_data": [
+        {
+          "代码": "02068",
+          "名称": "中铝国际"
+        },
+        {
+          "代码": "00991",
+          "名称": "大唐发电"
+        },
+        {
+          "代码": "03369",
+          "名称": "秦港股份"
+        }
+      ],
+      "error": null,
+      "error_type": null
+    }
+  },
+  "summary": {
+    "total": 368,
+    "tested": 50,
+    "success": 13,
+    "failed": 36,
+    "timeout": 0,
+    "error": 1
+  }
+}

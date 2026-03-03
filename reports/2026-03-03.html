@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>AkShare API 测试报告 - 2026-03-03</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: -apple-system, sans-serif; background: #f5f7fa; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; margin-bottom: 20px; }
+        .header h1 { margin: 0 0 10px 0; }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; }
+        .stat { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .stat .num { font-size: 36px; font-weight: bold; }
+        .stat .label { color: #666; margin-top: 5px; }
+        .stat.success .num { color: #10b981; }
+        .stat.failed .num { color: #ef4444; }
+        .stat.error .num { color: #f59e0b; }
+        .stat.total .num { color: #3b82f6; }
+        .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .chart-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .changes { background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .change { padding: 10px; margin: 5px 0; border-radius: 6px; }
+        .change.new { background: #d1fae5; }
+        .change.removed { background: #fee2e2; }
+        .change.status { background: #fef3c7; }
+        .change.ok { background: #d1fae5; color: #065f46; text-align: center; }
+        table { width: 100%; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #f9fafb; position: sticky; top: 0; }
+        .badge { padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+        .badge.success { background: #d1fae5; color: #065f46; }
+        .badge.failed { background: #fee2e2; color: #991b1b; }
+        .badge.error { background: #fef3c7; color: #92400e; }
+        .badge.cat { background: #e0e7ff; color: #3730a3; }
+        .error { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #666; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 AkShare API 测试报告</h1>
+            <div>测试日期: 2026-03-03 02:29:01 | 耗时: 4221 秒</div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat total"><div class="num">368</div><div class="label">总接口数</div></div>
+            <div class="stat success"><div class="num">272</div><div class="label">成功 (73.9%)</div></div>
+            <div class="stat failed"><div class="num">95</div><div class="label">失败</div></div>
+            <div class="stat error"><div class="num">1</div><div class="label">错误</div></div>
+        </div>
+        
+        <div class="charts">
+            <div class="chart-card"><h3>分类统计</h3><canvas id="catChart"></canvas></div>
+            <div class="chart-card"><h3>状态分布</h3><canvas id="statusChart"></canvas></div>
+        </div>
+        
+        <div class="changes">
+            <h3>🔄 变更情况</h3>
+            <div class="change new">
+        <strong>✨ 新增接口 (363 个)</strong><br>
+        news_report_time_baidu, news_trade_notify_dividend_baidu, news_trade_notify_suspend_baidu, stock_a_all_pb, stock_a_below_net_asset_statistics, stock_a_congestion_lg, stock_a_gxl_lg, stock_a_high_low_statistics, stock_a_ttm_lyr, stock_account_statistics_em
+        <br>... 还有 353 个
+    </div>
+        </div>
+        
+        <table>
+            <thead><tr><th>接口名称</th><th>分类</th><th>状态</th><th>响应时间</th><th>错误信息</th></tr></thead>
+            <tbody><tr>
+        <td><code>news_report_time_baidu</code></td>
+        <td><span class="badge cat">news</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>285ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>news_trade_notify_dividend_baidu</code></td>
+        <td><span class="badge cat">news</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>272ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>news_trade_notify_suspend_baidu</code></td>
+        <td><span class="badge cat">news</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>266ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_a_all_pb</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_a_below_net_asset_statistics</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">'marketId'</td>
+    </tr><tr>
+        <td><code>stock_a_congestion_lg</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_a_gxl_lg</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_a_high_low_statistics</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>170ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_a_ttm_lyr</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_account_statistics_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>75ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_add_stock</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>121ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_allotment_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>210ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_analyst_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>289ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_analyst_rank_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>284ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_balance_sheet_by_report_delisted_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>190ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_balance_sheet_by_report_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>5033ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_balance_sheet_by_yearly_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2022ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_bid_ask_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_bj_a_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_board_change_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>109ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_board_concept_cons_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_board_concept_hist_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_board_concept_hist_min_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_board_concept_index_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>8871ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_board_concept_info_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>741ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_board_concept_name_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_board_concept_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_board_industry_cons_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_board_industry_hist_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_board_industry_hist_min_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_board_industry_index_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1243ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_board_industry_name_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_board_industry_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_board_industry_summary_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1463ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_buffett_index_lg</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_cash_flow_sheet_by_quarterly_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>4208ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_cash_flow_sheet_by_report_delisted_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>428ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_cash_flow_sheet_by_report_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>4338ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_cash_flow_sheet_by_yearly_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1349ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_cg_equity_mortgage_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>473ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_cg_guarantee_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>434ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_cg_lawsuit_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">'records'</td>
+    </tr><tr>
+        <td><code>stock_changes_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>203ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_circulate_stock_holder</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>426ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_comment_detail_scrd_desire_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>70ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_comment_detail_scrd_focus_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>50ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_comment_detail_zhpj_lspf_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>56ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_comment_detail_zlkp_jgcyd_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>125ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_comment_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1636ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_concept_cons_futu</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_concept_fund_flow_hist</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_cy_a_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_cyq_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_dividend_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>198ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_dxsyl_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>4412ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_dzjy_hygtj</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>512ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_dzjy_hyyybtj</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>291ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_dzjy_mrmx</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>57ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_dzjy_mrtj</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>180ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_dzjy_sctj</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>804ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_dzjy_yybph</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>471ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_ebs_lg</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_esg_hz_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>16211ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_esg_msci_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>8090ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_esg_rate_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>852704ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_esg_rft_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>191ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_esg_zd_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>51867ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_fhps_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>199ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_fhps_detail_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>280ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_fhps_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2073ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_abstract</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>693ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_abstract_new_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>287ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_analysis_indicator</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>118ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_analysis_indicator_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>97ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_benefit_new_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>335ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_cash_new_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>446ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_debt_new_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>301ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_hk_analysis_indicator_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>54ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_hk_report_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>198ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_report_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>846ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_us_analysis_indicator_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>129ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_financial_us_report_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>306ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_fund_flow_big_deal</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>47591ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_fund_flow_concept</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>925ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_fund_flow_individual</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>34121ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_fund_flow_industry</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>346ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_fund_stock_holder</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>290ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gddh_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2248ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gdfx_free_holding_analyse_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>74536ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gdfx_free_holding_change_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>15730ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gdfx_free_holding_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>40345ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gdfx_free_holding_statistics_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Length mismatch: Expected axis has 18 elements, ne</td>
+    </tr><tr>
+        <td><code>stock_gdfx_free_holding_teamwork_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>7411ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gdfx_free_top_10_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>391ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gdfx_holding_analyse_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>76712ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gdfx_holding_change_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Length mismatch: Expected axis has 21 elements, ne</td>
+    </tr><tr>
+        <td><code>stock_gdfx_holding_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>10234ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gdfx_holding_statistics_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Length mismatch: Expected axis has 18 elements, ne</td>
+    </tr><tr>
+        <td><code>stock_gdfx_holding_teamwork_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>8373ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gdfx_top_10_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>89ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_ggcg_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>64387ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gpzy_distribute_statistics_bank_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">stock_gpzy_distribute_statistics_bank_em() got an </td>
+    </tr><tr>
+        <td><code>stock_gpzy_distribute_statistics_company_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">stock_gpzy_distribute_statistics_company_em() got </td>
+    </tr><tr>
+        <td><code>stock_gpzy_industry_data_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>96ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gpzy_pledge_ratio_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>157218ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gpzy_pledge_ratio_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>931ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gpzy_profile_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>338ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_gsrl_gsdt_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>117ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_history_dividend</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>817ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_history_dividend_detail</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>235ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_company_profile_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>48ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_daily</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>258ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_dividend_payout_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>96ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_famous_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_hk_fhpx_detail_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>191ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_financial_indicator_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>50ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_ggt_components_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_hk_growth_comparison_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>114ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_gxl_lg</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_hk_hist</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_hk_hist_min_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_hk_hot_rank_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>25ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_hot_rank_detail_realtime_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>25ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_hot_rank_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_hk_hot_rank_latest_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>26ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_indicator_eniu</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>198ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_main_board_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_hk_profit_forecast_et</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>562ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_scale_comparison_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>65ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_security_profile_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>45ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_spot</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>82626ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_hk_valuation_baidu</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>102ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hk_valuation_comparison_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>57ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hold_change_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>3470ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hold_control_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1421ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hold_management_detail_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>5654ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hold_management_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>143546ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hold_management_person_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>132ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hold_num_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2513ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hot_deal_xq</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>15166ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hot_follow_xq</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>14193ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hot_keyword_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>27ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hot_rank_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>69ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hot_rank_detail_realtime_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>26ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hot_rank_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_hot_rank_latest_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>30ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hot_rank_relate_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>23ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hot_search_baidu</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>87ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hot_tweet_xq</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>15299ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hot_up_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_hsgt_board_rank_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>320ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hsgt_fund_flow_summary_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>108ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hsgt_fund_min_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>26ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hsgt_hist_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>590ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hsgt_hold_stock_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>705ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hsgt_individual_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">'NoneType' object is not subscriptable</td>
+    </tr><tr>
+        <td><code>stock_hsgt_individual_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>668ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_hsgt_institution_statistics_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">stock_hsgt_institution_statistics_em() got an unex</td>
+    </tr><tr>
+        <td><code>stock_hsgt_sh_hk_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_hsgt_stock_statistics_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>70ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_index_pb_lg</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_index_pe_lg</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_individual_basic_info_hk_xq</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>120ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_individual_basic_info_us_xq</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>90ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_individual_basic_info_xq</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>146ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_individual_fund_flow</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>37ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_individual_fund_flow_rank</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_individual_info_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_individual_spot_xq</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>429ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_industry_category_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>267ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_industry_change_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>209ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_industry_clf_hist_sw</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>319ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_industry_pe_ratio_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Length mismatch: Expected axis has 0 elements, new</td>
+    </tr><tr>
+        <td><code>stock_info_a_code_name</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>5086ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_info_bj_name_code</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>0ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_info_change_name</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>106ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_info_sh_delist</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>153ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_info_sh_name_code</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>633ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_info_sz_change_name</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>396ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_info_sz_delist</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>207ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_info_sz_name_code</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1389ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_inner_trade_xq</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1490ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_institute_hold</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>324ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_institute_hold_detail</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>153ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_institute_recommend</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">[Errno 2] No such file or directory: <!DOCTYPE htm</td>
+    </tr><tr>
+        <td><code>stock_institute_recommend_detail</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">[Errno 2] No such file or directory: <!DOCTYPE htm</td>
+    </tr><tr>
+        <td><code>stock_intraday_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_intraday_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_ipo_benefit_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">'NoneType' object has no attribute 'text'</td>
+    </tr><tr>
+        <td><code>stock_ipo_declare_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1303ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_ipo_info</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>161ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_ipo_review_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2086ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_ipo_summary_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>149ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_ipo_tutor_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1457ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_irm_ans_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>165ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_irm_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1318ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_jgdy_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">stock_jgdy_detail_em() got an unexpected keyword a</td>
+    </tr><tr>
+        <td><code>stock_jgdy_tj_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>11713ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_kc_a_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_lh_yyb_capital</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>3338ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lh_yyb_control</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2399ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lh_yyb_most</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2649ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_detail_daily_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>374ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>546ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_ggtj_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>769ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_hyyyb_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>204ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_jgmmtj_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>260ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_jgmx_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>678ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_jgstatistic_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>193ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_jgzz_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>808ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_stock_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>63ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_stock_statistic_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>137ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_traderstatistic_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>292ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_yyb_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>209ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_yybph_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>619ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lhb_yytj_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2769ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_lrb_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2261ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_main_fund_flow</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_main_stock_holder</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>509ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_management_change_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>389ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_margin_account_info</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>853ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_margin_detail_sse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>348ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_margin_detail_szse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_margin_ratio_pa</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>560ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_margin_sse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>235ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_margin_szse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_margin_underlying_info_szse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_market_activity_legu</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>523ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_market_fund_flow</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>34ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_market_pb_lg</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_market_pe_lg</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_new_a_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_new_gh_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Length mismatch: Expected axis has 0 elements, new</td>
+    </tr><tr>
+        <td><code>stock_new_ipo_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>266ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_news_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>25ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_news_main_cx</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>384ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_notice_report</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1310ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_pg_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>519ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_price_js</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_profile_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>137ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_profit_forecast_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1294ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_profit_forecast_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>369ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_profit_sheet_by_quarterly_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>4475ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_profit_sheet_by_report_delisted_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>136ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_profit_sheet_by_report_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>3892ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_profit_sheet_by_yearly_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1446ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_qbzf_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2602ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_qsjy_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>79ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_rank_cxfl_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2601ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_rank_cxsl_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1141ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_rank_forecast_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>325ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_rank_ljqd_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>8525ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_rank_ljqs_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>7352ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_rank_xstp_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>32588ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_rank_xxtp_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>28680ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_rank_xzjp_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>177ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_register_all_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1090ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_register_bj</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>317ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_register_cyb</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>535ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_register_db</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>300ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_register_kcb</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>413ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_register_sh</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>302ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_register_sz</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>310ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_report_disclosure</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1499ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_report_fund_hold</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2120ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_report_fund_hold_detail</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>59ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_repurchase_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>3220ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_research_report_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>181ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_restricted_release_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1863ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_restricted_release_queue_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>66ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_restricted_release_queue_sina</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>110ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_restricted_release_stockholder_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>43ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_restricted_release_summary_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>78ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_sector_detail</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>622ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_sector_fund_flow_hist</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_sector_fund_flow_rank</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_sector_fund_flow_summary</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_sector_spot</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>129ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_sgt_reference_exchange_rate_sse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>142ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_sgt_reference_exchange_rate_szse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">stock_sgt_reference_exchange_rate_szse() got an un</td>
+    </tr><tr>
+        <td><code>stock_sgt_settlement_exchange_rate_sse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>133ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_sgt_settlement_exchange_rate_szse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">stock_sgt_settlement_exchange_rate_szse() got an u</td>
+    </tr><tr>
+        <td><code>stock_sh_a_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_share_change_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>219ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_share_hold_change_bse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>362ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_share_hold_change_sse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>105ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_share_hold_change_szse</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_shareholder_change_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>309ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_sns_sseinfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>8528ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_sse_deal_daily</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>78ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_sse_summary</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>40ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_staq_net_stop</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_sy_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1567ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_sy_hy_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">stock_sy_hy_em() got an unexpected keyword argumen</td>
+    </tr><tr>
+        <td><code>stock_sy_jz_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">stock_sy_jz_em() got an unexpected keyword argumen</td>
+    </tr><tr>
+        <td><code>stock_sy_profile_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>72ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_sy_yq_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>174ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_sz_a_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_szse_area_summary</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>175ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_szse_sector_summary</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>659ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_szse_summary</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>171ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_tfp_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>408ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_us_daily</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>436ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_us_famous_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_us_hist</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_us_hist_min_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_us_pink_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_us_spot</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>516671ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_us_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_us_valuation_baidu</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>182ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_value_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>344ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_xgsglb_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1463ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_xgsr_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>37027ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_xjll_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2297ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_yjbb_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2918ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_yjkb_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>708ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_yjyg_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1318ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_yysj_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1424ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_yzxdr_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>6430ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zcfz_bj_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>359ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zcfz_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>3348ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zdhtmx_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>2878ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_a_cdr_daily</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>135ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_a_daily</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>309ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_a_disclosure_relation_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>365ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_a_disclosure_report_cninfo</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>647ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_a_gbjg_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>58ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_a_gdhs</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1684ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_a_gdhs_detail_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>300ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_a_hist</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_zh_a_hist_min_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_zh_a_hist_pre_min_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_zh_a_hist_tx</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>15034ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_a_minute</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>730ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_a_new</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Expecting value: line 1 column 1 (char 0)</td>
+    </tr><tr>
+        <td><code>stock_zh_a_new_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_zh_a_spot</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>39080ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_a_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_zh_a_st_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_zh_a_stop_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_zh_a_tick_tx</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge error">错误</span></td>
+        <td>Nonems</td>
+        <td class="error">API not found</td>
+    </tr><tr>
+        <td><code>stock_zh_ab_comparison_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_zh_ah_daily</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>4067ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_ah_name</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1730ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_ah_spot</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>1888ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_ah_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_zh_b_daily</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>499ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_b_minute</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>809ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_b_spot</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Can not decode value starting with character '<'</td>
+    </tr><tr>
+        <td><code>stock_zh_b_spot_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">('Connection aborted.', RemoteDisconnected('Remote</td>
+    </tr><tr>
+        <td><code>stock_zh_dupont_comparison_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>52ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_growth_comparison_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>56ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_kcb_daily</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>994ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_kcb_report_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">list index out of range</td>
+    </tr><tr>
+        <td><code>stock_zh_kcb_spot</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">Can not decode value starting with character '<'</td>
+    </tr><tr>
+        <td><code>stock_zh_scale_comparison_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>68ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_valuation_baidu</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>125ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_valuation_comparison_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>88ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zh_vote_baidu</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>587ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zt_pool_dtgc_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">跌停股池只能获取最近 30 个交易日的数据</td>
+    </tr><tr>
+        <td><code>stock_zt_pool_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>110ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zt_pool_previous_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>119ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zt_pool_strong_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>25ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zt_pool_sub_new_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>27ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zt_pool_zbgc_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge failed">失败</span></td>
+        <td>Nonems</td>
+        <td class="error">炸板股池只能获取最近 30 个交易日的数据</td>
+    </tr><tr>
+        <td><code>stock_zygc_em</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>283ms</td>
+        <td class="error"></td>
+    </tr><tr>
+        <td><code>stock_zyjs_ths</code></td>
+        <td><span class="badge cat">stock</span></td>
+        <td><span class="badge success">成功</span></td>
+        <td>352ms</td>
+        <td class="error"></td>
+    </tr></tbody>
+        </table>
+    </div>
+    
+    <script>
+        new Chart(document.getElementById('catChart'), {
+            type: 'bar',
+            data: {
+                labels: ["news", "stock"],
+                datasets: [
+                    { label: '成功', data: [3, 269], backgroundColor: '#10b981' },
+                    { label: '失败', data: [0, 96], backgroundColor: '#ef4444' }
+                ]
+            },
+            options: { responsive: true, scales: { x: { stacked: true }, y: { stacked: true } } }
+        });
+        
+        new Chart(document.getElementById('statusChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['成功', '失败', '错误'],
+                datasets: [{ data: [272, 95, 1], backgroundColor: ['#10b981', '#ef4444', '#f59e0b'] }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+</body>
+</html>

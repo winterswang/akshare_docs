@@ -1,0 +1,50 @@
+# AkShare API 测试配置
+
+# 测试配置
+test:
+  schedule: "0 2 * * *"        # 每日凌晨2点运行
+  delay_min: 2                 # 最小请求间隔(秒)
+  delay_max: 5                 # 最大请求间隔(秒)
+  timeout: 30                  # API 超时时间(秒)
+  retry: 1                     # 失败重试次数
+  sample_size: 3               # 样本数据条数
+
+# 报告配置
+report:
+  output_dir: reports/         # 输出目录
+  keep_days: 30                # 保留历史天数
+  skills_path: docs/skills.json  # skills.json 路径
+
+# 通知配置
+notify:
+  enabled: false               # 是否启用通知
+  feishu:
+    webhook: ""                # 飞书 Webhook URL
+
+# 分类规则
+categories:
+  stock:
+    - "stock_"
+    - "equity"
+    - "zh_a"
+    - "bj_a"
+  fund:
+    - "fund_"
+    - "etf"
+  bond:
+    - "bond_"
+  futures:
+    - "futures_"
+    - "fut_"
+  forex:
+    - "fx_"
+    - "forex"
+  crypto:
+    - "crypto_"
+    - "btc"
+    - "eth"
+  macro:
+    - "macro_"
+  news:
+    - "news_"
+    - "notice_"

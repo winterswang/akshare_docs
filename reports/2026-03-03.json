@@ -1,0 +1,3411 @@
+{
+  "test_date": "2026-03-03",
+  "test_time": "02:29:01",
+  "duration_seconds": 4221,
+  "summary": {
+    "total": 368,
+    "success": 272,
+    "failed": 95,
+    "error": 1,
+    "by_category": {
+      "stock": {
+        "total": 365,
+        "success": 269,
+        "failed": 95,
+        "error": 1
+      },
+      "news": {
+        "total": 3,
+        "success": 3,
+        "failed": 0,
+        "error": 0
+      }
+    }
+  },
+  "apis": {
+    "stock_sse_summary": {
+      "api_name": "stock_sse_summary",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 40,
+      "error": null,
+      "error_type": null
+    },
+    "stock_szse_summary": {
+      "api_name": "stock_szse_summary",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 171,
+      "error": null,
+      "error_type": null
+    },
+    "stock_szse_area_summary": {
+      "api_name": "stock_szse_area_summary",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 175,
+      "error": null,
+      "error_type": null
+    },
+    "stock_szse_sector_summary": {
+      "api_name": "stock_szse_sector_summary",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 659,
+      "error": null,
+      "error_type": null
+    },
+    "stock_sse_deal_daily": {
+      "api_name": "stock_sse_deal_daily",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 78,
+      "error": null,
+      "error_type": null
+    },
+    "stock_individual_info_em": {
+      "api_name": "stock_individual_info_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_individual_basic_info_xq": {
+      "api_name": "stock_individual_basic_info_xq",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 146,
+      "error": null,
+      "error_type": null
+    },
+    "stock_bid_ask_em": {
+      "api_name": "stock_bid_ask_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_a_spot_em": {
+      "api_name": "stock_zh_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_sh_a_spot_em": {
+      "api_name": "stock_sh_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_sz_a_spot_em": {
+      "api_name": "stock_sz_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_bj_a_spot_em": {
+      "api_name": "stock_bj_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_new_a_spot_em": {
+      "api_name": "stock_new_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_cy_a_spot_em": {
+      "api_name": "stock_cy_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_kc_a_spot_em": {
+      "api_name": "stock_kc_a_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_ab_comparison_em": {
+      "api_name": "stock_zh_ab_comparison_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_a_spot": {
+      "api_name": "stock_zh_a_spot",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 39080,
+      "error": null,
+      "error_type": null
+    },
+    "stock_individual_spot_xq": {
+      "api_name": "stock_individual_spot_xq",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 429,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_hist": {
+      "api_name": "stock_zh_a_hist",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_a_daily": {
+      "api_name": "stock_zh_a_daily",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 309,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_hist_tx": {
+      "api_name": "stock_zh_a_hist_tx",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 15034,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_minute": {
+      "api_name": "stock_zh_a_minute",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 730,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_hist_min_em": {
+      "api_name": "stock_zh_a_hist_min_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_intraday_em": {
+      "api_name": "stock_intraday_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_intraday_sina": {
+      "api_name": "stock_intraday_sina",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_zh_a_hist_pre_min_em": {
+      "api_name": "stock_zh_a_hist_pre_min_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_a_tick_tx": {
+      "api_name": "stock_zh_a_tick_tx",
+      "category": "stock",
+      "status": "error",
+      "response_time_ms": null,
+      "error": "API not found",
+      "error_type": "not_found"
+    },
+    "stock_zh_growth_comparison_em": {
+      "api_name": "stock_zh_growth_comparison_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 56,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_valuation_comparison_em": {
+      "api_name": "stock_zh_valuation_comparison_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 88,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_dupont_comparison_em": {
+      "api_name": "stock_zh_dupont_comparison_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 52,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_scale_comparison_em": {
+      "api_name": "stock_zh_scale_comparison_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 68,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_cdr_daily": {
+      "api_name": "stock_zh_a_cdr_daily",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 135,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_b_spot_em": {
+      "api_name": "stock_zh_b_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_b_spot": {
+      "api_name": "stock_zh_b_spot",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Can not decode value starting with character '<'",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_zh_b_daily": {
+      "api_name": "stock_zh_b_daily",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 499,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_b_minute": {
+      "api_name": "stock_zh_b_minute",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 809,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_new": {
+      "api_name": "stock_zh_a_new",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_gsrl_gsdt_em": {
+      "api_name": "stock_gsrl_gsdt_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 117,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_st_em": {
+      "api_name": "stock_zh_a_st_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_a_new_em": {
+      "api_name": "stock_zh_a_new_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_xgsr_ths": {
+      "api_name": "stock_xgsr_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 37027,
+      "error": null,
+      "error_type": null
+    },
+    "stock_ipo_benefit_ths": {
+      "api_name": "stock_ipo_benefit_ths",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "'NoneType' object has no attribute 'text'",
+      "error_type": "AttributeError"
+    },
+    "stock_zh_a_stop_em": {
+      "api_name": "stock_zh_a_stop_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_kcb_spot": {
+      "api_name": "stock_zh_kcb_spot",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Can not decode value starting with character '<'",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_zh_kcb_daily": {
+      "api_name": "stock_zh_kcb_daily",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 994,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_kcb_report_em": {
+      "api_name": "stock_zh_kcb_report_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "list index out of range",
+      "error_type": "IndexError"
+    },
+    "stock_zh_ah_spot_em": {
+      "api_name": "stock_zh_ah_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_zh_ah_spot": {
+      "api_name": "stock_zh_ah_spot",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1888,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_ah_daily": {
+      "api_name": "stock_zh_ah_daily",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 4067,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_ah_name": {
+      "api_name": "stock_zh_ah_name",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1730,
+      "error": null,
+      "error_type": null
+    },
+    "stock_us_spot_em": {
+      "api_name": "stock_us_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_us_spot": {
+      "api_name": "stock_us_spot",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 516671,
+      "error": null,
+      "error_type": null
+    },
+    "stock_us_hist": {
+      "api_name": "stock_us_hist",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_individual_basic_info_us_xq": {
+      "api_name": "stock_individual_basic_info_us_xq",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 90,
+      "error": null,
+      "error_type": null
+    },
+    "stock_us_hist_min_em": {
+      "api_name": "stock_us_hist_min_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_us_daily": {
+      "api_name": "stock_us_daily",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 436,
+      "error": null,
+      "error_type": null
+    },
+    "stock_us_pink_spot_em": {
+      "api_name": "stock_us_pink_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_us_famous_spot_em": {
+      "api_name": "stock_us_famous_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hk_spot_em": {
+      "api_name": "stock_hk_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hk_main_board_spot_em": {
+      "api_name": "stock_hk_main_board_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hk_spot": {
+      "api_name": "stock_hk_spot",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 82626,
+      "error": null,
+      "error_type": null
+    },
+    "stock_individual_basic_info_hk_xq": {
+      "api_name": "stock_individual_basic_info_hk_xq",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 120,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_hist_min_em": {
+      "api_name": "stock_hk_hist_min_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hk_hist": {
+      "api_name": "stock_hk_hist",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hk_daily": {
+      "api_name": "stock_hk_daily",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 258,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_famous_spot_em": {
+      "api_name": "stock_hk_famous_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hk_security_profile_em": {
+      "api_name": "stock_hk_security_profile_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 45,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_company_profile_em": {
+      "api_name": "stock_hk_company_profile_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 48,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_financial_indicator_em": {
+      "api_name": "stock_hk_financial_indicator_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 50,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_dividend_payout_em": {
+      "api_name": "stock_hk_dividend_payout_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 96,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_growth_comparison_em": {
+      "api_name": "stock_hk_growth_comparison_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 114,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_valuation_comparison_em": {
+      "api_name": "stock_hk_valuation_comparison_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 57,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_scale_comparison_em": {
+      "api_name": "stock_hk_scale_comparison_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 65,
+      "error": null,
+      "error_type": null
+    },
+    "stock_jgdy_tj_em": {
+      "api_name": "stock_jgdy_tj_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 11713,
+      "error": null,
+      "error_type": null
+    },
+    "stock_jgdy_detail_em": {
+      "api_name": "stock_jgdy_detail_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "stock_jgdy_detail_em() got an unexpected keyword argument 'symbol'",
+      "error_type": "TypeError"
+    },
+    "stock_zyjs_ths": {
+      "api_name": "stock_zyjs_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 352,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zygc_em": {
+      "api_name": "stock_zygc_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 283,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gpzy_profile_em": {
+      "api_name": "stock_gpzy_profile_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 338,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gpzy_pledge_ratio_em": {
+      "api_name": "stock_gpzy_pledge_ratio_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 931,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gpzy_pledge_ratio_detail_em": {
+      "api_name": "stock_gpzy_pledge_ratio_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 157218,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gpzy_distribute_statistics_company_em": {
+      "api_name": "stock_gpzy_distribute_statistics_company_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "stock_gpzy_distribute_statistics_company_em() got an unexpected keyword argument 'symbol'",
+      "error_type": "TypeError"
+    },
+    "stock_gpzy_distribute_statistics_bank_em": {
+      "api_name": "stock_gpzy_distribute_statistics_bank_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "stock_gpzy_distribute_statistics_bank_em() got an unexpected keyword argument 'symbol'",
+      "error_type": "TypeError"
+    },
+    "stock_gpzy_industry_data_em": {
+      "api_name": "stock_gpzy_industry_data_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 96,
+      "error": null,
+      "error_type": null
+    },
+    "stock_sy_profile_em": {
+      "api_name": "stock_sy_profile_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 72,
+      "error": null,
+      "error_type": null
+    },
+    "stock_sy_yq_em": {
+      "api_name": "stock_sy_yq_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 174,
+      "error": null,
+      "error_type": null
+    },
+    "stock_sy_jz_em": {
+      "api_name": "stock_sy_jz_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "stock_sy_jz_em() got an unexpected keyword argument 'symbol'",
+      "error_type": "TypeError"
+    },
+    "stock_sy_em": {
+      "api_name": "stock_sy_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1567,
+      "error": null,
+      "error_type": null
+    },
+    "stock_sy_hy_em": {
+      "api_name": "stock_sy_hy_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "stock_sy_hy_em() got an unexpected keyword argument 'symbol'",
+      "error_type": "TypeError"
+    },
+    "stock_account_statistics_em": {
+      "api_name": "stock_account_statistics_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 75,
+      "error": null,
+      "error_type": null
+    },
+    "stock_analyst_rank_em": {
+      "api_name": "stock_analyst_rank_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 284,
+      "error": null,
+      "error_type": null
+    },
+    "stock_analyst_detail_em": {
+      "api_name": "stock_analyst_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 289,
+      "error": null,
+      "error_type": null
+    },
+    "stock_comment_em": {
+      "api_name": "stock_comment_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1636,
+      "error": null,
+      "error_type": null
+    },
+    "stock_comment_detail_zlkp_jgcyd_em": {
+      "api_name": "stock_comment_detail_zlkp_jgcyd_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 125,
+      "error": null,
+      "error_type": null
+    },
+    "stock_comment_detail_zhpj_lspf_em": {
+      "api_name": "stock_comment_detail_zhpj_lspf_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 56,
+      "error": null,
+      "error_type": null
+    },
+    "stock_comment_detail_scrd_focus_em": {
+      "api_name": "stock_comment_detail_scrd_focus_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 50,
+      "error": null,
+      "error_type": null
+    },
+    "stock_comment_detail_scrd_desire_em": {
+      "api_name": "stock_comment_detail_scrd_desire_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 70,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hsgt_fund_flow_summary_em": {
+      "api_name": "stock_hsgt_fund_flow_summary_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 108,
+      "error": null,
+      "error_type": null
+    },
+    "stock_sgt_settlement_exchange_rate_szse": {
+      "api_name": "stock_sgt_settlement_exchange_rate_szse",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "stock_sgt_settlement_exchange_rate_szse() got an unexpected keyword argument 'symbol'",
+      "error_type": "TypeError"
+    },
+    "stock_sgt_settlement_exchange_rate_sse": {
+      "api_name": "stock_sgt_settlement_exchange_rate_sse",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 133,
+      "error": null,
+      "error_type": null
+    },
+    "stock_sgt_reference_exchange_rate_szse": {
+      "api_name": "stock_sgt_reference_exchange_rate_szse",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "stock_sgt_reference_exchange_rate_szse() got an unexpected keyword argument 'symbol'",
+      "error_type": "TypeError"
+    },
+    "stock_sgt_reference_exchange_rate_sse": {
+      "api_name": "stock_sgt_reference_exchange_rate_sse",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 142,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_ggt_components_em": {
+      "api_name": "stock_hk_ggt_components_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hsgt_fund_min_em": {
+      "api_name": "stock_hsgt_fund_min_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 26,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hsgt_board_rank_em": {
+      "api_name": "stock_hsgt_board_rank_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 320,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hsgt_hold_stock_em": {
+      "api_name": "stock_hsgt_hold_stock_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 705,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hsgt_stock_statistics_em": {
+      "api_name": "stock_hsgt_stock_statistics_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 70,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hsgt_institution_statistics_em": {
+      "api_name": "stock_hsgt_institution_statistics_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "stock_hsgt_institution_statistics_em() got an unexpected keyword argument 'symbol'",
+      "error_type": "TypeError"
+    },
+    "stock_hsgt_sh_hk_spot_em": {
+      "api_name": "stock_hsgt_sh_hk_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hsgt_hist_em": {
+      "api_name": "stock_hsgt_hist_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 590,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hsgt_individual_em": {
+      "api_name": "stock_hsgt_individual_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 668,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hsgt_individual_detail_em": {
+      "api_name": "stock_hsgt_individual_detail_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "'NoneType' object is not subscriptable",
+      "error_type": "TypeError"
+    },
+    "stock_tfp_em": {
+      "api_name": "stock_tfp_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 408,
+      "error": null,
+      "error_type": null
+    },
+    "news_trade_notify_suspend_baidu": {
+      "api_name": "news_trade_notify_suspend_baidu",
+      "category": "news",
+      "status": "success",
+      "response_time_ms": 266,
+      "error": null,
+      "error_type": null
+    },
+    "news_trade_notify_dividend_baidu": {
+      "api_name": "news_trade_notify_dividend_baidu",
+      "category": "news",
+      "status": "success",
+      "response_time_ms": 272,
+      "error": null,
+      "error_type": null
+    },
+    "stock_news_em": {
+      "api_name": "stock_news_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 25,
+      "error": null,
+      "error_type": null
+    },
+    "stock_news_main_cx": {
+      "api_name": "stock_news_main_cx",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 384,
+      "error": null,
+      "error_type": null
+    },
+    "news_report_time_baidu": {
+      "api_name": "news_report_time_baidu",
+      "category": "news",
+      "status": "success",
+      "response_time_ms": 285,
+      "error": null,
+      "error_type": null
+    },
+    "stock_dxsyl_em": {
+      "api_name": "stock_dxsyl_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 4412,
+      "error": null,
+      "error_type": null
+    },
+    "stock_xgsglb_em": {
+      "api_name": "stock_xgsglb_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1463,
+      "error": null,
+      "error_type": null
+    },
+    "stock_yjbb_em": {
+      "api_name": "stock_yjbb_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2918,
+      "error": null,
+      "error_type": null
+    },
+    "stock_yjkb_em": {
+      "api_name": "stock_yjkb_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 708,
+      "error": null,
+      "error_type": null
+    },
+    "stock_yjyg_em": {
+      "api_name": "stock_yjyg_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1318,
+      "error": null,
+      "error_type": null
+    },
+    "stock_yysj_em": {
+      "api_name": "stock_yysj_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1424,
+      "error": null,
+      "error_type": null
+    },
+    "stock_report_disclosure": {
+      "api_name": "stock_report_disclosure",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1499,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_disclosure_report_cninfo": {
+      "api_name": "stock_zh_a_disclosure_report_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 647,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_disclosure_relation_cninfo": {
+      "api_name": "stock_zh_a_disclosure_relation_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 365,
+      "error": null,
+      "error_type": null
+    },
+    "stock_industry_category_cninfo": {
+      "api_name": "stock_industry_category_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 267,
+      "error": null,
+      "error_type": null
+    },
+    "stock_industry_change_cninfo": {
+      "api_name": "stock_industry_change_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 209,
+      "error": null,
+      "error_type": null
+    },
+    "stock_share_change_cninfo": {
+      "api_name": "stock_share_change_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 219,
+      "error": null,
+      "error_type": null
+    },
+    "stock_allotment_cninfo": {
+      "api_name": "stock_allotment_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 210,
+      "error": null,
+      "error_type": null
+    },
+    "stock_profile_cninfo": {
+      "api_name": "stock_profile_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 137,
+      "error": null,
+      "error_type": null
+    },
+    "stock_ipo_summary_cninfo": {
+      "api_name": "stock_ipo_summary_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 149,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zcfz_em": {
+      "api_name": "stock_zcfz_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 3348,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zcfz_bj_em": {
+      "api_name": "stock_zcfz_bj_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 359,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lrb_em": {
+      "api_name": "stock_lrb_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2261,
+      "error": null,
+      "error_type": null
+    },
+    "stock_xjll_em": {
+      "api_name": "stock_xjll_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2297,
+      "error": null,
+      "error_type": null
+    },
+    "stock_ggcg_em": {
+      "api_name": "stock_ggcg_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 64387,
+      "error": null,
+      "error_type": null
+    },
+    "stock_fhps_em": {
+      "api_name": "stock_fhps_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2073,
+      "error": null,
+      "error_type": null
+    },
+    "stock_fhps_detail_em": {
+      "api_name": "stock_fhps_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 199,
+      "error": null,
+      "error_type": null
+    },
+    "stock_fhps_detail_ths": {
+      "api_name": "stock_fhps_detail_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 280,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_fhpx_detail_ths": {
+      "api_name": "stock_hk_fhpx_detail_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 191,
+      "error": null,
+      "error_type": null
+    },
+    "stock_fund_flow_individual": {
+      "api_name": "stock_fund_flow_individual",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 34121,
+      "error": null,
+      "error_type": null
+    },
+    "stock_fund_flow_concept": {
+      "api_name": "stock_fund_flow_concept",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 925,
+      "error": null,
+      "error_type": null
+    },
+    "stock_fund_flow_industry": {
+      "api_name": "stock_fund_flow_industry",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 346,
+      "error": null,
+      "error_type": null
+    },
+    "stock_fund_flow_big_deal": {
+      "api_name": "stock_fund_flow_big_deal",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 47591,
+      "error": null,
+      "error_type": null
+    },
+    "stock_individual_fund_flow": {
+      "api_name": "stock_individual_fund_flow",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 37,
+      "error": null,
+      "error_type": null
+    },
+    "stock_individual_fund_flow_rank": {
+      "api_name": "stock_individual_fund_flow_rank",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_market_fund_flow": {
+      "api_name": "stock_market_fund_flow",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 34,
+      "error": null,
+      "error_type": null
+    },
+    "stock_sector_fund_flow_rank": {
+      "api_name": "stock_sector_fund_flow_rank",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_main_fund_flow": {
+      "api_name": "stock_main_fund_flow",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_sector_fund_flow_summary": {
+      "api_name": "stock_sector_fund_flow_summary",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_sector_fund_flow_hist": {
+      "api_name": "stock_sector_fund_flow_hist",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_concept_fund_flow_hist": {
+      "api_name": "stock_concept_fund_flow_hist",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_cyq_em": {
+      "api_name": "stock_cyq_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_gddh_em": {
+      "api_name": "stock_gddh_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2248,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zdhtmx_em": {
+      "api_name": "stock_zdhtmx_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2878,
+      "error": null,
+      "error_type": null
+    },
+    "stock_research_report_em": {
+      "api_name": "stock_research_report_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 181,
+      "error": null,
+      "error_type": null
+    },
+    "stock_notice_report": {
+      "api_name": "stock_notice_report",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1310,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_report_sina": {
+      "api_name": "stock_financial_report_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 846,
+      "error": null,
+      "error_type": null
+    },
+    "stock_balance_sheet_by_report_em": {
+      "api_name": "stock_balance_sheet_by_report_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 5033,
+      "error": null,
+      "error_type": null
+    },
+    "stock_balance_sheet_by_yearly_em": {
+      "api_name": "stock_balance_sheet_by_yearly_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2022,
+      "error": null,
+      "error_type": null
+    },
+    "stock_profit_sheet_by_report_em": {
+      "api_name": "stock_profit_sheet_by_report_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 3892,
+      "error": null,
+      "error_type": null
+    },
+    "stock_profit_sheet_by_yearly_em": {
+      "api_name": "stock_profit_sheet_by_yearly_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1446,
+      "error": null,
+      "error_type": null
+    },
+    "stock_profit_sheet_by_quarterly_em": {
+      "api_name": "stock_profit_sheet_by_quarterly_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 4475,
+      "error": null,
+      "error_type": null
+    },
+    "stock_cash_flow_sheet_by_report_em": {
+      "api_name": "stock_cash_flow_sheet_by_report_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 4338,
+      "error": null,
+      "error_type": null
+    },
+    "stock_cash_flow_sheet_by_yearly_em": {
+      "api_name": "stock_cash_flow_sheet_by_yearly_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1349,
+      "error": null,
+      "error_type": null
+    },
+    "stock_cash_flow_sheet_by_quarterly_em": {
+      "api_name": "stock_cash_flow_sheet_by_quarterly_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 4208,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_debt_new_ths": {
+      "api_name": "stock_financial_debt_new_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 301,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_benefit_new_ths": {
+      "api_name": "stock_financial_benefit_new_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 335,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_cash_new_ths": {
+      "api_name": "stock_financial_cash_new_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 446,
+      "error": null,
+      "error_type": null
+    },
+    "stock_balance_sheet_by_report_delisted_em": {
+      "api_name": "stock_balance_sheet_by_report_delisted_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 190,
+      "error": null,
+      "error_type": null
+    },
+    "stock_profit_sheet_by_report_delisted_em": {
+      "api_name": "stock_profit_sheet_by_report_delisted_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 136,
+      "error": null,
+      "error_type": null
+    },
+    "stock_cash_flow_sheet_by_report_delisted_em": {
+      "api_name": "stock_cash_flow_sheet_by_report_delisted_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 428,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_hk_report_em": {
+      "api_name": "stock_financial_hk_report_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 198,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_us_report_em": {
+      "api_name": "stock_financial_us_report_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 306,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_abstract": {
+      "api_name": "stock_financial_abstract",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 693,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_abstract_new_ths": {
+      "api_name": "stock_financial_abstract_new_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 287,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_analysis_indicator_em": {
+      "api_name": "stock_financial_analysis_indicator_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 97,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_analysis_indicator": {
+      "api_name": "stock_financial_analysis_indicator",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 118,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_hk_analysis_indicator_em": {
+      "api_name": "stock_financial_hk_analysis_indicator_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 54,
+      "error": null,
+      "error_type": null
+    },
+    "stock_financial_us_analysis_indicator_em": {
+      "api_name": "stock_financial_us_analysis_indicator_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 129,
+      "error": null,
+      "error_type": null
+    },
+    "stock_history_dividend": {
+      "api_name": "stock_history_dividend",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 817,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gdfx_free_top_10_em": {
+      "api_name": "stock_gdfx_free_top_10_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 391,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gdfx_top_10_em": {
+      "api_name": "stock_gdfx_top_10_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 89,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gdfx_free_holding_change_em": {
+      "api_name": "stock_gdfx_free_holding_change_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 15730,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gdfx_holding_change_em": {
+      "api_name": "stock_gdfx_holding_change_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Length mismatch: Expected axis has 21 elements, new values have 20 elements",
+      "error_type": "ValueError"
+    },
+    "stock_management_change_ths": {
+      "api_name": "stock_management_change_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 389,
+      "error": null,
+      "error_type": null
+    },
+    "stock_shareholder_change_ths": {
+      "api_name": "stock_shareholder_change_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 309,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gdfx_free_holding_analyse_em": {
+      "api_name": "stock_gdfx_free_holding_analyse_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 74536,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gdfx_holding_analyse_em": {
+      "api_name": "stock_gdfx_holding_analyse_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 76712,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gdfx_free_holding_detail_em": {
+      "api_name": "stock_gdfx_free_holding_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 40345,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gdfx_holding_detail_em": {
+      "api_name": "stock_gdfx_holding_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 10234,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gdfx_free_holding_statistics_em": {
+      "api_name": "stock_gdfx_free_holding_statistics_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Length mismatch: Expected axis has 18 elements, new values have 17 elements",
+      "error_type": "ValueError"
+    },
+    "stock_gdfx_holding_statistics_em": {
+      "api_name": "stock_gdfx_holding_statistics_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Length mismatch: Expected axis has 18 elements, new values have 17 elements",
+      "error_type": "ValueError"
+    },
+    "stock_gdfx_free_holding_teamwork_em": {
+      "api_name": "stock_gdfx_free_holding_teamwork_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 7411,
+      "error": null,
+      "error_type": null
+    },
+    "stock_gdfx_holding_teamwork_em": {
+      "api_name": "stock_gdfx_holding_teamwork_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 8373,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_gdhs": {
+      "api_name": "stock_zh_a_gdhs",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1684,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_gdhs_detail_em": {
+      "api_name": "stock_zh_a_gdhs_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 300,
+      "error": null,
+      "error_type": null
+    },
+    "stock_history_dividend_detail": {
+      "api_name": "stock_history_dividend_detail",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 235,
+      "error": null,
+      "error_type": null
+    },
+    "stock_dividend_cninfo": {
+      "api_name": "stock_dividend_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 198,
+      "error": null,
+      "error_type": null
+    },
+    "stock_ipo_info": {
+      "api_name": "stock_ipo_info",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 161,
+      "error": null,
+      "error_type": null
+    },
+    "stock_ipo_review_em": {
+      "api_name": "stock_ipo_review_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2086,
+      "error": null,
+      "error_type": null
+    },
+    "stock_ipo_tutor_em": {
+      "api_name": "stock_ipo_tutor_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1457,
+      "error": null,
+      "error_type": null
+    },
+    "stock_add_stock": {
+      "api_name": "stock_add_stock",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 121,
+      "error": null,
+      "error_type": null
+    },
+    "stock_restricted_release_queue_sina": {
+      "api_name": "stock_restricted_release_queue_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 110,
+      "error": null,
+      "error_type": null
+    },
+    "stock_restricted_release_summary_em": {
+      "api_name": "stock_restricted_release_summary_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 78,
+      "error": null,
+      "error_type": null
+    },
+    "stock_restricted_release_detail_em": {
+      "api_name": "stock_restricted_release_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1863,
+      "error": null,
+      "error_type": null
+    },
+    "stock_restricted_release_queue_em": {
+      "api_name": "stock_restricted_release_queue_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 66,
+      "error": null,
+      "error_type": null
+    },
+    "stock_restricted_release_stockholder_em": {
+      "api_name": "stock_restricted_release_stockholder_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 43,
+      "error": null,
+      "error_type": null
+    },
+    "stock_circulate_stock_holder": {
+      "api_name": "stock_circulate_stock_holder",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 426,
+      "error": null,
+      "error_type": null
+    },
+    "stock_sector_spot": {
+      "api_name": "stock_sector_spot",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 129,
+      "error": null,
+      "error_type": null
+    },
+    "stock_sector_detail": {
+      "api_name": "stock_sector_detail",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 622,
+      "error": null,
+      "error_type": null
+    },
+    "stock_info_a_code_name": {
+      "api_name": "stock_info_a_code_name",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 5086,
+      "error": null,
+      "error_type": null
+    },
+    "stock_info_sh_name_code": {
+      "api_name": "stock_info_sh_name_code",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 633,
+      "error": null,
+      "error_type": null
+    },
+    "stock_info_sz_name_code": {
+      "api_name": "stock_info_sz_name_code",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1389,
+      "error": null,
+      "error_type": null
+    },
+    "stock_info_bj_name_code": {
+      "api_name": "stock_info_bj_name_code",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 0,
+      "error": null,
+      "error_type": null
+    },
+    "stock_info_sz_delist": {
+      "api_name": "stock_info_sz_delist",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 207,
+      "error": null,
+      "error_type": null
+    },
+    "stock_staq_net_stop": {
+      "api_name": "stock_staq_net_stop",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_info_sh_delist": {
+      "api_name": "stock_info_sh_delist",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 153,
+      "error": null,
+      "error_type": null
+    },
+    "stock_info_change_name": {
+      "api_name": "stock_info_change_name",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 106,
+      "error": null,
+      "error_type": null
+    },
+    "stock_info_sz_change_name": {
+      "api_name": "stock_info_sz_change_name",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 396,
+      "error": null,
+      "error_type": null
+    },
+    "stock_fund_stock_holder": {
+      "api_name": "stock_fund_stock_holder",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 290,
+      "error": null,
+      "error_type": null
+    },
+    "stock_main_stock_holder": {
+      "api_name": "stock_main_stock_holder",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 509,
+      "error": null,
+      "error_type": null
+    },
+    "stock_institute_hold": {
+      "api_name": "stock_institute_hold",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 324,
+      "error": null,
+      "error_type": null
+    },
+    "stock_institute_hold_detail": {
+      "api_name": "stock_institute_hold_detail",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 153,
+      "error": null,
+      "error_type": null
+    },
+    "stock_institute_recommend": {
+      "api_name": "stock_institute_recommend",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "[Errno 2] No such file or directory: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" ",
+      "error_type": "FileNotFoundError"
+    },
+    "stock_institute_recommend_detail": {
+      "api_name": "stock_institute_recommend_detail",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "[Errno 2] No such file or directory: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" ",
+      "error_type": "FileNotFoundError"
+    },
+    "stock_rank_forecast_cninfo": {
+      "api_name": "stock_rank_forecast_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 325,
+      "error": null,
+      "error_type": null
+    },
+    "stock_industry_clf_hist_sw": {
+      "api_name": "stock_industry_clf_hist_sw",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 319,
+      "error": null,
+      "error_type": null
+    },
+    "stock_industry_pe_ratio_cninfo": {
+      "api_name": "stock_industry_pe_ratio_cninfo",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Length mismatch: Expected axis has 0 elements, new values have 12 elements",
+      "error_type": "ValueError"
+    },
+    "stock_new_gh_cninfo": {
+      "api_name": "stock_new_gh_cninfo",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Length mismatch: Expected axis has 0 elements, new values have 6 elements",
+      "error_type": "ValueError"
+    },
+    "stock_new_ipo_cninfo": {
+      "api_name": "stock_new_ipo_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 266,
+      "error": null,
+      "error_type": null
+    },
+    "stock_share_hold_change_sse": {
+      "api_name": "stock_share_hold_change_sse",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 105,
+      "error": null,
+      "error_type": null
+    },
+    "stock_share_hold_change_szse": {
+      "api_name": "stock_share_hold_change_szse",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_share_hold_change_bse": {
+      "api_name": "stock_share_hold_change_bse",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 362,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hold_num_cninfo": {
+      "api_name": "stock_hold_num_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2513,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hold_change_cninfo": {
+      "api_name": "stock_hold_change_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 3470,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hold_control_cninfo": {
+      "api_name": "stock_hold_control_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1421,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hold_management_detail_cninfo": {
+      "api_name": "stock_hold_management_detail_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 5654,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hold_management_detail_em": {
+      "api_name": "stock_hold_management_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 143546,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hold_management_person_em": {
+      "api_name": "stock_hold_management_person_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 132,
+      "error": null,
+      "error_type": null
+    },
+    "stock_cg_guarantee_cninfo": {
+      "api_name": "stock_cg_guarantee_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 434,
+      "error": null,
+      "error_type": null
+    },
+    "stock_cg_lawsuit_cninfo": {
+      "api_name": "stock_cg_lawsuit_cninfo",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "'records'",
+      "error_type": "KeyError"
+    },
+    "stock_cg_equity_mortgage_cninfo": {
+      "api_name": "stock_cg_equity_mortgage_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 473,
+      "error": null,
+      "error_type": null
+    },
+    "stock_price_js": {
+      "api_name": "stock_price_js",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_qsjy_em": {
+      "api_name": "stock_qsjy_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 79,
+      "error": null,
+      "error_type": null
+    },
+    "stock_a_gxl_lg": {
+      "api_name": "stock_a_gxl_lg",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_hk_gxl_lg": {
+      "api_name": "stock_hk_gxl_lg",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_a_congestion_lg": {
+      "api_name": "stock_a_congestion_lg",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_ebs_lg": {
+      "api_name": "stock_ebs_lg",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_buffett_index_lg": {
+      "api_name": "stock_buffett_index_lg",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_a_ttm_lyr": {
+      "api_name": "stock_a_ttm_lyr",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_a_all_pb": {
+      "api_name": "stock_a_all_pb",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_market_pe_lg": {
+      "api_name": "stock_market_pe_lg",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_index_pe_lg": {
+      "api_name": "stock_index_pe_lg",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_market_pb_lg": {
+      "api_name": "stock_market_pb_lg",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_index_pb_lg": {
+      "api_name": "stock_index_pb_lg",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_zh_valuation_baidu": {
+      "api_name": "stock_zh_valuation_baidu",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 125,
+      "error": null,
+      "error_type": null
+    },
+    "stock_value_em": {
+      "api_name": "stock_value_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 344,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_vote_baidu": {
+      "api_name": "stock_zh_vote_baidu",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 587,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_indicator_eniu": {
+      "api_name": "stock_hk_indicator_eniu",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 198,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_valuation_baidu": {
+      "api_name": "stock_hk_valuation_baidu",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 102,
+      "error": null,
+      "error_type": null
+    },
+    "stock_us_valuation_baidu": {
+      "api_name": "stock_us_valuation_baidu",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 182,
+      "error": null,
+      "error_type": null
+    },
+    "stock_a_high_low_statistics": {
+      "api_name": "stock_a_high_low_statistics",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 170,
+      "error": null,
+      "error_type": null
+    },
+    "stock_a_below_net_asset_statistics": {
+      "api_name": "stock_a_below_net_asset_statistics",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "'marketId'",
+      "error_type": "KeyError"
+    },
+    "stock_report_fund_hold": {
+      "api_name": "stock_report_fund_hold",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2120,
+      "error": null,
+      "error_type": null
+    },
+    "stock_report_fund_hold_detail": {
+      "api_name": "stock_report_fund_hold_detail",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 59,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_detail_em": {
+      "api_name": "stock_lhb_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 546,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_stock_statistic_em": {
+      "api_name": "stock_lhb_stock_statistic_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 137,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_jgmmtj_em": {
+      "api_name": "stock_lhb_jgmmtj_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 260,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_jgstatistic_em": {
+      "api_name": "stock_lhb_jgstatistic_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 193,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_hyyyb_em": {
+      "api_name": "stock_lhb_hyyyb_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 204,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_yyb_detail_em": {
+      "api_name": "stock_lhb_yyb_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 209,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_yybph_em": {
+      "api_name": "stock_lhb_yybph_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 619,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_traderstatistic_em": {
+      "api_name": "stock_lhb_traderstatistic_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 292,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_stock_detail_em": {
+      "api_name": "stock_lhb_stock_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 63,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lh_yyb_most": {
+      "api_name": "stock_lh_yyb_most",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2649,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lh_yyb_capital": {
+      "api_name": "stock_lh_yyb_capital",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 3338,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lh_yyb_control": {
+      "api_name": "stock_lh_yyb_control",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2399,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_detail_daily_sina": {
+      "api_name": "stock_lhb_detail_daily_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 374,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_ggtj_sina": {
+      "api_name": "stock_lhb_ggtj_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 769,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_yytj_sina": {
+      "api_name": "stock_lhb_yytj_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2769,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_jgzz_sina": {
+      "api_name": "stock_lhb_jgzz_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 808,
+      "error": null,
+      "error_type": null
+    },
+    "stock_lhb_jgmx_sina": {
+      "api_name": "stock_lhb_jgmx_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 678,
+      "error": null,
+      "error_type": null
+    },
+    "stock_ipo_declare_em": {
+      "api_name": "stock_ipo_declare_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1303,
+      "error": null,
+      "error_type": null
+    },
+    "stock_register_all_em": {
+      "api_name": "stock_register_all_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1090,
+      "error": null,
+      "error_type": null
+    },
+    "stock_register_kcb": {
+      "api_name": "stock_register_kcb",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 413,
+      "error": null,
+      "error_type": null
+    },
+    "stock_register_cyb": {
+      "api_name": "stock_register_cyb",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 535,
+      "error": null,
+      "error_type": null
+    },
+    "stock_register_sh": {
+      "api_name": "stock_register_sh",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 302,
+      "error": null,
+      "error_type": null
+    },
+    "stock_register_sz": {
+      "api_name": "stock_register_sz",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 310,
+      "error": null,
+      "error_type": null
+    },
+    "stock_register_bj": {
+      "api_name": "stock_register_bj",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 317,
+      "error": null,
+      "error_type": null
+    },
+    "stock_register_db": {
+      "api_name": "stock_register_db",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 300,
+      "error": null,
+      "error_type": null
+    },
+    "stock_qbzf_em": {
+      "api_name": "stock_qbzf_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2602,
+      "error": null,
+      "error_type": null
+    },
+    "stock_pg_em": {
+      "api_name": "stock_pg_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 519,
+      "error": null,
+      "error_type": null
+    },
+    "stock_repurchase_em": {
+      "api_name": "stock_repurchase_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 3220,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zh_a_gbjg_em": {
+      "api_name": "stock_zh_a_gbjg_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 58,
+      "error": null,
+      "error_type": null
+    },
+    "stock_dzjy_sctj": {
+      "api_name": "stock_dzjy_sctj",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 804,
+      "error": null,
+      "error_type": null
+    },
+    "stock_dzjy_mrmx": {
+      "api_name": "stock_dzjy_mrmx",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 57,
+      "error": null,
+      "error_type": null
+    },
+    "stock_dzjy_mrtj": {
+      "api_name": "stock_dzjy_mrtj",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 180,
+      "error": null,
+      "error_type": null
+    },
+    "stock_dzjy_hygtj": {
+      "api_name": "stock_dzjy_hygtj",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 512,
+      "error": null,
+      "error_type": null
+    },
+    "stock_dzjy_hyyybtj": {
+      "api_name": "stock_dzjy_hyyybtj",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 291,
+      "error": null,
+      "error_type": null
+    },
+    "stock_dzjy_yybph": {
+      "api_name": "stock_dzjy_yybph",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 471,
+      "error": null,
+      "error_type": null
+    },
+    "stock_yzxdr_em": {
+      "api_name": "stock_yzxdr_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 6430,
+      "error": null,
+      "error_type": null
+    },
+    "stock_margin_ratio_pa": {
+      "api_name": "stock_margin_ratio_pa",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 560,
+      "error": null,
+      "error_type": null
+    },
+    "stock_margin_account_info": {
+      "api_name": "stock_margin_account_info",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 853,
+      "error": null,
+      "error_type": null
+    },
+    "stock_margin_sse": {
+      "api_name": "stock_margin_sse",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 235,
+      "error": null,
+      "error_type": null
+    },
+    "stock_margin_detail_sse": {
+      "api_name": "stock_margin_detail_sse",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 348,
+      "error": null,
+      "error_type": null
+    },
+    "stock_margin_szse": {
+      "api_name": "stock_margin_szse",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_margin_detail_szse": {
+      "api_name": "stock_margin_detail_szse",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_margin_underlying_info_szse": {
+      "api_name": "stock_margin_underlying_info_szse",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_profit_forecast_em": {
+      "api_name": "stock_profit_forecast_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1294,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_profit_forecast_et": {
+      "api_name": "stock_hk_profit_forecast_et",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 562,
+      "error": null,
+      "error_type": null
+    },
+    "stock_profit_forecast_ths": {
+      "api_name": "stock_profit_forecast_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 369,
+      "error": null,
+      "error_type": null
+    },
+    "stock_board_concept_index_ths": {
+      "api_name": "stock_board_concept_index_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 8871,
+      "error": null,
+      "error_type": null
+    },
+    "stock_board_concept_info_ths": {
+      "api_name": "stock_board_concept_info_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 741,
+      "error": null,
+      "error_type": null
+    },
+    "stock_board_concept_name_em": {
+      "api_name": "stock_board_concept_name_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_board_concept_spot_em": {
+      "api_name": "stock_board_concept_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_board_concept_cons_em": {
+      "api_name": "stock_board_concept_cons_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_board_concept_hist_em": {
+      "api_name": "stock_board_concept_hist_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_board_concept_hist_min_em": {
+      "api_name": "stock_board_concept_hist_min_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_concept_cons_futu": {
+      "api_name": "stock_concept_cons_futu",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "error_type": "JSONDecodeError"
+    },
+    "stock_board_industry_summary_ths": {
+      "api_name": "stock_board_industry_summary_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1463,
+      "error": null,
+      "error_type": null
+    },
+    "stock_board_industry_index_ths": {
+      "api_name": "stock_board_industry_index_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1243,
+      "error": null,
+      "error_type": null
+    },
+    "stock_board_industry_name_em": {
+      "api_name": "stock_board_industry_name_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_board_industry_spot_em": {
+      "api_name": "stock_board_industry_spot_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_board_industry_cons_em": {
+      "api_name": "stock_board_industry_cons_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_board_industry_hist_em": {
+      "api_name": "stock_board_industry_hist_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_board_industry_hist_min_em": {
+      "api_name": "stock_board_industry_hist_min_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hot_follow_xq": {
+      "api_name": "stock_hot_follow_xq",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 14193,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hot_tweet_xq": {
+      "api_name": "stock_hot_tweet_xq",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 15299,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hot_deal_xq": {
+      "api_name": "stock_hot_deal_xq",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 15166,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hot_rank_em": {
+      "api_name": "stock_hot_rank_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hot_up_em": {
+      "api_name": "stock_hot_up_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hk_hot_rank_em": {
+      "api_name": "stock_hk_hot_rank_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error_type": "ConnectionError"
+    },
+    "stock_hot_rank_detail_em": {
+      "api_name": "stock_hot_rank_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 69,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_hot_rank_detail_em": {
+      "api_name": "stock_hk_hot_rank_detail_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 25,
+      "error": null,
+      "error_type": null
+    },
+    "stock_irm_cninfo": {
+      "api_name": "stock_irm_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1318,
+      "error": null,
+      "error_type": null
+    },
+    "stock_irm_ans_cninfo": {
+      "api_name": "stock_irm_ans_cninfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 165,
+      "error": null,
+      "error_type": null
+    },
+    "stock_sns_sseinfo": {
+      "api_name": "stock_sns_sseinfo",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 8528,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hot_rank_detail_realtime_em": {
+      "api_name": "stock_hot_rank_detail_realtime_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 26,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_hot_rank_detail_realtime_em": {
+      "api_name": "stock_hk_hot_rank_detail_realtime_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 25,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hot_keyword_em": {
+      "api_name": "stock_hot_keyword_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 27,
+      "error": null,
+      "error_type": null
+    },
+    "stock_inner_trade_xq": {
+      "api_name": "stock_inner_trade_xq",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1490,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hot_rank_latest_em": {
+      "api_name": "stock_hot_rank_latest_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 30,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hk_hot_rank_latest_em": {
+      "api_name": "stock_hk_hot_rank_latest_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 26,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hot_search_baidu": {
+      "api_name": "stock_hot_search_baidu",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 87,
+      "error": null,
+      "error_type": null
+    },
+    "stock_hot_rank_relate_em": {
+      "api_name": "stock_hot_rank_relate_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 23,
+      "error": null,
+      "error_type": null
+    },
+    "stock_changes_em": {
+      "api_name": "stock_changes_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 203,
+      "error": null,
+      "error_type": null
+    },
+    "stock_board_change_em": {
+      "api_name": "stock_board_change_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 109,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zt_pool_em": {
+      "api_name": "stock_zt_pool_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 110,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zt_pool_previous_em": {
+      "api_name": "stock_zt_pool_previous_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 119,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zt_pool_strong_em": {
+      "api_name": "stock_zt_pool_strong_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 25,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zt_pool_sub_new_em": {
+      "api_name": "stock_zt_pool_sub_new_em",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 27,
+      "error": null,
+      "error_type": null
+    },
+    "stock_zt_pool_zbgc_em": {
+      "api_name": "stock_zt_pool_zbgc_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "炸板股池只能获取最近 30 个交易日的数据",
+      "error_type": "ValueError"
+    },
+    "stock_zt_pool_dtgc_em": {
+      "api_name": "stock_zt_pool_dtgc_em",
+      "category": "stock",
+      "status": "failed",
+      "response_time_ms": null,
+      "error": "跌停股池只能获取最近 30 个交易日的数据",
+      "error_type": "ValueError"
+    },
+    "stock_market_activity_legu": {
+      "api_name": "stock_market_activity_legu",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 523,
+      "error": null,
+      "error_type": null
+    },
+    "stock_rank_cxfl_ths": {
+      "api_name": "stock_rank_cxfl_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 2601,
+      "error": null,
+      "error_type": null
+    },
+    "stock_rank_cxsl_ths": {
+      "api_name": "stock_rank_cxsl_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 1141,
+      "error": null,
+      "error_type": null
+    },
+    "stock_rank_xstp_ths": {
+      "api_name": "stock_rank_xstp_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 32588,
+      "error": null,
+      "error_type": null
+    },
+    "stock_rank_xxtp_ths": {
+      "api_name": "stock_rank_xxtp_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 28680,
+      "error": null,
+      "error_type": null
+    },
+    "stock_rank_ljqs_ths": {
+      "api_name": "stock_rank_ljqs_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 7352,
+      "error": null,
+      "error_type": null
+    },
+    "stock_rank_ljqd_ths": {
+      "api_name": "stock_rank_ljqd_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 8525,
+      "error": null,
+      "error_type": null
+    },
+    "stock_rank_xzjp_ths": {
+      "api_name": "stock_rank_xzjp_ths",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 177,
+      "error": null,
+      "error_type": null
+    },
+    "stock_esg_rate_sina": {
+      "api_name": "stock_esg_rate_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 852704,
+      "error": null,
+      "error_type": null
+    },
+    "stock_esg_msci_sina": {
+      "api_name": "stock_esg_msci_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 8090,
+      "error": null,
+      "error_type": null
+    },
+    "stock_esg_rft_sina": {
+      "api_name": "stock_esg_rft_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 191,
+      "error": null,
+      "error_type": null
+    },
+    "stock_esg_zd_sina": {
+      "api_name": "stock_esg_zd_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 51867,
+      "error": null,
+      "error_type": null
+    },
+    "stock_esg_hz_sina": {
+      "api_name": "stock_esg_hz_sina",
+      "category": "stock",
+      "status": "success",
+      "response_time_ms": 16211,
+      "error": null,
+      "error_type": null
+    }
+  },
+  "changes": {
+    "new_apis": [
+      "news_report_time_baidu",
+      "news_trade_notify_dividend_baidu",
+      "news_trade_notify_suspend_baidu",
+      "stock_a_all_pb",
+      "stock_a_below_net_asset_statistics",
+      "stock_a_congestion_lg",
+      "stock_a_gxl_lg",
+      "stock_a_high_low_statistics",
+      "stock_a_ttm_lyr",
+      "stock_account_statistics_em",
+      "stock_add_stock",
+      "stock_allotment_cninfo",
+      "stock_analyst_detail_em",
+      "stock_analyst_rank_em",
+      "stock_balance_sheet_by_report_delisted_em",
+      "stock_balance_sheet_by_report_em",
+      "stock_balance_sheet_by_yearly_em",
+      "stock_bid_ask_em",
+      "stock_bj_a_spot_em",
+      "stock_board_change_em",
+      "stock_board_concept_cons_em",
+      "stock_board_concept_hist_em",
+      "stock_board_concept_hist_min_em",
+      "stock_board_concept_index_ths",
+      "stock_board_concept_info_ths",
+      "stock_board_concept_name_em",
+      "stock_board_concept_spot_em",
+      "stock_board_industry_cons_em",
+      "stock_board_industry_hist_em",
+      "stock_board_industry_hist_min_em",
+      "stock_board_industry_index_ths",
+      "stock_board_industry_name_em",
+      "stock_board_industry_spot_em",
+      "stock_board_industry_summary_ths",
+      "stock_buffett_index_lg",
+      "stock_cash_flow_sheet_by_quarterly_em",
+      "stock_cash_flow_sheet_by_report_delisted_em",
+      "stock_cash_flow_sheet_by_report_em",
+      "stock_cash_flow_sheet_by_yearly_em",
+      "stock_cg_equity_mortgage_cninfo",
+      "stock_cg_guarantee_cninfo",
+      "stock_cg_lawsuit_cninfo",
+      "stock_changes_em",
+      "stock_circulate_stock_holder",
+      "stock_comment_detail_scrd_desire_em",
+      "stock_comment_detail_scrd_focus_em",
+      "stock_comment_detail_zhpj_lspf_em",
+      "stock_comment_detail_zlkp_jgcyd_em",
+      "stock_comment_em",
+      "stock_concept_cons_futu",
+      "stock_concept_fund_flow_hist",
+      "stock_cy_a_spot_em",
+      "stock_cyq_em",
+      "stock_dividend_cninfo",
+      "stock_dxsyl_em",
+      "stock_dzjy_hygtj",
+      "stock_dzjy_hyyybtj",
+      "stock_dzjy_mrmx",
+      "stock_dzjy_mrtj",
+      "stock_dzjy_sctj",
+      "stock_dzjy_yybph",
+      "stock_ebs_lg",
+      "stock_esg_hz_sina",
+      "stock_esg_msci_sina",
+      "stock_esg_rate_sina",
+      "stock_esg_rft_sina",
+      "stock_esg_zd_sina",
+      "stock_fhps_detail_em",
+      "stock_fhps_detail_ths",
+      "stock_fhps_em",
+      "stock_financial_abstract",
+      "stock_financial_abstract_new_ths",
+      "stock_financial_analysis_indicator",
+      "stock_financial_analysis_indicator_em",
+      "stock_financial_benefit_new_ths",
+      "stock_financial_cash_new_ths",
+      "stock_financial_debt_new_ths",
+      "stock_financial_hk_analysis_indicator_em",
+      "stock_financial_hk_report_em",
+      "stock_financial_report_sina",
+      "stock_financial_us_analysis_indicator_em",
+      "stock_financial_us_report_em",
+      "stock_fund_flow_big_deal",
+      "stock_fund_flow_concept",
+      "stock_fund_flow_individual",
+      "stock_fund_flow_industry",
+      "stock_fund_stock_holder",
+      "stock_gddh_em",
+      "stock_gdfx_free_holding_analyse_em",
+      "stock_gdfx_free_holding_change_em",
+      "stock_gdfx_free_holding_detail_em",
+      "stock_gdfx_free_holding_statistics_em",
+      "stock_gdfx_free_holding_teamwork_em",
+      "stock_gdfx_free_top_10_em",
+      "stock_gdfx_holding_analyse_em",
+      "stock_gdfx_holding_change_em",
+      "stock_gdfx_holding_detail_em",
+      "stock_gdfx_holding_statistics_em",
+      "stock_gdfx_holding_teamwork_em",
+      "stock_gdfx_top_10_em",
+      "stock_ggcg_em",
+      "stock_gpzy_distribute_statistics_bank_em",
+      "stock_gpzy_distribute_statistics_company_em",
+      "stock_gpzy_industry_data_em",
+      "stock_gpzy_pledge_ratio_detail_em",
+      "stock_gpzy_pledge_ratio_em",
+      "stock_gpzy_profile_em",
+      "stock_gsrl_gsdt_em",
+      "stock_history_dividend",
+      "stock_history_dividend_detail",
+      "stock_hk_company_profile_em",
+      "stock_hk_daily",
+      "stock_hk_dividend_payout_em",
+      "stock_hk_famous_spot_em",
+      "stock_hk_fhpx_detail_ths",
+      "stock_hk_financial_indicator_em",
+      "stock_hk_ggt_components_em",
+      "stock_hk_growth_comparison_em",
+      "stock_hk_gxl_lg",
+      "stock_hk_hist",
+      "stock_hk_hist_min_em",
+      "stock_hk_hot_rank_detail_em",
+      "stock_hk_hot_rank_detail_realtime_em",
+      "stock_hk_hot_rank_em",
+      "stock_hk_hot_rank_latest_em",
+      "stock_hk_indicator_eniu",
+      "stock_hk_main_board_spot_em",
+      "stock_hk_profit_forecast_et",
+      "stock_hk_scale_comparison_em",
+      "stock_hk_security_profile_em",
+      "stock_hk_spot",
+      "stock_hk_spot_em",
+      "stock_hk_valuation_baidu",
+      "stock_hk_valuation_comparison_em",
+      "stock_hold_change_cninfo",
+      "stock_hold_control_cninfo",
+      "stock_hold_management_detail_cninfo",
+      "stock_hold_management_detail_em",
+      "stock_hold_management_person_em",
+      "stock_hold_num_cninfo",
+      "stock_hot_deal_xq",
+      "stock_hot_follow_xq",
+      "stock_hot_keyword_em",
+      "stock_hot_rank_detail_em",
+      "stock_hot_rank_detail_realtime_em",
+      "stock_hot_rank_em",
+      "stock_hot_rank_latest_em",
+      "stock_hot_rank_relate_em",
+      "stock_hot_search_baidu",
+      "stock_hot_tweet_xq",
+      "stock_hot_up_em",
+      "stock_hsgt_board_rank_em",
+      "stock_hsgt_fund_flow_summary_em",
+      "stock_hsgt_fund_min_em",
+      "stock_hsgt_hist_em",
+      "stock_hsgt_hold_stock_em",
+      "stock_hsgt_individual_detail_em",
+      "stock_hsgt_individual_em",
+      "stock_hsgt_institution_statistics_em",
+      "stock_hsgt_sh_hk_spot_em",
+      "stock_hsgt_stock_statistics_em",
+      "stock_index_pb_lg",
+      "stock_index_pe_lg",
+      "stock_individual_basic_info_hk_xq",
+      "stock_individual_basic_info_us_xq",
+      "stock_individual_basic_info_xq",
+      "stock_individual_fund_flow",
+      "stock_individual_fund_flow_rank",
+      "stock_individual_info_em",
+      "stock_individual_spot_xq",
+      "stock_industry_category_cninfo",
+      "stock_industry_change_cninfo",
+      "stock_industry_clf_hist_sw",
+      "stock_industry_pe_ratio_cninfo",
+      "stock_info_a_code_name",
+      "stock_info_bj_name_code",
+      "stock_info_change_name",
+      "stock_info_sh_delist",
+      "stock_info_sh_name_code",
+      "stock_info_sz_change_name",
+      "stock_info_sz_delist",
+      "stock_info_sz_name_code",
+      "stock_inner_trade_xq",
+      "stock_institute_hold",
+      "stock_institute_hold_detail",
+      "stock_institute_recommend",
+      "stock_institute_recommend_detail",
+      "stock_intraday_em",
+      "stock_intraday_sina",
+      "stock_ipo_benefit_ths",
+      "stock_ipo_declare_em",
+      "stock_ipo_info",
+      "stock_ipo_review_em",
+      "stock_ipo_summary_cninfo",
+      "stock_ipo_tutor_em",
+      "stock_irm_ans_cninfo",
+      "stock_irm_cninfo",
+      "stock_jgdy_detail_em",
+      "stock_jgdy_tj_em",
+      "stock_kc_a_spot_em",
+      "stock_lh_yyb_capital",
+      "stock_lh_yyb_control",
+      "stock_lh_yyb_most",
+      "stock_lhb_detail_daily_sina",
+      "stock_lhb_detail_em",
+      "stock_lhb_ggtj_sina",
+      "stock_lhb_hyyyb_em",
+      "stock_lhb_jgmmtj_em",
+      "stock_lhb_jgmx_sina",
+      "stock_lhb_jgstatistic_em",
+      "stock_lhb_jgzz_sina",
+      "stock_lhb_stock_detail_em",
+      "stock_lhb_stock_statistic_em",
+      "stock_lhb_traderstatistic_em",
+      "stock_lhb_yyb_detail_em",
+      "stock_lhb_yybph_em",
+      "stock_lhb_yytj_sina",
+      "stock_lrb_em",
+      "stock_main_fund_flow",
+      "stock_main_stock_holder",
+      "stock_management_change_ths",
+      "stock_margin_account_info",
+      "stock_margin_detail_sse",
+      "stock_margin_detail_szse",
+      "stock_margin_ratio_pa",
+      "stock_margin_sse",
+      "stock_margin_szse",
+      "stock_margin_underlying_info_szse",
+      "stock_market_activity_legu",
+      "stock_market_fund_flow",
+      "stock_market_pb_lg",
+      "stock_market_pe_lg",
+      "stock_new_a_spot_em",
+      "stock_new_gh_cninfo",
+      "stock_new_ipo_cninfo",
+      "stock_news_em",
+      "stock_news_main_cx",
+      "stock_notice_report",
+      "stock_pg_em",
+      "stock_price_js",
+      "stock_profile_cninfo",
+      "stock_profit_forecast_em",
+      "stock_profit_forecast_ths",
+      "stock_profit_sheet_by_quarterly_em",
+      "stock_profit_sheet_by_report_delisted_em",
+      "stock_profit_sheet_by_report_em",
+      "stock_profit_sheet_by_yearly_em",
+      "stock_qbzf_em",
+      "stock_qsjy_em",
+      "stock_rank_cxfl_ths",
+      "stock_rank_cxsl_ths",
+      "stock_rank_forecast_cninfo",
+      "stock_rank_ljqd_ths",
+      "stock_rank_ljqs_ths",
+      "stock_rank_xstp_ths",
+      "stock_rank_xxtp_ths",
+      "stock_rank_xzjp_ths",
+      "stock_register_all_em",
+      "stock_register_bj",
+      "stock_register_cyb",
+      "stock_register_db",
+      "stock_register_kcb",
+      "stock_register_sh",
+      "stock_register_sz",
+      "stock_report_disclosure",
+      "stock_report_fund_hold",
+      "stock_report_fund_hold_detail",
+      "stock_repurchase_em",
+      "stock_research_report_em",
+      "stock_restricted_release_detail_em",
+      "stock_restricted_release_queue_em",
+      "stock_restricted_release_queue_sina",
+      "stock_restricted_release_stockholder_em",
+      "stock_restricted_release_summary_em",
+      "stock_sector_detail",
+      "stock_sector_fund_flow_hist",
+      "stock_sector_fund_flow_rank",
+      "stock_sector_fund_flow_summary",
+      "stock_sector_spot",
+      "stock_sgt_reference_exchange_rate_sse",
+      "stock_sgt_reference_exchange_rate_szse",
+      "stock_sgt_settlement_exchange_rate_sse",
+      "stock_sgt_settlement_exchange_rate_szse",
+      "stock_sh_a_spot_em",
+      "stock_share_change_cninfo",
+      "stock_share_hold_change_bse",
+      "stock_share_hold_change_sse",
+      "stock_share_hold_change_szse",
+      "stock_shareholder_change_ths",
+      "stock_sns_sseinfo",
+      "stock_staq_net_stop",
+      "stock_sy_em",
+      "stock_sy_hy_em",
+      "stock_sy_jz_em",
+      "stock_sy_profile_em",
+      "stock_sy_yq_em",
+      "stock_sz_a_spot_em",
+      "stock_tfp_em",
+      "stock_us_daily",
+      "stock_us_famous_spot_em",
+      "stock_us_hist",
+      "stock_us_hist_min_em",
+      "stock_us_pink_spot_em",
+      "stock_us_spot",
+      "stock_us_spot_em",
+      "stock_us_valuation_baidu",
+      "stock_value_em",
+      "stock_xgsglb_em",
+      "stock_xgsr_ths",
+      "stock_xjll_em",
+      "stock_yjbb_em",
+      "stock_yjkb_em",
+      "stock_yjyg_em",
+      "stock_yysj_em",
+      "stock_yzxdr_em",
+      "stock_zcfz_bj_em",
+      "stock_zcfz_em",
+      "stock_zdhtmx_em",
+      "stock_zh_a_cdr_daily",
+      "stock_zh_a_daily",
+      "stock_zh_a_disclosure_relation_cninfo",
+      "stock_zh_a_disclosure_report_cninfo",
+      "stock_zh_a_gbjg_em",
+      "stock_zh_a_gdhs",
+      "stock_zh_a_gdhs_detail_em",
+      "stock_zh_a_hist",
+      "stock_zh_a_hist_min_em",
+      "stock_zh_a_hist_pre_min_em",
+      "stock_zh_a_hist_tx",
+      "stock_zh_a_minute",
+      "stock_zh_a_new",
+      "stock_zh_a_new_em",
+      "stock_zh_a_spot",
+      "stock_zh_a_spot_em",
+      "stock_zh_a_st_em",
+      "stock_zh_a_stop_em",
+      "stock_zh_a_tick_tx",
+      "stock_zh_ab_comparison_em",
+      "stock_zh_ah_daily",
+      "stock_zh_ah_name",
+      "stock_zh_ah_spot",
+      "stock_zh_ah_spot_em",
+      "stock_zh_b_daily",
+      "stock_zh_b_minute",
+      "stock_zh_b_spot",
+      "stock_zh_b_spot_em",
+      "stock_zh_dupont_comparison_em",
+      "stock_zh_growth_comparison_em",
+      "stock_zh_kcb_daily",
+      "stock_zh_kcb_report_em",
+      "stock_zh_kcb_spot",
+      "stock_zh_scale_comparison_em",
+      "stock_zh_valuation_baidu",
+      "stock_zh_valuation_comparison_em",
+      "stock_zh_vote_baidu",
+      "stock_zt_pool_dtgc_em",
+      "stock_zt_pool_em",
+      "stock_zt_pool_previous_em",
+      "stock_zt_pool_strong_em",
+      "stock_zt_pool_sub_new_em",
+      "stock_zt_pool_zbgc_em",
+      "stock_zygc_em",
+      "stock_zyjs_ths"
+    ],
+    "removed_apis": [],
+    "status_changed": [],
+    "structure_changed": [
+      {
+        "api": "stock_sse_summary",
+        "added_fields": [],
+        "removed_fields": [
+          "项目",
+          "股票",
+          "科创板",
+          "主板"
+        ]
+      },
+      {
+        "api": "stock_szse_sector_summary",
+        "added_fields": [],
+        "removed_fields": [
+          "成交股数-占总计",
+          "项目名称-英文",
+          "交易天数",
+          "项目名称",
+          "成交股数-股数",
+          "成交笔数-占总计",
+          "成交金额-人民币元",
+          "成交笔数-笔",
+          "成交金额-占总计"
+        ]
+      },
+      {
+        "api": "stock_szse_area_summary",
+        "added_fields": [],
+        "removed_fields": [
+          "总交易额",
+          "序号",
+          "股票交易额",
+          "债券交易额",
+          "基金交易额",
+          "地区",
+          "占市场"
+        ]
+      },
+      {
+        "api": "stock_szse_summary",
+        "added_fields": [],
+        "removed_fields": [
+          "数量",
+          "流通市值",
+          "证券类别",
+          "成交金额",
+          "总市值"
+        ]
+      },
+      {
+        "api": "stock_sse_deal_daily",
+        "added_fields": [],
+        "removed_fields": [
+          "主板B",
+          "主板A",
+          "科创板",
+          "股票",
+          "股票回购",
+          "单日情况"
+        ]
+      }
+    ],
+    "performance_changed": [
+      {
+        "api": "stock_sse_deal_daily",
+        "from_ms": 49,
+        "to_ms": 78,
+        "change_ratio": 0.59
+      }
+    ]
+  }
+}
