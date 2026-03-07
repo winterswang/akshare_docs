@@ -111,7 +111,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 雪球财经-个股-公司概况-公司简介",
+      "description": "雪球财经-个股-公司概况-公司简介",
       "parameters": {
         "type": "object",
         "properties": {
@@ -153,7 +153,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-沪深京 A 股-实时行情数据",
+      "description": "东方财富网-沪深京 A 股-实时行情数据",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -165,7 +165,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-沪 A 股-实时行情数据",
+      "description": "东方财富网-沪 A 股-实时行情数据",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -177,7 +177,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-深 A 股-实时行情数据",
+      "description": "东方财富网-深 A 股-实时行情数据",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -189,7 +189,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-京 A 股-实时行情数据",
+      "description": "东方财富网-京 A 股-实时行情数据",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -213,7 +213,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-创业板-实时行情",
+      "description": "东方财富网-创业板-实时行情",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -225,7 +225,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-科创板-实时行情",
+      "description": "东方财富网-科创板-实时行情",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -261,7 +261,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 雪球-行情中心-个股",
+      "description": "雪球-行情中心-个股",
       "parameters": {
         "type": "object",
         "properties": {
@@ -477,7 +477,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 新浪财经-日内分时数据",
+      "description": "新浪财经-日内分时数据",
       "parameters": {
         "type": "object",
         "properties": {
@@ -628,7 +628,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-实时行情数据",
+      "description": "东方财富网-实时行情数据",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -735,7 +735,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深个股-风险警示板",
+      "description": "东方财富网-行情中心-沪深个股-风险警示板",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -747,7 +747,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深个股-新股",
+      "description": "东方财富网-行情中心-沪深个股-新股",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -771,7 +771,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 同花顺-数据中心-新股数据-IPO受益股",
+      "description": "同花顺-数据中心-新股数据-IPO受益股",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -783,7 +783,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深个股-两网及退市",
+      "description": "东方财富网-行情中心-沪深个股-两网及退市",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -828,7 +828,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富-科创板报告数据",
+      "description": "东方财富-科创板报告数据",
       "parameters": {
         "type": "object",
         "properties": {
@@ -849,7 +849,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深港通-AH股比价-实时行情, 延迟 15 分钟更新",
+      "description": "东方财富网-行情中心-沪深港通-AH股比价-实时行情, 延迟 15 分钟更新",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -914,7 +914,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-美股-实时行情",
+      "description": "东方财富网-美股-实时行情",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -938,7 +938,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情-美股-每日行情",
+      "description": "东方财富网-行情-美股-每日行情",
       "parameters": {
         "type": "object",
         "properties": {
@@ -976,7 +976,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 雪球-个股-公司概况-公司简介",
+      "description": "雪球-个股-公司概况-公司简介",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1047,7 +1047,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 美股粉单市场的实时行情数据",
+      "description": "美股粉单市场的实时行情数据",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1059,7 +1059,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 美股-知名美股的实时行情数据",
+      "description": "美股-知名美股的实时行情数据",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1084,7 +1084,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 所有港股的实时行情数据; 该数据有 15 分钟延时",
+      "description": "所有港股的实时行情数据; 该数据有 15 分钟延时",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1096,7 +1096,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 港股主板的实时行情数据; 该数据有 15 分钟延时",
+      "description": "港股主板的实时行情数据; 该数据有 15 分钟延时",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1120,7 +1120,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 雪球-个股-公司概况-公司简介",
+      "description": "雪球-个股-公司概况-公司简介",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1190,7 +1190,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 港股-历史行情数据, 可以选择返回复权后数据, 更新频率为日频",
+      "description": "港股-历史行情数据, 可以选择返回复权后数据, 更新频率为日频",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1249,7 +1249,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-港股市场-知名港股实时行情数据",
+      "description": "东方财富网-行情中心-港股市场-知名港股实时行情数据",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1397,7 +1397,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-机构调研-机构调研详细",
+      "description": "东方财富网-数据中心-特色数据-机构调研-机构调研详细",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1489,7 +1489,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-股权质押-质押机构分布统计-证券公司",
+      "description": "东方财富网-数据中心-特色数据-股权质押-质押机构分布统计-证券公司",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1501,7 +1501,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-股权质押-质押机构分布统计-银行",
+      "description": "东方财富网-数据中心-特色数据-股权质押-质押机构分布统计-银行",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1554,7 +1554,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-商誉-个股商誉减值明细",
+      "description": "东方财富网-数据中心-特色数据-商誉-个股商誉减值明细",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1571,7 +1571,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-商誉-个股商誉明细",
+      "description": "东方财富网-数据中心-特色数据-商誉-个股商誉明细",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1588,7 +1588,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-特色数据-商誉-行业商誉",
+      "description": "东方财富网-数据中心-特色数据-商誉-行业商誉",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1795,7 +1795,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-港股市场-港股通成份股",
+      "description": "东方财富网-行情中心-港股市场-港股通成份股",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -1898,7 +1898,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-沪深港通-沪深港通持股-每日个股统计",
+      "description": "东方财富网-数据中心-沪深港通-沪深港通持股-每日个股统计",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1929,7 +1929,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-沪深港通-沪深港通持股-机构排行",
+      "description": "东方财富网-数据中心-沪深港通-沪深港通持股-机构排行",
       "parameters": {
         "type": "object",
         "properties": {
@@ -1960,7 +1960,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深港通-港股通(沪>港)-股票；按股票代码排序",
+      "description": "东方财富网-行情中心-沪深港通-港股通(沪>港)-股票；按股票代码排序",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -2014,7 +2014,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-沪深港通-沪深港通持股-具体股票-个股详情",
+      "description": "东方财富网-数据中心-沪深港通-沪深港通持股-具体股票-个股详情",
       "parameters": {
         "type": "object",
         "properties": {
@@ -2858,7 +2858,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-排名",
+      "description": "东方财富网-数据中心-资金流向-排名",
       "parameters": {
         "type": "object",
         "properties": {
@@ -2887,7 +2887,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-板块资金流-排名",
+      "description": "东方财富网-数据中心-资金流向-板块资金流-排名",
       "parameters": {
         "type": "object",
         "properties": {
@@ -2918,7 +2918,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-主力净流入排名",
+      "description": "东方财富网-数据中心-资金流向-主力净流入排名",
       "parameters": {
         "type": "object",
         "properties": {
@@ -2945,7 +2945,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-行业资金流-xx行业个股资金流",
+      "description": "东方财富网-数据中心-资金流向-行业资金流-xx行业个股资金流",
       "parameters": {
         "type": "object",
         "properties": {
@@ -2971,7 +2971,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-行业资金流-行业历史资金流",
+      "description": "东方财富网-数据中心-资金流向-行业资金流-行业历史资金流",
       "parameters": {
         "type": "object",
         "properties": {
@@ -2988,7 +2988,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-资金流向-概念资金流-概念历史资金流",
+      "description": "东方财富网-数据中心-资金流向-概念资金流-概念历史资金流",
       "parameters": {
         "type": "object",
         "properties": {
@@ -3005,7 +3005,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-概念板-行情中心-日K-筹码分布",
+      "description": "东方财富网-概念板-行情中心-日K-筹码分布",
       "parameters": {
         "type": "object",
         "properties": {
@@ -3691,7 +3691,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-股东分析-股东持股变动统计-十大股东",
+      "description": "东方财富网-数据中心-股东分析-股东持股变动统计-十大股东",
       "parameters": {
         "type": "object",
         "properties": {
@@ -3832,7 +3832,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-股东分析-股东持股统计-十大股东",
+      "description": "东方财富网-数据中心-股东分析-股东持股统计-十大股东",
       "parameters": {
         "type": "object",
         "properties": {
@@ -3849,7 +3849,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-数据中心-股东分析-股东持股统计-十大股东",
+      "description": "东方财富网-数据中心-股东分析-股东持股统计-十大股东",
       "parameters": {
         "type": "object",
         "properties": {
@@ -4317,7 +4317,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深个股-两网及退市",
+      "description": "东方财富网-行情中心-沪深个股-两网及退市",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -4560,7 +4560,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 巨潮资讯-数据中心-新股数据-新股过会",
+      "description": "巨潮资讯-数据中心-新股数据-新股过会",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -4805,7 +4805,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 巨潮资讯-数据中心-专题统计-公司治理-公司诉讼",
+      "description": "巨潮资讯-数据中心-专题统计-公司治理-公司诉讼",
       "parameters": {
         "type": "object",
         "properties": {
@@ -4892,7 +4892,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐咕乐股-股息率-A 股股息率",
+      "description": "乐咕乐股-股息率-A 股股息率",
       "parameters": {
         "type": "object",
         "properties": {
@@ -4915,7 +4915,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐咕乐股-股息率-恒生指数股息率",
+      "description": "乐咕乐股-股息率-恒生指数股息率",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -4927,7 +4927,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐咕乐股-大盘拥挤度",
+      "description": "乐咕乐股-大盘拥挤度",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -4939,7 +4939,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐咕乐股-股债利差",
+      "description": "乐咕乐股-股债利差",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -4951,7 +4951,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐估乐股-底部研究-巴菲特指标",
+      "description": "乐估乐股-底部研究-巴菲特指标",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -4963,7 +4963,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐咕乐股-A 股等权重市盈率与中位数市盈率",
+      "description": "乐咕乐股-A 股等权重市盈率与中位数市盈率",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -4975,7 +4975,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐咕乐股-A 股等权重与中位数市净率",
+      "description": "乐咕乐股-A 股等权重与中位数市净率",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -4987,7 +4987,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐咕乐股-主板市盈率",
+      "description": "乐咕乐股-主板市盈率",
       "parameters": {
         "type": "object",
         "properties": {
@@ -5010,7 +5010,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐咕乐股-指数市盈率",
+      "description": "乐咕乐股-指数市盈率",
       "parameters": {
         "type": "object",
         "properties": {
@@ -5041,7 +5041,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐咕乐股-主板市净率",
+      "description": "乐咕乐股-主板市净率",
       "parameters": {
         "type": "object",
         "properties": {
@@ -5064,7 +5064,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐咕乐股-指数市净率",
+      "description": "乐咕乐股-指数市净率",
       "parameters": {
         "type": "object",
         "properties": {
@@ -5296,7 +5296,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 乐咕乐股-A 股破净股统计数据",
+      "description": "乐咕乐股-A 股破净股统计数据",
       "parameters": {
         "type": "object",
         "properties": {
@@ -6235,7 +6235,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深京板块-概念板块",
+      "description": "东方财富网-行情中心-沪深京板块-概念板块",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -6247,7 +6247,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-沪深京板块-概念板块-实时行情",
+      "description": "东方财富网-行情中心-沪深京板块-概念板块-实时行情",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -6259,7 +6259,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富-沪深板块-概念板块-板块成份",
+      "description": "东方财富-沪深板块-概念板块-板块成份",
       "parameters": {
         "type": "object",
         "properties": {
@@ -6276,7 +6276,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富-沪深板块-概念板块-历史行情数据",
+      "description": "东方财富-沪深板块-概念板块-历史行情数据",
       "parameters": {
         "type": "object",
         "properties": {
@@ -6319,7 +6319,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富-沪深板块-概念板块-分时历史行情数据",
+      "description": "东方财富-沪深板块-概念板块-分时历史行情数据",
       "parameters": {
         "type": "object",
         "properties": {
@@ -6347,7 +6347,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 富途牛牛-主题投资-概念板块-成分股",
+      "description": "富途牛牛-主题投资-概念板块-成分股",
       "parameters": {
         "type": "object",
         "properties": {
@@ -6406,7 +6406,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富-沪深京板块-行业板块",
+      "description": "东方财富-沪深京板块-行业板块",
       "parameters": {
         "type": "object",
         "properties": {},
@@ -6418,7 +6418,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-沪深板块-行业板块-实时行情",
+      "description": "东方财富网-沪深板块-行业板块-实时行情",
       "parameters": {
         "type": "object",
         "properties": {
@@ -6435,7 +6435,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富-沪深板块-行业板块-板块成份",
+      "description": "东方财富-沪深板块-行业板块-板块成份",
       "parameters": {
         "type": "object",
         "properties": {
@@ -6452,7 +6452,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富-沪深板块-行业板块-历史行情数据",
+      "description": "东方财富-沪深板块-行业板块-历史行情数据",
       "parameters": {
         "type": "object",
         "properties": {
@@ -6495,7 +6495,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富-沪深板块-行业板块-分时历史行情数据",
+      "description": "东方财富-沪深板块-行业板块-分时历史行情数据",
       "parameters": {
         "type": "object",
         "properties": {
@@ -6977,7 +6977,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-涨停板行情-炸板股池",
+      "description": "东方财富网-行情中心-涨停板行情-炸板股池",
       "parameters": {
         "type": "object",
         "properties": {
@@ -6994,7 +6994,7 @@
   {
     "type": "function",
     "function": {
-      "description": "[UNAVAILABLE] 东方财富网-行情中心-涨停板行情-跌停股池",
+      "description": "东方财富网-行情中心-涨停板行情-跌停股池",
       "parameters": {
         "type": "object",
         "properties": {

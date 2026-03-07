@@ -13,10 +13,10 @@ CURRENT_DIR = Path(__file__).parent
 PROJECT_ROOT = CURRENT_DIR.parent
 
 # 目录结构设计
-DATA_DIR = CURRENT_DIR / 'data'  # 存放原始数据
-APIS_DIR = CURRENT_DIR / 'apis'  # 存放处理后的API文档
-CACHE_DIR = CURRENT_DIR / 'cache'  # 存放缓存文件
-DOCS_DIR = CURRENT_DIR / 'docs'  # 存放生成的文档
+DATA_DIR = PROJECT_ROOT / 'data'  # 存放原始数据
+APIS_DIR = PROJECT_ROOT / 'apis'  # 存放处理后的API文档
+CACHE_DIR = PROJECT_ROOT / 'cache'  # 存放缓存文件
+DOCS_DIR = PROJECT_ROOT / 'docs'  # 存放生成的文档
 
 # 文件路径配置
 SOURCE_FILE_PATH = DATA_DIR / 'stock.md.txt'

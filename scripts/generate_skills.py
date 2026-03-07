@@ -4,9 +4,10 @@ from pathlib import Path
 
 # 配置路径
 CURRENT_DIR = Path(__file__).parent
-APIS_DIR = CURRENT_DIR / 'apis'
+PROJECT_ROOT = CURRENT_DIR.parent
+APIS_DIR = PROJECT_ROOT / 'apis'
 MANIFEST_FILE = APIS_DIR / 'manifest.json'
-OUTPUT_FILE = CURRENT_DIR / 'docs' / 'skills.json'
+OUTPUT_FILE = PROJECT_ROOT / 'docs' / 'skills.json'
 
 def parse_table_row(row_line):
     """解析 Markdown 表格行"""

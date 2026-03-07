@@ -38,8 +38,8 @@ def main():
     
     # 导入处理模块
     try:
-        import apis_update
-        import generate_skills
+        from scripts import apis_update
+        from scripts import generate_skills
     except ImportError as e:
         print(f"❌ 导入模块失败: {e}")
         sys.exit(1)

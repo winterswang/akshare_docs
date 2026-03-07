@@ -5,11 +5,23 @@
 发送测试报告摘要到飞书
 """
 
+import sys
+import os
+import requests
 import json
+import logging
 import urllib.request
 import urllib.error
 from datetime import datetime
-from typing import Dict, Optional
+from typing import Dict, Any, Optional
+
+# Add project root to sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+try:
+    from qa import comparator
+except ImportError:
+    import comparator
 
 
 def format_summary(report: Dict) -> str:

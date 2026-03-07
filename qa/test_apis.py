@@ -3,25 +3,38 @@
 AkShare API 可用性测试脚本 - 支持分批测试
 """
 
-import os
 import sys
+import os
 import json
-import time
-import random
-import logging
 import argparse
-from datetime import datetime
+import time
+import logging
+from datetime import datetime, timedelta
 from pathlib import Path
+import random
+import traceback
 from typing import Dict, List, Optional
 from dataclasses import dataclass, asdict
+import akshare as ak
+import pandas as pd
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
+# Add project root to sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# Import local modules
 try:
-    import akshare as ak
+    from qa import classifier
 except ImportError:
-    print("请先安装 akshare: pip install akshare")
-    sys.exit(1)
+    # Try relative import if running as script
+    import classifier
+
+# Setup paths
+CURRENT_DIR = Path(__file__).parent.absolute()
+PROJECT_ROOT = CURRENT_DIR.parent
+APIS_DIR = PROJECT_ROOT / 'apis'
+REPORTS_DIR = PROJECT_ROOT / 'reports'
+CONFIG_FILE = PROJECT_ROOT / 'config.yaml'
 
 logging.basicConfig(
     level=logging.INFO,
@@ -204,6 +217,13 @@ def save_state(state_path: str, state: Dict):
         json.dump(state, f, ensure_ascii=False, indent=2, default=str)
 
 
+def json_serial(obj):
+    """JSON serializer for objects not serializable by default json code"""
+    from datetime import date, datetime
+    if isinstance(obj, (datetime, date)):
+        return obj.isoformat()
+    raise TypeError(f"Type {type(obj)} not serializable")
+
 def main():
     parser = argparse.ArgumentParser(description='AkShare API 可用性测试 - 分批模式')
     parser.add_argument('--skills', default='docs/skills.json', help='skills.json 路径')
@@ -359,7 +379,7 @@ def main():
         
         report_path = output_dir / f"{datetime.now().strftime('%Y-%m-%d')}.json"
         with open(report_path, 'w', encoding='utf-8') as f:
-            json.dump(final_report, f, ensure_ascii=False, indent=2)
+            json.dump(final_report, f, ensure_ascii=False, indent=2, default=json_serial)
         logger.info(f"最终报告已保存: {report_path}")
 
 

@@ -10,6 +10,15 @@ import os
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any, Optional
+import sys
+
+# Add project root to sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+try:
+    from qa import classifier
+except ImportError:
+    import classifier
 
 
 HTML_TEMPLATE = '''
@@ -21,108 +30,108 @@ HTML_TEMPLATE = '''
     <title>AkShare API 测试报告 - {date}</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
+        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+        body {{ 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f5f7fa;
             color: #333;
             line-height: 1.6;
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        }}
+        .container {{ max-width: 1200px; margin: 0 auto; padding: 20px; }}
         
         /* 头部 */
-        .header {
+        .header {{
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px;
             border-radius: 12px;
             margin-bottom: 20px;
-        }
-        .header h1 { font-size: 24px; margin-bottom: 10px; }
-        .header .meta { opacity: 0.9; font-size: 14px; }
+        }}
+        .header h1 {{ font-size: 24px; margin-bottom: 10px; }}
+        .header .meta {{ opacity: 0.9; font-size: 14px; }}
         
         /* 统计卡片 */
-        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .stat-card {
+        .stats {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }}
+        .stat-card {{
             background: white;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .stat-card .value { font-size: 32px; font-weight: bold; margin-bottom: 5px; }
-        .stat-card .label { color: #666; font-size: 14px; }
-        .stat-card.success .value { color: #10b981; }
-        .stat-card.failed .value { color: #ef4444; }
-        .stat-card.timeout .value { color: #f59e0b; }
-        .stat-card.total .value { color: #3b82f6; }
+        }}
+        .stat-card .value {{ font-size: 32px; font-weight: bold; margin-bottom: 5px; }}
+        .stat-card .label {{ color: #666; font-size: 14px; }}
+        .stat-card.success .value {{ color: #10b981; }}
+        .stat-card.failed .value {{ color: #ef4444; }}
+        .stat-card.timeout .value {{ color: #f59e0b; }}
+        .stat-card.total .value {{ color: #3b82f6; }}
         
         /* 图表区域 */
-        .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-        @media (max-width: 768px) { .charts { grid-template-columns: 1fr; } }
-        .chart-card {
+        .charts {{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }}
+        @media (max-width: 768px) {{ .charts {{ grid-template-columns: 1fr; }} }}
+        .chart-card {{
             background: white;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .chart-card h3 { margin-bottom: 15px; font-size: 16px; }
+        }}
+        .chart-card h3 {{ margin-bottom: 15px; font-size: 16px; }}
         
         /* 变更列表 */
-        .changes { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .changes h3 { margin-bottom: 15px; }
-        .change-item { padding: 10px; border-bottom: 1px solid #eee; }
-        .change-item:last-child { border-bottom: none; }
-        .change-item.success { color: #10b981; }
-        .change-item.failed { color: #ef4444; }
-        .change-item.warning { color: #f59e0b; }
+        .changes {{ background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }}
+        .changes h3 {{ margin-bottom: 15px; }}
+        .change-item {{ padding: 10px; border-bottom: 1px solid #eee; }}
+        .change-item:last-child {{ border-bottom: none; }}
+        .change-item.success {{ color: #10b981; }}
+        .change-item.failed {{ color: #ef4444; }}
+        .change-item.warning {{ color: #f59e0b; }}
         
         /* 详情表格 */
-        .details { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; }
-        .details h3 { padding: 20px; border-bottom: 1px solid #eee; }
+        .details {{ background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; }}
+        .details h3 {{ padding: 20px; border-bottom: 1px solid #eee; }}
         
         /* 筛选器 */
-        .filters { padding: 15px 20px; background: #f9fafb; border-bottom: 1px solid #eee; }
-        .filters select, .filters input { padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; margin-right: 10px; }
+        .filters {{ padding: 15px 20px; background: #f9fafb; border-bottom: 1px solid #eee; }}
+        .filters select, .filters input {{ padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; margin-right: 10px; }}
         
         /* 表格 */
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; }
-        th { background: #f9fafb; font-weight: 600; }
-        tr:hover { background: #f9fafb; }
+        table {{ width: 100%; border-collapse: collapse; }}
+        th, td {{ padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; }}
+        th {{ background: #f9fafb; font-weight: 600; }}
+        tr:hover {{ background: #f9fafb; }}
         
-        .status-badge {
+        .status-badge {{
             display: inline-block;
             padding: 4px 8px;
             border-radius: 4px;
             font-size: 12px;
             font-weight: 500;
-        }
-        .status-badge.success { background: #d1fae5; color: #065f46; }
-        .status-badge.failed { background: #fee2e2; color: #991b1b; }
-        .status-badge.timeout { background: #fef3c7; color: #92400e; }
-        .status-badge.error { background: #f3f4f6; color: #374151; }
+        }}
+        .status-badge.success {{ background: #d1fae5; color: #065f46; }}
+        .status-badge.failed {{ background: #fee2e2; color: #991b1b; }}
+        .status-badge.timeout {{ background: #fef3c7; color: #92400e; }}
+        .status-badge.error {{ background: #f3f4f6; color: #374151; }}
         
-        .category-badge {
+        .category-badge {{
             display: inline-block;
             padding: 2px 6px;
             border-radius: 3px;
             font-size: 11px;
             background: #e0e7ff;
             color: #3730a3;
-        }
+        }}
         
         /* 错误信息 */
-        .error-msg { 
+        .error-msg {{ 
             max-width: 300px; 
             overflow: hidden; 
             text-overflow: ellipsis; 
             white-space: nowrap;
             font-size: 12px;
             color: #666;
-        }
+        }}
         
         /* 无变更提示 */
-        .no-changes { text-align: center; padding: 30px; color: #10b981; }
+        .no-changes {{ text-align: center; padding: 30px; color: #10b981; }}
     </style>
 </head>
 <body>
@@ -322,7 +331,7 @@ def generate_html_report(report_data: Dict, output_path: str):
             <td><span class="category-badge">{category}</span></td>
             <td><span class="status-badge {status_class}">{status_text}</span></td>
             <td>{response_time}ms</td>
-            <td>{len(sample_keys)} 个字段</td>
+            <td>{len(sample_keys) if sample_keys else 0} 个字段</td>
             <td class="error-msg" title="{error_msg}">{error_msg[:50]}</td>
         </tr>'''
         table_rows.append(row)
