@@ -13,27 +13,39 @@ from akshare_service.infra.client import robust_api
 def calculate_roic_a_share(symbol: str, years: int = 5) -> pd.DataFrame:
     """
     计算 A股 ROIC (Return on Invested Capital)
+    优先使用东方财富 API，失败时回退到新浪 API
     """
-    # 临时清除代理，防止 ProxyError
-    if os.environ.get('http_proxy') or os.environ.get('https_proxy'):
-        # print("Warning: Proxy detected in finance skill.")
-        pass
-
-    # 获取利润表
+    # 尝试东方财富 API
     try:
         df_profit = ak.stock_profit_sheet_by_yearly_em(symbol=symbol)
         df_balance = ak.stock_balance_sheet_by_yearly_em(symbol=symbol)
         
-        if df_profit is None or df_profit.empty or df_balance is None or df_balance.empty:
-            return pd.DataFrame()
-            
-        df_profit['REPORT_DATE'] = pd.to_datetime(df_profit['REPORT_DATE'])
-        df_balance['REPORT_DATE'] = pd.to_datetime(df_balance['REPORT_DATE'])
+        if df_profit is not None and not df_profit.empty and df_balance is not None and not df_balance.empty:
+            df_profit['REPORT_DATE'] = pd.to_datetime(df_profit['REPORT_DATE'])
+            df_balance['REPORT_DATE'] = pd.to_datetime(df_balance['REPORT_DATE'])
+            return _calculate_roic_from_em_data(df_profit, df_balance, years)
     except Exception as e:
-        print(f"Error fetching A share financials for {symbol}: {e}")
-        return pd.DataFrame()
+        print(f"东方财富 API 失败，尝试新浪 API: {e}")
     
-    # 筛选最近 N 年
+    # 回退到新浪 API
+    try:
+        # 构建股票代码（新浪格式：sh600519 或 sz000001）
+        market = 'sh' if symbol.startswith('6') else 'sz'
+        sina_code = f"{market}{symbol}"
+        
+        df_profit = ak.stock_financial_report_sina(stock=sina_code, symbol='利润表')
+        df_balance = ak.stock_financial_report_sina(stock=sina_code, symbol='资产负债表')
+        
+        if df_profit is not None and not df_profit.empty and df_balance is not None and not df_balance.empty:
+            return _calculate_roic_from_sina_data(df_profit, df_balance, years)
+    except Exception as e:
+        print(f"新浪 API 也失败: {e}")
+    
+    return pd.DataFrame()
+
+
+def _calculate_roic_from_em_data(df_profit: pd.DataFrame, df_balance: pd.DataFrame, years: int) -> pd.DataFrame:
+    """从东方财富数据计算 ROIC"""
     latest_years = sorted(df_profit['REPORT_DATE'].dt.year.unique())[-years:]
     results = []
     
@@ -42,13 +54,10 @@ def calculate_roic_a_share(symbol: str, years: int = 5) -> pd.DataFrame:
             profit_row = df_profit[df_profit['REPORT_DATE'].dt.year == year].iloc[0]
             balance_row = df_balance[df_balance['REPORT_DATE'].dt.year == year].iloc[0]
             
-            # 分子：NOPAT
-            # ⚠️ 关键：必须用 OPERATE_PROFIT，不是 OPERATE_INCOME
             operate_profit = profit_row.get('OPERATE_PROFIT', 0)
             total_profit = profit_row.get('TOTAL_PROFIT', 0)
             income_tax = profit_row.get('INCOME_TAX', 0)
             
-            # 计算税率（基于利润总额）
             if pd.notna(total_profit) and total_profit > 0 and pd.notna(income_tax):
                 tax_rate = income_tax / total_profit
                 nopat = operate_profit * (1 - tax_rate)
@@ -56,12 +65,9 @@ def calculate_roic_a_share(symbol: str, years: int = 5) -> pd.DataFrame:
                 nopat = operate_profit
                 tax_rate = 0
             
-            # 分母：投入资本
-            # ⚠️ 关键：必须用 MONETARYFUNDS（货币资金），不是现金流量表的 END_CASH_EQUIVALENTS
             shareholder_equity = balance_row.get('TOTAL_EQUITY', 0)
             monetary_funds = balance_row.get('MONETARYFUNDS', 0)
             
-            # 有息负债
             short_loan = balance_row.get('SHORT_LOAN', 0)
             long_loan = balance_row.get('LONG_LOAN', 0)
             noncurrent_liab_1year = balance_row.get('NONCURRENT_LIAB_1YEAR', 0)
@@ -74,27 +80,100 @@ def calculate_roic_a_share(symbol: str, years: int = 5) -> pd.DataFrame:
             
             invested_capital = shareholder_equity + interest_bearing_debt - monetary_funds
             
-            # ROIC
             if invested_capital > 0:
                 roic = (nopat / invested_capital) * 100
             else:
                 roic = 0
             
-            # 净利润和营业收入
             net_profit = profit_row.get('NETPROFIT', 0)
             total_operate_income = profit_row.get('TOTAL_OPERATE_INCOME', 0)
             
             results.append({
                 'year': year,
                 'roic': round(roic, 2),
-                'nopat': round(nopat / 100000000, 2), # 亿元
-                'invested_capital': round(invested_capital / 100000000, 2), # 亿元
+                'nopat': round(nopat / 100000000, 2),
+                'invested_capital': round(invested_capital / 100000000, 2),
                 'operate_profit': round(operate_profit / 100000000, 2),
                 'tax_rate': round(tax_rate, 4),
                 'net_profit': round(net_profit / 100000000, 2),
                 'revenue': round(total_operate_income / 100000000, 2)
             })
-        except IndexError:
+        except (IndexError, KeyError):
+            continue
+    
+    return pd.DataFrame(results).sort_values('year')
+
+
+def _calculate_roic_from_sina_data(df_profit: pd.DataFrame, df_balance: pd.DataFrame, years: int) -> pd.DataFrame:
+    """从新浪数据计算 ROIC"""
+    # 新浪数据的日期列是 '报告日'
+    df_profit['报告日'] = pd.to_datetime(df_profit['报告日'])
+    df_balance['报告日'] = pd.to_datetime(df_balance['报告日'])
+    
+    # 筛选年报数据（12月31日）
+    df_profit = df_profit[df_profit['报告日'].dt.month == 12]
+    df_balance = df_balance[df_balance['报告日'].dt.month == 12]
+    
+    latest_years = sorted(df_profit['报告日'].dt.year.unique())[-years:]
+    results = []
+    
+    for year in latest_years:
+        try:
+            profit_row = df_profit[df_profit['报告日'].dt.year == year].iloc[0]
+            balance_row = df_balance[df_balance['报告日'].dt.year == year].iloc[0]
+            
+            # 营业利润
+            operate_profit = profit_row.get('营业利润', 0)
+            # 利润总额
+            total_profit = profit_row.get('利润总额', 0)
+            # 所得税
+            income_tax = profit_row.get('所得税费用', 0)
+            
+            if pd.notna(total_profit) and total_profit > 0 and pd.notna(income_tax):
+                tax_rate = income_tax / total_profit
+                nopat = operate_profit * (1 - tax_rate)
+            else:
+                nopat = operate_profit
+                tax_rate = 0
+            
+            # 股东权益合计
+            shareholder_equity = balance_row.get('所有者权益(或股东权益)合计', 0)
+            # 货币资金
+            monetary_funds = balance_row.get('货币资金', 0)
+            
+            # 短期借款 + 长期借款
+            short_loan = balance_row.get('短期借款', 0)
+            long_loan = balance_row.get('长期借款', 0)
+            
+            interest_bearing_debt = (
+                (short_loan if pd.notna(short_loan) else 0) +
+                (long_loan if pd.notna(long_loan) else 0)
+            )
+            
+            invested_capital = shareholder_equity + interest_bearing_debt - monetary_funds
+            
+            if invested_capital > 0:
+                roic = (nopat / invested_capital) * 100
+            else:
+                roic = 0
+            
+            # 归属于母公司所有者的净利润
+            net_profit = profit_row.get('归属于母公司所有者的净利润', 0)
+            # 营业收入
+            total_operate_income = profit_row.get('营业收入', 0)
+            
+            results.append({
+                'year': year,
+                'roic': round(roic, 2),
+                'nopat': round(nopat / 100000000, 2) if pd.notna(nopat) else 0,
+                'invested_capital': round(invested_capital / 100000000, 2) if pd.notna(invested_capital) else 0,
+                'operate_profit': round(operate_profit / 100000000, 2) if pd.notna(operate_profit) else 0,
+                'tax_rate': round(tax_rate, 4),
+                'net_profit': round(net_profit / 100000000, 2) if pd.notna(net_profit) else 0,
+                'revenue': round(total_operate_income / 100000000, 2) if pd.notna(total_operate_income) else 0
+            })
+        except (IndexError, KeyError) as e:
+            print(f"Error processing year {year}: {e}")
             continue
     
     return pd.DataFrame(results).sort_values('year')
