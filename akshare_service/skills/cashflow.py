@@ -1,0 +1,189 @@
+"""
+现金流数据接口 (Cashflow Data)
+支持多数据源路由：TuShare → AkShare(新浪)
+"""
+
+import akshare as ak
+import pandas as pd
+from typing import Dict, Any, List, Optional, Tuple
+from datetime import datetime
+import json
+import time
+import sys
+import os
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from akshare_service.infra.cache import get_cache
+from akshare_service.adapters.tushare_adapter import (
+    get_cashflow_data_tushare,
+    is_tushare_available
+)
+
+
+# 请求间隔控制
+_last_request_time = 0
+REQUEST_INTERVAL = 1.0
+
+
+def _rate_limit():
+    """请求限速"""
+    global _last_request_time
+    elapsed = time.time() - _last_request_time
+    if elapsed < REQUEST_INTERVAL:
+        time.sleep(REQUEST_INTERVAL - elapsed)
+    _last_request_time = time.time()
+
+
+def get_cashflow_data(code: str, years: int = 5, use_cache: bool = True, 
+                      cache_ttl: int = 3600) -> Dict[str, Any]:
+    """
+    获取现金流数据（标准化输出）
+    
+    数据源优先级：TuShare → AkShare(新浪)
+    
+    Args:
+        code: 股票代码
+        years: 获取年数
+        use_cache: 是否使用缓存
+        cache_ttl: 缓存过期时间（秒）
+    """
+    cache_key = f"cashflow_data:{code}:{years}"
+    
+    if use_cache:
+        cache = get_cache()
+        cached = cache.get(cache_key)
+        if cached:
+            print(f"[Cache] 命中缓存: {cache_key}")
+            return cached
+    
+    errors = []
+    
+    # 1. 尝试 TuShare
+    if is_tushare_available():
+        print("[Router] 尝试 TuShare...")
+        result, ts_errors = get_cashflow_data_tushare(code, years)
+        if result and result.get('annual_data'):
+            if use_cache:
+                get_cache().set(cache_key, result, cache_ttl)
+            return result
+        errors.extend(ts_errors)
+        print(f"[Router] TuShare 失败: {ts_errors}")
+    
+    # 2. 尝试 AkShare 新浪
+    print("[Router] 尝试 AkShare 新浪...")
+    result, sina_errors = _get_cashflow_data_sina(code, years)
+    if result and result.get('annual_data'):
+        if use_cache:
+            get_cache().set(cache_key, result, cache_ttl)
+        return result
+    errors.extend(sina_errors)
+    
+    return _error_response(code, errors)
+
+
+def _get_cashflow_data_sina(code: str, years: int) -> Tuple[Dict[str, Any], List[str]]:
+    """从新浪 API 获取现金流数据"""
+    errors = []
+    market = 'sh' if code.startswith('6') else 'sz'
+    sina_code = f"{market}{code}"
+    
+    _rate_limit()
+    try:
+        df_cashflow = ak.stock_financial_report_sina(stock=sina_code, symbol='现金流量表')
+        if df_cashflow is None or df_cashflow.empty:
+            return None, ["新浪现金流量表为空"]
+        df_cashflow['报告日'] = pd.to_datetime(df_cashflow['报告日'])
+        df_cashflow = df_cashflow[df_cashflow['报告日'].dt.month == 12]
+    except Exception as e:
+        return None, [f"新浪现金流量表获取失败: {e}"]
+    
+    _rate_limit()
+    try:
+        df_profit = ak.stock_financial_report_sina(stock=sina_code, symbol='利润表')
+        if df_profit is not None and not df_profit.empty:
+            df_profit['报告日'] = pd.to_datetime(df_profit['报告日'])
+            df_profit = df_profit[df_profit['报告日'].dt.month == 12]
+    except Exception as e:
+        df_profit = None
+        errors.append(f"利润表获取失败: {e}")
+    
+    available_years = sorted(df_cashflow['报告日'].dt.year.unique(), reverse=True)[:years]
+    annual_data = []
+    
+    for year in sorted(available_years):
+        try:
+            cashflow_row = df_cashflow[df_cashflow['报告日'].dt.year == year].iloc[0]
+            
+            operating_cf = _safe_float(cashflow_row.get('经营活动产生的现金流量净额', 0))
+            investing_cf = _safe_float(cashflow_row.get('投资活动产生的现金流量净额', 0))
+            financing_cf = _safe_float(cashflow_row.get('筹资活动产生的现金流量净额', 0))
+            capex = _safe_float(cashflow_row.get('购建固定资产、无形资产和其他长期资产所支付的现金', 0))
+            free_cf = operating_cf - capex
+            
+            net_profit = 0
+            if df_profit is not None:
+                try:
+                    profit_row = df_profit[df_profit['报告日'].dt.year == year].iloc[0]
+                    net_profit = _safe_float(profit_row.get('归属于母公司所有者的净利润', 0))
+                except:
+                    pass
+            
+            fcf_to_netprofit = (free_cf / net_profit * 100) if net_profit > 0 else 0
+            
+            year_data = {
+                'year': _safe_int(year),
+                'operating_cashflow': {'value': round(operating_cf / 100000000, 2), 'unit': '亿元'},
+                'investing_cashflow': {'value': round(investing_cf / 100000000, 2), 'unit': '亿元'},
+                'financing_cashflow': {'value': round(financing_cf / 100000000, 2), 'unit': '亿元'},
+                'capital_expenditure': {'value': round(capex / 100000000, 2), 'unit': '亿元'},
+                'free_cashflow': {'value': round(free_cf / 100000000, 2), 'unit': '亿元'},
+                'fcf_to_netprofit': {'value': round(fcf_to_netprofit, 2), 'unit': '%'}
+            }
+            annual_data.append(year_data)
+        except (IndexError, KeyError) as e:
+            errors.append(f"处理 {year} 年数据失败: {e}")
+            continue
+    
+    return {
+        'code': code,
+        'source': 'AkShare.stock_financial_report_sina',
+        'fetched_at': datetime.now().isoformat(),
+        'annual_data': list(reversed(annual_data)),
+        'errors': errors if errors else None
+    }, errors
+
+
+def _safe_float(value) -> float:
+    if pd.isna(value) if not isinstance(value, (int, float)) else False:
+        return 0.0
+    try:
+        return float(value)
+    except:
+        return 0.0
+
+
+def _safe_int(value) -> int:
+    try:
+        return int(value)
+    except:
+        return 0
+
+
+def _error_response(code: str, errors: List[str]) -> Dict[str, Any]:
+    return {
+        'code': code,
+        'source': 'MultiSource',
+        'fetched_at': datetime.now().isoformat(),
+        'annual_data': [],
+        'errors': errors
+    }
+
+
+if __name__ == '__main__':
+    print("=== 测试现金流数据（多数据源路由）===")
+    result = get_cashflow_data("300760", years=3)
+    print(f"数据来源: {result.get('source')}")
+    print(f"年份数量: {len(result.get('annual_data', []))}")
+    if result.get('errors'):
+        print(f"错误: {result['errors']}")

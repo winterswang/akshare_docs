@@ -1,99 +1,159 @@
-# AkShare Financial Data Service
+# AkShare 标准化数据接口使用指南
 
-本项目提供了一套**标准化、高容错、业务导向**的金融数据服务层 (`akshare_service`)，屏蔽了底层 AkShare 接口的复杂性（如字段差异、异常处理、代理问题），为上层应用（如 AI Agent、量化回测系统）提供统一的数据获取能力。
+## 快速开始
 
-## 🌟 核心能力 (Core Skills)
+### 1. 基本使用
 
-### 1. 财务分析 (Finance Skills)
-> 模块路径: `akshare_service.skills.finance`
+```python
+import sys
+sys.path.insert(0, '/root/.openclaw/workspace/akshare_docs')
 
-提供跨市场（A股/港股/美股）的标准化财务指标计算能力。
+from akshare_service.skills import (
+    get_financial_summary,
+    get_cashflow_data,
+    get_valuation_data
+)
 
-| 函数名 | 描述 | 支持市场 | 备注 |
-|---|---|---|---|
-| `calculate_roic(market, code, years)` | 计算投入资本回报率 (ROIC) | A股/港股/美股 | 自动处理不同市场的报表字段映射（如"营业利润" vs "经营溢利"） |
-| `calculate_roic_a_share` | A股 ROIC 计算 | A股 | 基于东财年报数据 |
-| `calculate_roic_hk` | 港股 ROIC 计算 | 港股 | 基于东财港股年报 |
-| `calculate_roic_us` | 美股 ROIC 计算 | 美股 | 基于东财美股综合损益表 |
+# 获取财务指标
+financial = get_financial_summary("300760", years=5)
 
-### 2. 市场行情 (Market Skills)
-> 模块路径: `akshare_service.skills.market`
+# 获取现金流数据
+cashflow = get_cashflow_data("300760", years=5)
 
-提供统一的行情获取接口，内置多源灾备机制（Fallback）。
+# 获取估值数据
+valuation = get_valuation_data("300760")
+```
 
-| 函数名 | 描述 | 支持市场 | 备注 |
-|---|---|---|---|
-| `get_current_price(market, code)` | 获取实时行情 (Quote) | A股/港股/美股 | 返回统一格式：代码、名称、最新价、涨跌幅、市值、PE/PB |
-| `get_history_price(market, code, ...)` | 获取历史 K 线 (History) | A股/港股/美股 | 自动处理复权 (qfq/hfq)，内置多数据源切换 (EastMoney -> Sina) |
+### 2. 数据源路由
 
-### 3. 新闻资讯 (News Skills)
-> 模块路径: `akshare_service.skills.news`
+系统会自动选择最佳数据源：
 
-提供个股和市场的实时资讯。
+```
+优先级: TuShare → AkShare(新浪) → AkShare(东财)
+```
 
-| 函数名 | 描述 | 支持市场 | 备注 |
-|---|---|---|---|
-| `get_stock_news(market, code, limit)` | 获取个股新闻 | A股 | 自动清洗列名，返回标准化字段 (title, url, publish_time) |
-| `get_market_news(limit)` | 获取市场快讯 | 全市场 | 集成财联社电报等多个数据源 |
+### 3. 配置 TuShare（推荐）
+
+**步骤：**
+
+1. 注册 TuShare：https://tushare.pro
+2. 获取 Token
+3. 配置环境变量：
+
+```bash
+# 方式一：临时设置
+export TUSHARE_TOKEN="your_token_here"
+
+# 方式二：永久设置（添加到 ~/.bashrc）
+echo 'export TUSHARE_TOKEN="your_token_here"' >> ~/.bashrc
+source ~/.bashrc
+
+# 方式三：在代码中设置
+import os
+os.environ['TUSHARE_TOKEN'] = 'your_token_here'
+```
+
+### 4. 缓存机制
+
+- **缓存目录**：`/tmp/akshare_cache/`
+- **默认过期**：1 小时
+- **自动清理**：过期缓存自动删除
+
+```python
+# 使用缓存（默认）
+result = get_financial_summary("300760", use_cache=True, cache_ttl=3600)
+
+# 不使用缓存
+result = get_financial_summary("300760", use_cache=False)
+```
 
 ---
 
-## 🚀 快速集成 (Integration)
+## 输出格式
 
-### 安装
-确保项目在 `PYTHONPATH` 中，或直接将 `akshare_docs` 目录放入你的项目中。
+### 财务指标
 
-```bash
-pip install akshare pandas requests
+```json
+{
+  "code": "300760",
+  "source": "TuShare.fina_indicator",
+  "annual_data": [
+    {
+      "year": 2024,
+      "revenue": {"value": 367.26, "unit": "亿元", "yoy_growth": 5.14},
+      "net_profit": {"value": 116.68, "unit": "亿元", "yoy_growth": 0.74},
+      "gross_margin": {"value": 63.11, "unit": "%"},
+      "roe": {"value": 28.63, "unit": "%"},
+      "debt_ratio": {"value": 28.04, "unit": "%"}
+    }
+  ]
+}
 ```
 
-### 调用示例
+### 现金流数据
 
-```python
-from akshare_docs.akshare_service.skills.finance import calculate_roic
-from akshare_docs.akshare_service.skills.market import get_current_price, get_history_price
-from akshare_docs.akshare_service.skills.news import get_stock_news
-
-# 1. 获取茅台实时行情
-quote = get_current_price(market='A股', code='600519')
-print(f"茅台最新价: {quote['price']}")
-
-# 2. 计算茅台 ROIC
-df_roic = calculate_roic(market='A股', code='SH600519', years=3)
-print(df_roic)
-
-# 3. 获取个股新闻
-news = get_stock_news(market='A股', code='600519')
-for n in news:
-    print(n['title'])
+```json
+{
+  "code": "300760",
+  "source": "TuShare.cashflow",
+  "annual_data": [
+    {
+      "year": 2024,
+      "operating_cashflow": {"value": 124.32, "unit": "亿元"},
+      "capital_expenditure": {"value": 19.59, "unit": "亿元"},
+      "free_cashflow": {"value": 104.73, "unit": "亿元"},
+      "fcf_to_netprofit": {"value": 89.75, "unit": "%"}
+    }
+  ]
+}
 ```
 
-## 🛠️ 架构设计
+---
+
+## 文件结构
 
 ```
 akshare_docs/
-├── akshare_service/        # [核心] 服务层
-│   ├── skills/             # 业务能力实现
-│   │   ├── finance.py      # 财务分析 (ROIC等)
-│   │   ├── market.py       # 行情数据 (Quote/History)
-│   │   └── news.py         # 新闻资讯
-│   └── infra/              # 基础设施
-│       └── client.py       # 统一客户端 (代理处理、异常捕获)
-├── qa/                     # [质量] 巡检与监控
-│   ├── test_apis.py        # 接口可用性测试
-│   └── ...
-├── scripts/                # [维护] 文档更新脚本
-├── apis/                   # API 定义 (自动生成)
-└── docs/                   # 文档
+├── akshare_service/
+│   ├── adapters/                  # 数据源适配器
+│   │   ├── __init__.py
+│   │   └── tushare_adapter.py     # TuShare 适配器
+│   ├── infra/
+│   │   └── cache.py               # 缓存模块
+│   └── skills/
+│       ├── financial_summary.py   # 财务指标（多源路由）
+│       ├── cashflow.py            # 现金流（多源路由）
+│       ├── valuation.py           # 估值数据
+│       ├── finance.py             # ROIC 计算
+│       └── market.py              # 行情数据
+└── docs/
+    └── api_research.md            # API 调研报告
 ```
 
-## ⚠️ 注意事项
+---
 
-1. **网络代理**: 
-   - 本项目内置了 `robust_api` 装饰器，会自动处理常见的网络异常。
-   - 如果遇到 `ProxyError`，请检查你的系统代理设置，或确保 `push2.eastmoney.com` 等域名在白名单中。
+## 常见问题
 
-2. **数据源**:
-   - 优先使用 **东方财富 (EastMoney)** 接口。
-   - 备用数据源包括 **新浪财经 (Sina)** 等。
-   - 接口调用频率受限，请勿高频并发调用。
+### Q: 为什么返回空数据？
+
+可能原因：
+1. API 限速 - 等待几分钟后重试
+2. TuShare Token 未配置 - 配置环境变量
+3. 股票代码错误 - 检查代码格式
+
+### Q: 如何获取 TuShare Token？
+
+1. 访问 https://tushare.pro
+2. 注册账号
+3. 在"个人中心"获取 Token
+
+### Q: 数据源如何选择？
+
+系统自动选择：
+1. 优先 TuShare（需配置 Token）
+2. 其次 AkShare 新浪
+3. 最后 AkShare 东财
+
+---
+
+*更新时间: 2026-03-10*
