@@ -1,6 +1,6 @@
 """
 核心财务指标接口 (Financial Summary)
-支持多数据源路由：TuShare → AkShare(新浪) → AkShare(东财)
+支持多数据源路由：TuShare → AkShare(新浪) → AkShare(东财) → 东方财富API(兜底)
 """
 
 import akshare as ak
@@ -40,7 +40,7 @@ def get_financial_summary(code: str, years: int = 5, fetch_name: bool = False,
     """
     获取核心财务指标（标准化输出）
     
-    数据源优先级：TuShare → AkShare(新浪) → AkShare(东财)
+    数据源优先级：TuShare → AkShare(新浪) → AkShare(东财) → 东方财富API(兜底)
     
     Args:
         code: 股票代码
@@ -95,6 +95,17 @@ def get_financial_summary(code: str, years: int = 5, fetch_name: bool = False,
             get_cache().set(cache_key, result, cache_ttl)
         return result
     errors.extend(em_errors)
+    print(f"[Router] AkShare 东财失败: {em_errors}")
+    
+    # 4. 兜底：东方财富 API（直接调用，不走 AkShare）
+    print("[Router] 尝试东方财富 API 兜底...")
+    result, eastmoney_errors = _get_financial_summary_eastmoney(code, years, fetch_name)
+    if result and result.get('annual_data'):
+        result['source'] = 'EastMoney.API'
+        if use_cache:
+            get_cache().set(cache_key, result, cache_ttl)
+        return result
+    errors.extend(eastmoney_errors)
     
     return _error_response(code, errors)
 
@@ -157,6 +168,98 @@ def _get_financial_summary_em(code: str, years: int, fetch_name: bool) -> Tuple[
         stock_name = _get_stock_name(code)
     
     return _process_em_data(code, stock_name, df_profit, df_balance, years, errors)
+
+
+def _get_financial_summary_eastmoney(code: str, years: int, fetch_name: bool) -> Tuple[Dict[str, Any], List[str]]:
+    """从东方财富 API 获取财务数据（兜底方案）"""
+    errors = []
+    
+    try:
+        from akshare_service.crawlers.eastmoney_api import EastMoneyAPI
+        api = EastMoneyAPI()
+        
+        # 获取财务指标
+        df_indicator = api.get_financial_indicator(code)
+        if df_indicator is None or df_indicator.empty:
+            return None, ["东方财富财务指标为空"]
+        
+        # 获取资产负债表
+        df_balance = api.get_balance_sheet(code)
+        if df_balance is None or df_balance.empty:
+            return None, ["东方财富资产负债表为空"]
+        
+        stock_name = ""
+        if fetch_name and not df_indicator.empty:
+            stock_name = str(df_indicator.iloc[0].get('name', ''))
+        
+        return _process_eastmoney_data(code, stock_name, df_indicator, df_balance, years, errors)
+        
+    except Exception as e:
+        return None, [f"东方财富 API 获取失败: {e}"]
+
+
+def _process_eastmoney_data(code: str, stock_name: str, df_indicator: pd.DataFrame,
+                            df_balance: pd.DataFrame, years: int, errors: List[str]) -> Tuple[Dict[str, Any], List[str]]:
+    """处理东方财富 API 数据"""
+    # 只取年报数据
+    df_indicator = df_indicator[df_indicator['report_date'].astype(str).str.contains('-12-')]
+    df_balance = df_balance[df_balance['report_date'].astype(str).str.contains('-12-')]
+    
+    available_years = min(len(df_indicator), years)
+    annual_data = []
+    prev_year_data = None
+    
+    for i in range(available_years):
+        try:
+            row = df_indicator.iloc[i]
+            balance_row = df_balance[df_balance['report_date'] == row['report_date']].iloc[0] if len(df_balance) > i else None
+            
+            revenue = _safe_float(row.get('revenue', 0))
+            net_profit = _safe_float(row.get('net_profit', 0))
+            roe = _safe_float(row.get('roe', 0))
+            gross_margin = _safe_float(row.get('gross_margin', 0))
+            
+            total_assets = _safe_float(balance_row.get('total_assets', 0)) if balance_row is not None else 0
+            total_equity = _safe_float(balance_row.get('total_equity', 0)) if balance_row is not None else 0
+            total_liabilities = _safe_float(balance_row.get('total_liabilities', 0)) if balance_row is not None else 0
+            
+            net_margin = (net_profit / revenue * 100) if revenue > 0 else 0
+            debt_ratio = (total_liabilities / total_assets * 100) if total_assets > 0 else 0
+            
+            yoy_revenue = row.get('revenue_yoy')
+            yoy_profit = row.get('profit_yoy')
+            
+            report_date = str(row.get('report_date', ''))
+            year = int(report_date[:4]) if len(report_date) >= 4 else 0
+            
+            year_data = {
+                'year': year,
+                'revenue': {'value': round(revenue, 2), 'unit': '亿元', 'yoy_growth': yoy_revenue},
+                'net_profit': {'value': round(net_profit, 2), 'unit': '亿元', 'yoy_growth': yoy_profit},
+                'gross_margin': {'value': round(gross_margin, 2), 'unit': '%'},
+                'net_margin': {'value': round(net_margin, 2), 'unit': '%'},
+                'roe': {'value': round(roe, 2), 'unit': '%'},
+                'total_assets': {'value': round(total_assets, 2), 'unit': '亿元'},
+                'total_equity': {'value': round(total_equity, 2), 'unit': '亿元'},
+                'total_liabilities': {'value': round(total_liabilities, 2), 'unit': '亿元'},
+                'debt_ratio': {'value': round(debt_ratio, 2), 'unit': '%'},
+            }
+            
+            annual_data.append(year_data)
+            prev_year_data = {'revenue': revenue, 'net_profit': net_profit}
+            
+        except (IndexError, KeyError) as e:
+            errors.append(f"处理数据失败: {e}")
+            continue
+    
+    return {
+        'code': code,
+        'name': stock_name,
+        'source': 'EastMoney.API',
+        'fetched_at': datetime.now().isoformat(),
+        'annual_data': annual_data,
+        'errors': errors if errors else None
+    }, errors
 
 
 def _process_sina_data(code: str, stock_name: str, df_profit: pd.DataFrame, 

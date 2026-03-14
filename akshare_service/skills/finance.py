@@ -13,9 +13,9 @@ from akshare_service.infra.client import robust_api
 def calculate_roic_a_share(symbol: str, years: int = 5) -> pd.DataFrame:
     """
     计算 A股 ROIC (Return on Invested Capital)
-    优先使用东方财富 API，失败时回退到新浪 API
+    数据源优先级：AkShare东财 → AkShare新浪 → 东方财富API(兜底)
     """
-    # 尝试东方财富 API
+    # 1. 尝试 AkShare 东财 API
     try:
         df_profit = ak.stock_profit_sheet_by_yearly_em(symbol=symbol)
         df_balance = ak.stock_balance_sheet_by_yearly_em(symbol=symbol)
@@ -25,11 +25,10 @@ def calculate_roic_a_share(symbol: str, years: int = 5) -> pd.DataFrame:
             df_balance['REPORT_DATE'] = pd.to_datetime(df_balance['REPORT_DATE'])
             return _calculate_roic_from_em_data(df_profit, df_balance, years)
     except Exception as e:
-        print(f"东方财富 API 失败，尝试新浪 API: {e}")
+        print(f"AkShare 东财 API 失败，尝试新浪 API: {e}")
     
-    # 回退到新浪 API
+    # 2. 尝试 AkShare 新浪 API
     try:
-        # 构建股票代码（新浪格式：sh600519 或 sz000001）
         market = 'sh' if symbol.startswith('6') else 'sz'
         sina_code = f"{market}{symbol}"
         
@@ -39,7 +38,21 @@ def calculate_roic_a_share(symbol: str, years: int = 5) -> pd.DataFrame:
         if df_profit is not None and not df_profit.empty and df_balance is not None and not df_balance.empty:
             return _calculate_roic_from_sina_data(df_profit, df_balance, years)
     except Exception as e:
-        print(f"新浪 API 也失败: {e}")
+        print(f"AkShare 新浪 API 失败，尝试东方财富 API: {e}")
+    
+    # 3. 兜底：东方财富 API
+    print("使用东方财富 API 兜底...")
+    try:
+        from akshare_service.crawlers.eastmoney_api import EastMoneyAPI
+        api = EastMoneyAPI()
+        
+        df_income = api.get_income_statement(symbol)
+        df_balance = api.get_balance_sheet(symbol)
+        
+        if not df_income.empty and not df_balance.empty:
+            return _calculate_roic_from_eastmoney_data(df_income, df_balance, years)
+    except Exception as e:
+        print(f"东方财富 API 也失败: {e}")
     
     return pd.DataFrame()
 
@@ -174,6 +187,69 @@ def _calculate_roic_from_sina_data(df_profit: pd.DataFrame, df_balance: pd.DataF
             })
         except (IndexError, KeyError) as e:
             print(f"Error processing year {year}: {e}")
+            continue
+    
+    return pd.DataFrame(results).sort_values('year')
+
+
+def _calculate_roic_from_eastmoney_data(df_income: pd.DataFrame, df_balance: pd.DataFrame, years: int) -> pd.DataFrame:
+    """从东方财富 API 数据计算 ROIC"""
+    results = []
+    
+    # 筛选年报数据
+    df_income_annual = df_income[df_income['report_date'].astype(str).str.contains('-12-')]
+    df_balance_annual = df_balance[df_balance['report_date'].astype(str).str.contains('-12-')]
+    
+    for i in range(min(years, len(df_income_annual))):
+        try:
+            income_row = df_income_annual.iloc[i]
+            balance_row = df_balance_annual.iloc[i] if i < len(df_balance_annual) else None
+            
+            operate_profit = income_row.get('operate_profit', 0) or 0
+            total_profit = income_row.get('total_profit', 0) or 0
+            income_tax = income_row.get('income_tax', 0) or 0
+            
+            if total_profit > 0 and income_tax > 0:
+                tax_rate = income_tax / total_profit
+                nopat = operate_profit * (1 - tax_rate)
+            else:
+                nopat = operate_profit
+                tax_rate = 0
+            
+            if balance_row is not None:
+                shareholder_equity = balance_row.get('total_equity', 0) or 0
+                monetary_funds = balance_row.get('cash', 0) or 0
+                total_liabilities = balance_row.get('total_liabilities', 0) or 0
+            else:
+                shareholder_equity = 0
+                monetary_funds = 0
+            
+            # 简化计算：投入资本 = 股东权益 - 现金
+            invested_capital = shareholder_equity - monetary_funds
+            
+            if invested_capital > 0:
+                roic = (nopat / invested_capital) * 100
+            else:
+                roic = 0
+            
+            net_profit = income_row.get('net_profit', 0) or 0
+            revenue = income_row.get('revenue', 0) or 0
+            
+            report_date = str(income_row.get('report_date', ''))
+            year = int(report_date[:4]) if len(report_date) >= 4 else 0
+            
+            results.append({
+                'year': year,
+                'roic': round(roic, 2),
+                'nopat': round(nopat, 2),
+                'invested_capital': round(invested_capital, 2),
+                'operate_profit': round(operate_profit, 2),
+                'tax_rate': round(tax_rate, 4),
+                'net_profit': round(net_profit, 2),
+                'revenue': round(revenue, 2)
+            })
+        except Exception as e:
+            print(f"Error: {e}")
             continue
     
     return pd.DataFrame(results).sort_values('year')
