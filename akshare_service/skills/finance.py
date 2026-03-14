@@ -13,9 +13,27 @@ from akshare_service.infra.client import robust_api
 def calculate_roic_a_share(symbol: str, years: int = 5) -> pd.DataFrame:
     """
     计算 A股 ROIC (Return on Invested Capital)
-    数据源优先级：AkShare东财 → AkShare新浪 → 东方财富API(兜底)
+    数据源优先级：东方财富API → AkShare(东财) → AkShare(新浪)
     """
-    # 1. 尝试 AkShare 东财 API
+    # 1. 优先使用东方财富 API
+    print("[Router] 尝试东方财富 API...")
+    try:
+        from akshare_service.crawlers.eastmoney_api import EastMoneyAPI
+        api = EastMoneyAPI()
+        
+        df_income = api.get_income_statement(symbol)
+        df_balance = api.get_balance_sheet(symbol)
+        
+        if not df_income.empty and not df_balance.empty:
+            df = _calculate_roic_from_eastmoney_data(df_income, df_balance, years)
+            if not df.empty:
+                print("[Router] 东方财富 API 成功")
+                return df
+    except Exception as e:
+        print(f"[Router] 东方财富 API 失败: {e}")
+    
+    # 2. 尝试 AkShare 东财 API
+    print("[Router] 尝试 AkShare 东财...")
     try:
         df_profit = ak.stock_profit_sheet_by_yearly_em(symbol=symbol)
         df_balance = ak.stock_balance_sheet_by_yearly_em(symbol=symbol)
@@ -25,9 +43,10 @@ def calculate_roic_a_share(symbol: str, years: int = 5) -> pd.DataFrame:
             df_balance['REPORT_DATE'] = pd.to_datetime(df_balance['REPORT_DATE'])
             return _calculate_roic_from_em_data(df_profit, df_balance, years)
     except Exception as e:
-        print(f"AkShare 东财 API 失败，尝试新浪 API: {e}")
+        print(f"[Router] AkShare 东财 API 失败: {e}")
     
-    # 2. 尝试 AkShare 新浪 API
+    # 3. 尝试 AkShare 新浪 API
+    print("[Router] 尝试 AkShare 新浪...")
     try:
         market = 'sh' if symbol.startswith('6') else 'sz'
         sina_code = f"{market}{symbol}"
@@ -38,21 +57,7 @@ def calculate_roic_a_share(symbol: str, years: int = 5) -> pd.DataFrame:
         if df_profit is not None and not df_profit.empty and df_balance is not None and not df_balance.empty:
             return _calculate_roic_from_sina_data(df_profit, df_balance, years)
     except Exception as e:
-        print(f"AkShare 新浪 API 失败，尝试东方财富 API: {e}")
-    
-    # 3. 兜底：东方财富 API
-    print("使用东方财富 API 兜底...")
-    try:
-        from akshare_service.crawlers.eastmoney_api import EastMoneyAPI
-        api = EastMoneyAPI()
-        
-        df_income = api.get_income_statement(symbol)
-        df_balance = api.get_balance_sheet(symbol)
-        
-        if not df_income.empty and not df_balance.empty:
-            return _calculate_roic_from_eastmoney_data(df_income, df_balance, years)
-    except Exception as e:
-        print(f"东方财富 API 也失败: {e}")
+        print(f"[Router] AkShare 新浪 API 失败: {e}")
     
     return pd.DataFrame()
 

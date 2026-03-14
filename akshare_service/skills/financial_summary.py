@@ -40,7 +40,7 @@ def get_financial_summary(code: str, years: int = 5, fetch_name: bool = False,
     """
     获取核心财务指标（标准化输出）
     
-    数据源优先级：TuShare → AkShare(新浪) → AkShare(东财) → 东方财富API(兜底)
+    数据源优先级：东方财富API → AkShare(新浪) → AkShare(东财)
     
     Args:
         code: 股票代码
@@ -64,16 +64,16 @@ def get_financial_summary(code: str, years: int = 5, fetch_name: bool = False,
     
     errors = []
     
-    # 1. 尝试 TuShare
-    if is_tushare_available():
-        print("[Router] 尝试 TuShare...")
-        result, ts_errors = get_financial_summary_tushare(code, years)
-        if result and result.get('annual_data'):
-            if use_cache:
-                get_cache().set(cache_key, result, cache_ttl)
-            return result
-        errors.extend(ts_errors)
-        print(f"[Router] TuShare 失败: {ts_errors}")
+    # 1. 优先使用东方财富 API（最稳定）
+    print("[Router] 尝试东方财富 API...")
+    result, em_errors = _get_financial_summary_eastmoney(code, years, fetch_name)
+    if result and result.get('annual_data'):
+        result['source'] = 'EastMoney.API'
+        if use_cache:
+            get_cache().set(cache_key, result, cache_ttl)
+        return result
+    errors.extend(em_errors)
+    print(f"[Router] 东方财富 API 失败: {em_errors}")
     
     # 2. 尝试 AkShare 新浪
     print("[Router] 尝试 AkShare 新浪...")
@@ -88,24 +88,13 @@ def get_financial_summary(code: str, years: int = 5, fetch_name: bool = False,
     
     # 3. 尝试 AkShare 东财
     print("[Router] 尝试 AkShare 东财...")
-    result, em_errors = _get_financial_summary_em(code, years, fetch_name)
+    result, em_ak_errors = _get_financial_summary_em(code, years, fetch_name)
     if result and result.get('annual_data'):
         result['source'] = 'AkShare.stock_profit_sheet_by_yearly_em'
         if use_cache:
             get_cache().set(cache_key, result, cache_ttl)
         return result
-    errors.extend(em_errors)
-    print(f"[Router] AkShare 东财失败: {em_errors}")
-    
-    # 4. 兜底：东方财富 API（直接调用，不走 AkShare）
-    print("[Router] 尝试东方财富 API 兜底...")
-    result, eastmoney_errors = _get_financial_summary_eastmoney(code, years, fetch_name)
-    if result and result.get('annual_data'):
-        result['source'] = 'EastMoney.API'
-        if use_cache:
-            get_cache().set(cache_key, result, cache_ttl)
-        return result
-    errors.extend(eastmoney_errors)
+    errors.extend(em_ak_errors)
     
     return _error_response(code, errors)
 

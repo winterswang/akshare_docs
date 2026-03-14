@@ -40,7 +40,7 @@ def get_cashflow_data(code: str, years: int = 5, use_cache: bool = True,
     """
     获取现金流数据（标准化输出）
     
-    数据源优先级：TuShare → AkShare(新浪) → 东方财富API(兜底)
+    数据源优先级：东方财富API → AkShare(新浪) → AkShare(东财)
     
     Args:
         code: 股票代码
@@ -59,16 +59,16 @@ def get_cashflow_data(code: str, years: int = 5, use_cache: bool = True,
     
     errors = []
     
-    # 1. 尝试 TuShare
-    if is_tushare_available():
-        print("[Router] 尝试 TuShare...")
-        result, ts_errors = get_cashflow_data_tushare(code, years)
-        if result and result.get('annual_data'):
-            if use_cache:
-                get_cache().set(cache_key, result, cache_ttl)
-            return result
-        errors.extend(ts_errors)
-        print(f"[Router] TuShare 失败: {ts_errors}")
+    # 1. 优先使用东方财富 API
+    print("[Router] 尝试东方财富 API...")
+    result, em_errors = _get_cashflow_data_eastmoney(code, years)
+    if result and result.get('annual_data'):
+        result['source'] = 'EastMoney.API'
+        if use_cache:
+            get_cache().set(cache_key, result, cache_ttl)
+        return result
+    errors.extend(em_errors)
+    print(f"[Router] 东方财富 API 失败: {em_errors}")
     
     # 2. 尝试 AkShare 新浪
     print("[Router] 尝试 AkShare 新浪...")
@@ -79,16 +79,6 @@ def get_cashflow_data(code: str, years: int = 5, use_cache: bool = True,
         return result
     errors.extend(sina_errors)
     print(f"[Router] AkShare 新浪失败: {sina_errors}")
-    
-    # 3. 兜底：东方财富 API
-    print("[Router] 尝试东方财富 API 兜底...")
-    result, em_errors = _get_cashflow_data_eastmoney(code, years)
-    if result and result.get('annual_data'):
-        result['source'] = 'EastMoney.API'
-        if use_cache:
-            get_cache().set(cache_key, result, cache_ttl)
-        return result
-    errors.extend(em_errors)
     
     return _error_response(code, errors)
 
