@@ -1,6 +1,6 @@
 """
 现金流数据接口 (Cashflow Data)
-支持多数据源路由：TuShare → AkShare(新浪)
+支持多数据源路由：TuShare → AkShare(新浪) → 东方财富API(兜底)
 """
 
 import akshare as ak
@@ -40,7 +40,7 @@ def get_cashflow_data(code: str, years: int = 5, use_cache: bool = True,
     """
     获取现金流数据（标准化输出）
     
-    数据源优先级：TuShare → AkShare(新浪)
+    数据源优先级：TuShare → AkShare(新浪) → 东方财富API(兜底)
     
     Args:
         code: 股票代码
@@ -78,6 +78,17 @@ def get_cashflow_data(code: str, years: int = 5, use_cache: bool = True,
             get_cache().set(cache_key, result, cache_ttl)
         return result
     errors.extend(sina_errors)
+    print(f"[Router] AkShare 新浪失败: {sina_errors}")
+    
+    # 3. 兜底：东方财富 API
+    print("[Router] 尝试东方财富 API 兜底...")
+    result, em_errors = _get_cashflow_data_eastmoney(code, years)
+    if result and result.get('annual_data'):
+        result['source'] = 'EastMoney.API'
+        if use_cache:
+            get_cache().set(cache_key, result, cache_ttl)
+        return result
+    errors.extend(em_errors)
     
     return _error_response(code, errors)
 
@@ -152,6 +163,61 @@ def _get_cashflow_data_sina(code: str, years: int) -> Tuple[Dict[str, Any], List
         'annual_data': list(reversed(annual_data)),
         'errors': errors if errors else None
     }, errors
+
+
+def _get_cashflow_data_eastmoney(code: str, years: int) -> Tuple[Dict[str, Any], List[str]]:
+    """从东方财富 API 获取现金流数据（兜底方案）"""
+    errors = []
+    
+    try:
+        from akshare_service.crawlers.eastmoney_api import EastMoneyAPI
+        api = EastMoneyAPI()
+        
+        # 获取现金流量表
+        df_cashflow = api.get_cashflow_statement(code)
+        if df_cashflow is None or df_cashflow.empty:
+            return None, ["东方财富现金流量表为空"]
+        
+        # 筛选年报数据
+        df_cashflow_annual = df_cashflow[df_cashflow['report_date'].astype(str).str.contains('-12-')]
+        
+        annual_data = []
+        for i in range(min(years, len(df_cashflow_annual))):
+            try:
+                row = df_cashflow_annual.iloc[i]
+                
+                operating_cf = _safe_float(row.get('operating_cf', 0))
+                investing_cf = _safe_float(row.get('investing_cf', 0))
+                financing_cf = _safe_float(row.get('financing_cf', 0))
+                
+                # 自由现金流 = 经营现金流 - 投资现金流（简化计算）
+                free_cf = operating_cf + investing_cf if investing_cf < 0 else operating_cf
+                
+                report_date = str(row.get('report_date', ''))
+                year = int(report_date[:4]) if len(report_date) >= 4 else 0
+                
+                year_data = {
+                    'year': year,
+                    'operating_cashflow': {'value': round(operating_cf / 1e8, 2), 'unit': '亿元'},
+                    'investing_cashflow': {'value': round(investing_cf / 1e8, 2), 'unit': '亿元'},
+                    'financing_cashflow': {'value': round(financing_cf / 1e8, 2), 'unit': '亿元'},
+                    'free_cashflow': {'value': round(free_cf / 1e8, 2), 'unit': '亿元'},
+                }
+                annual_data.append(year_data)
+            except Exception as e:
+                errors.append(f"处理数据失败: {e}")
+                continue
+        
+        return {
+            'code': code,
+            'source': 'EastMoney.API',
+            'fetched_at': datetime.now().isoformat(),
+            'annual_data': annual_data,
+            'errors': errors if errors else None
+        }, errors
+        
+    except Exception as e:
+        return None, [f"东方财富 API 获取失败: {e}"]
 
 
 def _safe_float(value) -> float:
