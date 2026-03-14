@@ -23,6 +23,8 @@ class EastMoneyAPI:
         "cashflow": "RPT_DMSK_FN_CASHFLOW",     # 现金流量表
         "indicator": "RPT_LICO_FN_CPD",         # 财务指标
         "profit_yearly": "RPT_DMSK_FN_INCOME",  # 年度利润表
+        "forecast": "RPT_PUBLIC_OP_NEWPREDICT", # 业绩预告
+        "valuation": "RPT_VALUE_ANALYSIS",      # 估值分析
     }
     
     def __init__(self, timeout: int = 30, max_retries: int = 3):
@@ -243,6 +245,104 @@ class EastMoneyAPI:
         
         return df
     
+    def get_forecast(self, code: str, pagesize: int = 20) -> pd.DataFrame:
+        """
+        获取业绩预告
+        
+        Args:
+            code: 股票代码
+            pagesize: 返回条数
+        
+        Returns:
+            DataFrame 包含：预告日期、预告类型、预测金额等
+        """
+        params = {
+            "reportName": self.REPORT_TYPES["forecast"],
+            "columns": "ALL",
+            "filter": f'(SECURITY_CODE="{code}")',
+            "pageSize": pagesize,
+            "pageNumber": 1
+        }
+        
+        result = self._request(params)
+        if not result or not result.get('data'):
+            return pd.DataFrame()
+        
+        df = pd.DataFrame(result['data'])
+        
+        # 字段映射
+        column_map = {
+            'SECURITY_CODE': 'code',
+            'SECURITY_NAME_ABBR': 'name',
+            'NOTICE_DATE': 'notice_date',
+            'REPORT_DATE': 'report_date',
+            'PREDICT_FINANCE': 'predict_type',
+            'PREDICT_AMT_LOWER': 'predict_amount_lower',
+            'PREDICT_AMT_UPPER': 'predict_amount_upper',
+            'ADD_AMP_LOWER': 'growth_rate_lower',
+            'ADD_AMP_UPPER': 'growth_rate_upper',
+            'PREDICT_CONTENT': 'content',
+            'CHANGE_REASON_EXPLAIN': 'reason',
+        }
+        
+        df = df.rename(columns=column_map)
+        
+        # 转换金额为亿元
+        for col in ['predict_amount_lower', 'predict_amount_upper']:
+            if col in df.columns:
+                df[col] = df[col] / 1e8
+        
+        return df
+    
+    def get_valuation(self, code: str, pagesize: int = 10) -> pd.DataFrame:
+        """
+        获取估值分析数据
+        
+        Args:
+            code: 股票代码
+            pagesize: 返回条数
+        
+        Returns:
+            DataFrame 包含：PE、PB、PS等估值指标
+        """
+        params = {
+            "reportName": self.REPORT_TYPES["valuation"],
+            "columns": "ALL",
+            "filter": f'(SECURITY_CODE="{code}")',
+            "pageSize": pagesize,
+            "pageNumber": 1
+        }
+        
+        result = self._request(params)
+        if not result or not result.get('data'):
+            return pd.DataFrame()
+        
+        df = pd.DataFrame(result['data'])
+        
+        # 字段映射
+        column_map = {
+            'SECURITY_CODE': 'code',
+            'REPORT': 'report_period',
+            'STARTDATE': 'start_date',
+            'ENDDATE': 'end_date',
+            'PEAVG': 'pe_avg',
+            'PEMAX': 'pe_max',
+            'PEMIN': 'pe_min',
+            'PETTM': 'pe_ttm',
+            'PBAVG': 'pb_avg',
+            'PBMAX': 'pb_max',
+            'PBMIN': 'pb_min',
+            'PBMRQ': 'pb_mrq',
+            'PSAVG': 'ps_avg',
+            'PSMAX': 'ps_max',
+            'PSMIN': 'ps_min',
+            'PSTTM': 'ps_ttm',
+        }
+        
+        df = df.rename(columns=column_map)
+        
+        return df
+    
     def get_all_financial_data(self, code: str) -> Dict[str, pd.DataFrame]:
         """
         获取全部财务数据
@@ -255,7 +355,9 @@ class EastMoneyAPI:
                 'indicator': 财务指标,
                 'balance': 资产负债表,
                 'income': 利润表,
-                'cashflow': 现金流量表
+                'cashflow': 现金流量表,
+                'forecast': 业绩预告,
+                'valuation': 估值分析
             }
         """
         return {
@@ -263,6 +365,8 @@ class EastMoneyAPI:
             'balance': self.get_balance_sheet(code),
             'income': self.get_income_statement(code),
             'cashflow': self.get_cashflow_statement(code),
+            'forecast': self.get_forecast(code),
+            'valuation': self.get_valuation(code),
         }
 
 
@@ -283,6 +387,18 @@ def get_income_statement(code: str) -> pd.DataFrame:
     """获取利润表"""
     api = EastMoneyAPI()
     return api.get_income_statement(code)
+
+
+def get_forecast(code: str) -> pd.DataFrame:
+    """获取业绩预告"""
+    api = EastMoneyAPI()
+    return api.get_forecast(code)
+
+
+def get_valuation(code: str) -> pd.DataFrame:
+    """获取估值分析"""
+    api = EastMoneyAPI()
+    return api.get_valuation(code)
 
 
 def get_all_financial_data(code: str) -> Dict[str, pd.DataFrame]:
