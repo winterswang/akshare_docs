@@ -6,6 +6,8 @@
 import akshare as ak
 import pandas as pd
 import os
+from typing import Dict, Any
+from datetime import datetime
 
 from akshare_service.infra.client import robust_api
 
@@ -475,3 +477,297 @@ def calculate_roic(market: str, code: str, years: int = 5) -> pd.DataFrame:
         return calculate_roic_us(code, years)
 
     raise ValueError(f"不支持的市场类型：{market}，请选择 'A股'、'港股' 或 '美股'")
+
+
+@robust_api
+def get_financial_summary_us(stock: str, years: int = 5) -> Dict[str, Any]:
+    """
+    获取美股财务摘要数据
+    
+    Args:
+        stock: 美股代码，如 'FISV', 'PDD'
+        years: 获取年数
+    
+    Returns:
+        标准化财务数据字典（与A股格式一致）
+    """
+    try:
+        # 获取利润表（综合损益表）
+        df_profit = ak.stock_financial_us_report_em(stock=stock, symbol='综合损益表', indicator='年报')
+        # 获取资产负债表
+        df_balance = ak.stock_financial_us_report_em(stock=stock, symbol='资产负债表', indicator='年报')
+        
+        if df_profit is None or df_profit.empty:
+            return {'code': stock, 'annual_data': [], 'errors': ['利润表为空']}
+        if df_balance is None or df_balance.empty:
+            return {'code': stock, 'annual_data': [], 'errors': ['资产负债表为空']}
+            
+        df_profit['REPORT_DATE'] = pd.to_datetime(df_profit['REPORT_DATE'])
+        df_balance['REPORT_DATE'] = pd.to_datetime(df_balance['REPORT_DATE'])
+    except Exception as e:
+        return {'code': stock, 'annual_data': [], 'errors': [f'获取数据失败: {e}']}
+    
+    # 透视转换
+    profit_pivot = df_profit.pivot(index='REPORT_DATE', columns='ITEM_NAME', values='AMOUNT').reset_index()
+    balance_pivot = df_balance.pivot(index='REPORT_DATE', columns='ITEM_NAME', values='AMOUNT').reset_index()
+    
+    # 筛选最近 N 年
+    latest_years = sorted(profit_pivot['REPORT_DATE'].dt.year.unique())[-years:]
+    annual_data = []
+    
+    for year in latest_years:
+        try:
+            profit_row = profit_pivot[profit_pivot['REPORT_DATE'].dt.year == year].iloc[0]
+            balance_row = balance_pivot[balance_pivot['REPORT_DATE'].dt.year == year].iloc[0]
+            
+            # 获取关键财务数据
+            total_revenue = (
+                profit_row.get('Total revenue') or 
+                profit_row.get('营业收入') or 
+                profit_row.get('主营收入') or 0
+            )
+            net_income = profit_row.get('Net income') or profit_row.get('净利润') or 0
+            gross_profit = profit_row.get('Gross profit') or profit_row.get('毛利') or 0
+            operating_income = profit_row.get('Operating income') or profit_row.get('营业利润') or 0
+            
+            # 资产负债表数据
+            total_assets = balance_row.get('Total assets') or balance_row.get('资产总计') or 0
+            stockholders_equity = (
+                balance_row.get('Stockholders\' equity') or 
+                balance_row.get('股东权益合计') or 
+                balance_row.get('归属于母公司股东权益') or 0
+            )
+            total_liabilities = balance_row.get('Total liabilities') or balance_row.get('负债合计') or 0
+            
+            # 计算比率
+            gross_margin = (gross_profit / total_revenue * 100) if total_revenue > 0 else 0
+            net_margin = (net_income / total_revenue * 100) if total_revenue > 0 else 0
+            roe = (net_income / stockholders_equity * 100) if stockholders_equity > 0 else 0
+            debt_ratio = (total_liabilities / total_assets * 100) if total_assets > 0 else 0
+            
+            # 使用与A股一致的嵌套格式
+            annual_data.append({
+                'year': int(year),
+                'revenue': {'value': round(float(total_revenue) / 100000000, 2), 'unit': '亿元', 'yoy_growth': None},
+                'net_profit': {'value': round(float(net_income) / 100000000, 2), 'unit': '亿元', 'yoy_growth': None},
+                'gross_margin': {'value': round(float(gross_margin), 2), 'unit': '%'},
+                'net_margin': {'value': round(float(net_margin), 2), 'unit': '%'},
+                'roe': {'value': round(float(roe), 2), 'unit': '%'},
+                'total_assets': {'value': round(float(total_assets) / 100000000, 2), 'unit': '亿元'},
+                'total_equity': {'value': round(float(stockholders_equity) / 100000000, 2), 'unit': '亿元'},
+                'debt_ratio': {'value': round(float(debt_ratio), 2), 'unit': '%'}
+            })
+        except (IndexError, KeyError) as e:
+            print(f"Error processing year {year}: {e}")
+            continue
+    
+    return {
+        'code': stock,
+        'source': 'AkShare.stock_financial_us_report_em',
+        'fetched_at': datetime.now().isoformat(),
+        'annual_data': annual_data,
+        'errors': None
+    }
+
+
+@robust_api
+def get_cashflow_data_us(stock: str, years: int = 5) -> Dict[str, Any]:
+    """
+    获取美股现金流数据
+    
+    Args:
+        stock: 美股代码
+        years: 获取年数
+    
+    Returns:
+        标准化现金流数据字典（与A股格式一致）
+    """
+    try:
+        # 获取现金流量表
+        df_cashflow = ak.stock_financial_us_report_em(stock=stock, symbol='现金流量表', indicator='年报')
+        
+        if df_cashflow is None or df_cashflow.empty:
+            return {'code': stock, 'annual_data': [], 'errors': ['现金流量表为空']}
+            
+        df_cashflow['REPORT_DATE'] = pd.to_datetime(df_cashflow['REPORT_DATE'])
+    except Exception as e:
+        return {'code': stock, 'annual_data': [], 'errors': [f'获取数据失败: {e}']}
+    
+    # 透视转换
+    cashflow_pivot = df_cashflow.pivot(index='REPORT_DATE', columns='ITEM_NAME', values='AMOUNT').reset_index()
+    
+    # 筛选最近 N 年
+    latest_years = sorted(cashflow_pivot['REPORT_DATE'].dt.year.unique())[-years:]
+    annual_data = []
+    
+    for year in latest_years:
+        try:
+            cf_row = cashflow_pivot[cashflow_pivot['REPORT_DATE'].dt.year == year].iloc[0]
+            
+            # 获取现金流数据
+            operating_cf = cf_row.get('Net cash provided by operating activities') or cf_row.get('经营活动产生的现金流量净额') or 0
+            investing_cf = cf_row.get('Net cash used in investing activities') or cf_row.get('投资活动产生的现金流量净额') or 0
+            financing_cf = cf_row.get('Net cash used in financing activities') or cf_row.get('筹资活动产生的现金流量净额') or 0
+            capex = cf_row.get('Capital expenditures') or cf_row.get('购建固定资产支付的现金') or 0
+            
+            # 自由现金流 = 经营现金流 - 资本支出
+            free_cf = float(operating_cf) - abs(float(capex)) if capex else float(operating_cf)
+            
+            # 使用与A股一致的嵌套格式
+            annual_data.append({
+                'year': int(year),
+                'operating_cashflow': {'value': round(float(operating_cf) / 100000000, 2), 'unit': '亿元'},
+                'investing_cashflow': {'value': round(float(investing_cf) / 100000000, 2), 'unit': '亿元'},
+                'financing_cashflow': {'value': round(float(financing_cf) / 100000000, 2), 'unit': '亿元'},
+                'free_cashflow': {'value': round(free_cf / 100000000, 2), 'unit': '亿元'}
+            })
+        except (IndexError, KeyError) as e:
+            print(f"Error processing year {year}: {e}")
+            continue
+    
+    return {
+        'code': stock,
+        'source': 'AkShare.stock_financial_us_report_em',
+        'fetched_at': datetime.now().isoformat(),
+        'annual_data': annual_data,
+        'errors': None
+    }
+
+
+@robust_api
+def get_financial_summary_hk(stock: str, years: int = 5) -> Dict[str, Any]:
+    """
+    获取港股财务摘要数据
+    
+    Args:
+        stock: 港股代码，如 '00700', '09988'
+        years: 获取年数
+    
+    Returns:
+        标准化财务数据字典（与A股格式一致）
+    """
+    try:
+        # 获取利润表
+        df_profit = ak.stock_financial_hk_report_em(stock=stock, symbol='利润表', indicator='年度')
+        # 获取资产负债表
+        df_balance = ak.stock_financial_hk_report_em(stock=stock, symbol='资产负债表', indicator='年度')
+        
+        if df_profit is None or df_profit.empty:
+            return {'code': stock, 'annual_data': [], 'errors': ['利润表为空']}
+        if df_balance is None or df_balance.empty:
+            return {'code': stock, 'annual_data': [], 'errors': ['资产负债表为空']}
+            
+        df_profit['REPORT_DATE'] = pd.to_datetime(df_profit['REPORT_DATE'])
+        df_balance['REPORT_DATE'] = pd.to_datetime(df_balance['REPORT_DATE'])
+    except Exception as e:
+        return {'code': stock, 'annual_data': [], 'errors': [f'获取数据失败: {e}']}
+    
+    # 透视转换
+    profit_pivot = df_profit.pivot(index='REPORT_DATE', columns='STD_ITEM_NAME', values='AMOUNT').reset_index()
+    balance_pivot = df_balance.pivot(index='REPORT_DATE', columns='STD_ITEM_NAME', values='AMOUNT').reset_index()
+    
+    # 筛选最近 N 年
+    latest_years = sorted(profit_pivot['REPORT_DATE'].dt.year.unique())[-years:]
+    annual_data = []
+    
+    for year in latest_years:
+        try:
+            profit_row = profit_pivot[profit_pivot['REPORT_DATE'].dt.year == year].iloc[0]
+            balance_row = balance_pivot[balance_pivot['REPORT_DATE'].dt.year == year].iloc[0]
+            
+            # 获取关键财务数据
+            total_revenue = profit_row.get('营业收入') or profit_row.get('营运收入') or 0
+            net_income = profit_row.get('净利润') or profit_row.get('股东应占溢利') or 0
+            gross_profit = profit_row.get('毛利') or 0
+            
+            # 资产负债表数据
+            total_assets = balance_row.get('资产总计') or balance_row.get('总资产') or 0
+            shareholder_equity = balance_row.get('股东权益') or balance_row.get('净资产') or 0
+            total_liabilities = balance_row.get('负债合计') or balance_row.get('总负债') or 0
+            
+            # 计算比率
+            gross_margin = (gross_profit / total_revenue * 100) if total_revenue > 0 else 0
+            net_margin = (net_income / total_revenue * 100) if total_revenue > 0 else 0
+            roe = (net_income / shareholder_equity * 100) if shareholder_equity > 0 else 0
+            debt_ratio = (total_liabilities / total_assets * 100) if total_assets > 0 else 0
+            
+            annual_data.append({
+                'year': int(year),
+                'revenue': {'value': round(float(total_revenue) / 100000000, 2), 'unit': '亿元', 'yoy_growth': None},
+                'net_profit': {'value': round(float(net_income) / 100000000, 2), 'unit': '亿元', 'yoy_growth': None},
+                'gross_margin': {'value': round(float(gross_margin), 2), 'unit': '%'},
+                'net_margin': {'value': round(float(net_margin), 2), 'unit': '%'},
+                'roe': {'value': round(float(roe), 2), 'unit': '%'},
+                'total_assets': {'value': round(float(total_assets) / 100000000, 2), 'unit': '亿元'},
+                'total_equity': {'value': round(float(shareholder_equity) / 100000000, 2), 'unit': '亿元'},
+                'debt_ratio': {'value': round(float(debt_ratio), 2), 'unit': '%'}
+            })
+        except (IndexError, KeyError) as e:
+            print(f"Error processing year {year}: {e}")
+            continue
+    
+    return {
+        'code': stock,
+        'source': 'AkShare.stock_financial_hk_report_em',
+        'fetched_at': datetime.now().isoformat(),
+        'annual_data': annual_data,
+        'errors': None
+    }
+
+
+@robust_api
+def get_cashflow_data_hk(stock: str, years: int = 5) -> Dict[str, Any]:
+    """
+    获取港股现金流数据
+    
+    Args:
+        stock: 港股代码
+        years: 获取年数
+    
+    Returns:
+        标准化现金流数据字典（与A股格式一致）
+    """
+    try:
+        df_cashflow = ak.stock_financial_hk_report_em(stock=stock, symbol='现金流量表', indicator='年度')
+        
+        if df_cashflow is None or df_cashflow.empty:
+            return {'code': stock, 'annual_data': [], 'errors': ['现金流量表为空']}
+            
+        df_cashflow['REPORT_DATE'] = pd.to_datetime(df_cashflow['REPORT_DATE'])
+    except Exception as e:
+        return {'code': stock, 'annual_data': [], 'errors': [f'获取数据失败: {e}']}
+    
+    cashflow_pivot = df_cashflow.pivot(index='REPORT_DATE', columns='STD_ITEM_NAME', values='AMOUNT').reset_index()
+    latest_years = sorted(cashflow_pivot['REPORT_DATE'].dt.year.unique())[-years:]
+    annual_data = []
+    
+    for year in latest_years:
+        try:
+            cf_row = cashflow_pivot[cashflow_pivot['REPORT_DATE'].dt.year == year].iloc[0]
+            
+            # 港股字段名
+            operating_cf = cf_row.get('经营业务现金净额') or cf_row.get('经营产生现金') or 0
+            investing_cf = cf_row.get('投资业务现金净额') or 0
+            financing_cf = cf_row.get('融资业务现金净额') or 0
+            capex = cf_row.get('购建固定资产支付的现金') or cf_row.get('固定资产增加') or 0
+            
+            free_cf = float(operating_cf) - abs(float(capex)) if capex else float(operating_cf)
+            
+            annual_data.append({
+                'year': int(year),
+                'operating_cashflow': {'value': round(float(operating_cf) / 100000000, 2), 'unit': '亿元'},
+                'investing_cashflow': {'value': round(float(investing_cf) / 100000000, 2), 'unit': '亿元'},
+                'financing_cashflow': {'value': round(float(financing_cf) / 100000000, 2), 'unit': '亿元'},
+                'free_cashflow': {'value': round(free_cf / 100000000, 2), 'unit': '亿元'}
+            })
+        except (IndexError, KeyError) as e:
+            print(f"Error processing year {year}: {e}")
+            continue
+    
+    return {
+        'code': stock,
+        'source': 'AkShare.stock_financial_hk_report_em',
+        'fetched_at': datetime.now().isoformat(),
+        'annual_data': annual_data,
+        'errors': None
+    }
